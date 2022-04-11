@@ -31,55 +31,130 @@
             lblTitulo = new Label();
             tabCDiretor = new TabControl();
             tabPLogins = new TabPage();
-            textBox7 = new TextBox();
-            label7 = new Label();
-            textBox6 = new TextBox();
-            label6 = new Label();
-            textBox5 = new TextBox();
-            label5 = new Label();
-            textBox4 = new TextBox();
-            label4 = new Label();
-            textBox3 = new TextBox();
-            label3 = new Label();
-            textBox2 = new TextBox();
-            label2 = new Label();
-            textBox1 = new TextBox();
-            label1 = new Label();
-            dataGridView1 = new DataGridView();
+            gpbDirLoginsFiltrarCargo = new GroupBox();
+            cbxDirLoginsFiltrarCargo = new ComboBox();
+            btnDirLoginsRemover = new Button();
+            btnDirLoginsAtualizar = new Button();
+            btnDirLoginsAdicionar = new Button();
+            cbxDirLoginsRole = new ComboBox();
+            lblDirLoginsRole = new Label();
+            txtDirLoginsPassword = new TextBox();
+            lblDirLoginsPassword = new Label();
+            txtDirLoginsUser = new TextBox();
+            lblDirLoginsUser = new Label();
+            txtDirLoginsId = new TextBox();
+            lblDirLoginsId = new Label();
+            dgvDirLogins = new DataGridView();
             tabPFuncionarios = new TabPage();
+            gpbDirFuncionariosFiltrarCargo = new GroupBox();
+            cbxDirFuncionariosFiltrarCargo = new ComboBox();
+            btnDirFuncionariosRemover = new Button();
+            btnDirFuncionariosAtualizar = new Button();
+            btnDirFuncionariosAdicionar = new Button();
+            cbxDirFuncionarioCargo = new ComboBox();
+            lblDirFuncionarioCargo = new Label();
+            txtDirFuncionarioNome = new TextBox();
+            lblDirFuncionarioNome = new Label();
+            txtDirFuncionarioId = new TextBox();
+            lblDirFuncionarioId = new Label();
+            dgvDirFuncionarios = new DataGridView();
             tabPAlunos = new TabPage();
-            gpbFiltrarPorDisciplina = new GroupBox();
-            gpbDirFiltrarPorNota = new GroupBox();
-            gpbDirFiltroPorTurma = new GroupBox();
-            checkBox2 = new CheckBox();
-            checkBox1 = new CheckBox();
-            btnRemover = new Button();
-            btnDirAtualizar = new Button();
-            btnDirAdicionar = new Button();
-            cbxDirLoginId = new ComboBox();
-            cbxDirTurma = new ComboBox();
-            lblDirAlunoLogin = new Label();
-            lblDirAlunoTurma = new Label();
-            txtDirAlunoEmail = new TextBox();
-            lblDirAlunoEmail = new Label();
-            txtDirAlunoIdade = new TextBox();
-            lblDirAlunoIdade = new Label();
-            txtDirAlunoApelido = new TextBox();
-            lblDirAlunoApelido = new Label();
-            txtDirAlunoNome = new TextBox();
-            lblDirAlunoNome = new Label();
-            txtDirIdAluno = new TextBox();
-            lblDirIdAluno = new Label();
+            gpbDirAlunosFiltrarDisciplina = new GroupBox();
+            cbxDirAlunosFiltrarDisciplina = new ComboBox();
+            gpbDirAlunosFiltrarNota = new GroupBox();
+            btnDirAlunosFiltrar = new Button();
+            txtDirAlunosFiltrarNotaMaxima = new TextBox();
+            txtDirAlunosFiltrarNotaMinima = new TextBox();
+            lblDirAlunosFiltrarNotaMaxima = new Label();
+            lblDirAlunosFiltrarNotaMinima = new Label();
+            gpbDirAlunosFiltrarTurma = new GroupBox();
+            ckbDirAlunos4Ano = new CheckBox();
+            ckbDirAlunos3Ano = new CheckBox();
+            ckbDirAlunos2Ano = new CheckBox();
+            ckbDirAlunos1Ano = new CheckBox();
+            btnDirAlunosRemover = new Button();
+            btnDirAlunosAtualizar = new Button();
+            btnDirAlunosAdicionar = new Button();
+            cbxDirAlunosLoginId = new ComboBox();
+            cbxDirAlunosTurma = new ComboBox();
+            lblDirAlunosLogin = new Label();
+            lblDirAlunosTurma = new Label();
+            txtDirAlunosEmail = new TextBox();
+            lblDirAlunosEmail = new Label();
+            txtDirAlunosIdade = new TextBox();
+            lblDirAlunosIdade = new Label();
+            txtDirAlunosApelido = new TextBox();
+            lblDirAlunosApelido = new Label();
+            txtDirAlunosNome = new TextBox();
+            lblDirAlunosNome = new Label();
+            txtDirAlunosId = new TextBox();
+            lblDirAlunosId = new Label();
             dgvDirAlunos = new DataGridView();
             tabPTurmas = new TabPage();
+            gpbDirTurmasFiltrarTurma = new GroupBox();
+            cbxDirTurmasFiltrarTurma = new ComboBox();
+            btnDirTurmasRemover = new Button();
+            btnDirTurmasAtualizar = new Button();
+            btnDirTurmasAdicionar = new Button();
+            cbxDirTurmasProfessorId = new ComboBox();
+            lblDirTurmasProfessorId = new Label();
+            txtDirTurmasDesignacao = new TextBox();
+            lblDirTurmasDesignacao = new Label();
+            txtDirTurmasId = new TextBox();
+            lblDirTurmasId = new Label();
+            dgvDirTurmas = new DataGridView();
             tabPDisciplinas = new TabPage();
+            gpbDirDisciplinaFiltrarArea = new GroupBox();
+            cbxDirDisciplinaFiltrarArea = new ComboBox();
+            btnDirDisciplinaRemover = new Button();
+            btnDirDisciplinaAtualizar = new Button();
+            btnDirDisciplinaAdicionar = new Button();
+            txtDirDisciplinaDesignacao = new TextBox();
+            lblDirDisciplinaDesignacao = new Label();
+            txtDirDisciplinaId = new TextBox();
+            lblDirDisciplinaId = new Label();
+            dgvDirDisciplinas = new DataGridView();
             tabPNotas = new TabPage();
+            gpbDirNotasFiltrarFaixa = new GroupBox();
+            ckxDirNotasFiltrarFaixa15A20 = new CheckBox();
+            ckxDirNotasFiltrarFaixa0A5 = new CheckBox();
+            ckxDirNotasFiltrarFaixa10A15 = new CheckBox();
+            ckxDirNotasFiltrarFaixa6A9 = new CheckBox();
+            btnDirNotasRemover = new Button();
+            btnDirNotasAtualizar = new Button();
+            btnDirNotasAdicionar = new Button();
+            cbxDirNotaDisciplina = new ComboBox();
+            cbxDirNotaAluno = new ComboBox();
+            txtDirNotaNota = new TextBox();
+            lblDirNotaNota = new Label();
+            lblDirNotaData = new Label();
+            lblDirNotaDisciplina = new Label();
+            lblDirNotaAluno = new Label();
+            txtDirNotaId = new TextBox();
+            lblDirNotaId = new Label();
+            dgvDirNotas = new DataGridView();
+            dtpDirNotaData = new DateTimePicker();
             tabCDiretor.SuspendLayout();
             tabPLogins.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            gpbDirLoginsFiltrarCargo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvDirLogins).BeginInit();
+            tabPFuncionarios.SuspendLayout();
+            gpbDirFuncionariosFiltrarCargo.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvDirFuncionarios).BeginInit();
             tabPAlunos.SuspendLayout();
-            gpbDirFiltroPorTurma.SuspendLayout();
+            gpbDirAlunosFiltrarDisciplina.SuspendLayout();
+            gpbDirAlunosFiltrarNota.SuspendLayout();
+            gpbDirAlunosFiltrarTurma.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDirAlunos).BeginInit();
+            tabPTurmas.SuspendLayout();
+            gpbDirTurmasFiltrarTurma.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvDirTurmas).BeginInit();
+            tabPDisciplinas.SuspendLayout();
+            gpbDirDisciplinaFiltrarArea.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvDirDisciplinas).BeginInit();
+            tabPNotas.SuspendLayout();
+            gpbDirNotasFiltrarFaixa.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvDirNotas).BeginInit();
             SuspendLayout();
             // 
             // lblTitulo
@@ -109,21 +184,19 @@
             // 
             // tabPLogins
             // 
-            tabPLogins.Controls.Add(textBox7);
-            tabPLogins.Controls.Add(label7);
-            tabPLogins.Controls.Add(textBox6);
-            tabPLogins.Controls.Add(label6);
-            tabPLogins.Controls.Add(textBox5);
-            tabPLogins.Controls.Add(label5);
-            tabPLogins.Controls.Add(textBox4);
-            tabPLogins.Controls.Add(label4);
-            tabPLogins.Controls.Add(textBox3);
-            tabPLogins.Controls.Add(label3);
-            tabPLogins.Controls.Add(textBox2);
-            tabPLogins.Controls.Add(label2);
-            tabPLogins.Controls.Add(textBox1);
-            tabPLogins.Controls.Add(label1);
-            tabPLogins.Controls.Add(dataGridView1);
+            tabPLogins.Controls.Add(gpbDirLoginsFiltrarCargo);
+            tabPLogins.Controls.Add(btnDirLoginsRemover);
+            tabPLogins.Controls.Add(btnDirLoginsAtualizar);
+            tabPLogins.Controls.Add(btnDirLoginsAdicionar);
+            tabPLogins.Controls.Add(cbxDirLoginsRole);
+            tabPLogins.Controls.Add(lblDirLoginsRole);
+            tabPLogins.Controls.Add(txtDirLoginsPassword);
+            tabPLogins.Controls.Add(lblDirLoginsPassword);
+            tabPLogins.Controls.Add(txtDirLoginsUser);
+            tabPLogins.Controls.Add(lblDirLoginsUser);
+            tabPLogins.Controls.Add(txtDirLoginsId);
+            tabPLogins.Controls.Add(lblDirLoginsId);
+            tabPLogins.Controls.Add(dgvDirLogins);
             tabPLogins.Location = new Point(8, 50);
             tabPLogins.Name = "tabPLogins";
             tabPLogins.Padding = new Padding(3);
@@ -132,129 +205,138 @@
             tabPLogins.Text = "        Logins        ";
             tabPLogins.UseVisualStyleBackColor = true;
             // 
-            // textBox7
+            // gpbDirLoginsFiltrarCargo
             // 
-            textBox7.Location = new Point(18, 902);
-            textBox7.Name = "textBox7";
-            textBox7.Size = new Size(385, 44);
-            textBox7.TabIndex = 14;
+            gpbDirLoginsFiltrarCargo.Controls.Add(cbxDirLoginsFiltrarCargo);
+            gpbDirLoginsFiltrarCargo.Location = new Point(948, 881);
+            gpbDirLoginsFiltrarCargo.Name = "gpbDirLoginsFiltrarCargo";
+            gpbDirLoginsFiltrarCargo.Size = new Size(460, 200);
+            gpbDirLoginsFiltrarCargo.TabIndex = 57;
+            gpbDirLoginsFiltrarCargo.TabStop = false;
+            gpbDirLoginsFiltrarCargo.Text = "Filtrar por Cargo";
             // 
-            // label7
+            // cbxDirLoginsFiltrarCargo
             // 
-            label7.AutoSize = true;
-            label7.Location = new Point(94, 863);
-            label7.Name = "label7";
-            label7.Size = new Size(97, 36);
-            label7.TabIndex = 13;
-            label7.Text = "label7";
+            cbxDirLoginsFiltrarCargo.FormattingEnabled = true;
+            cbxDirLoginsFiltrarCargo.Location = new Point(37, 88);
+            cbxDirLoginsFiltrarCargo.Name = "cbxDirLoginsFiltrarCargo";
+            cbxDirLoginsFiltrarCargo.Size = new Size(397, 44);
+            cbxDirLoginsFiltrarCargo.TabIndex = 31;
             // 
-            // textBox6
+            // btnDirLoginsRemover
             // 
-            textBox6.Location = new Point(18, 755);
-            textBox6.Name = "textBox6";
-            textBox6.Size = new Size(385, 44);
-            textBox6.TabIndex = 12;
+            btnDirLoginsRemover.Location = new Point(58, 1018);
+            btnDirLoginsRemover.Name = "btnDirLoginsRemover";
+            btnDirLoginsRemover.Size = new Size(326, 46);
+            btnDirLoginsRemover.TabIndex = 55;
+            btnDirLoginsRemover.Text = "Remover";
+            btnDirLoginsRemover.UseVisualStyleBackColor = true;
             // 
-            // label6
+            // btnDirLoginsAtualizar
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(94, 716);
-            label6.Name = "label6";
-            label6.Size = new Size(97, 36);
-            label6.TabIndex = 11;
-            label6.Text = "label6";
+            btnDirLoginsAtualizar.Location = new Point(58, 953);
+            btnDirLoginsAtualizar.Name = "btnDirLoginsAtualizar";
+            btnDirLoginsAtualizar.Size = new Size(326, 46);
+            btnDirLoginsAtualizar.TabIndex = 54;
+            btnDirLoginsAtualizar.Text = "Atualizar";
+            btnDirLoginsAtualizar.UseVisualStyleBackColor = true;
             // 
-            // textBox5
+            // btnDirLoginsAdicionar
             // 
-            textBox5.Location = new Point(18, 601);
-            textBox5.Name = "textBox5";
-            textBox5.Size = new Size(385, 44);
-            textBox5.TabIndex = 10;
+            btnDirLoginsAdicionar.Location = new Point(58, 892);
+            btnDirLoginsAdicionar.Name = "btnDirLoginsAdicionar";
+            btnDirLoginsAdicionar.Size = new Size(326, 46);
+            btnDirLoginsAdicionar.TabIndex = 53;
+            btnDirLoginsAdicionar.Text = "Adicionar";
+            btnDirLoginsAdicionar.UseVisualStyleBackColor = true;
             // 
-            // label5
+            // cbxDirLoginsRole
             // 
-            label5.AutoSize = true;
-            label5.Location = new Point(94, 562);
-            label5.Name = "label5";
-            label5.Size = new Size(97, 36);
-            label5.TabIndex = 9;
-            label5.Text = "label5";
+            cbxDirLoginsRole.FormattingEnabled = true;
+            cbxDirLoginsRole.Location = new Point(12, 462);
+            cbxDirLoginsRole.Name = "cbxDirLoginsRole";
+            cbxDirLoginsRole.Size = new Size(432, 44);
+            cbxDirLoginsRole.TabIndex = 51;
             // 
-            // textBox4
+            // lblDirLoginsRole
             // 
-            textBox4.Location = new Point(18, 472);
-            textBox4.Name = "textBox4";
-            textBox4.Size = new Size(385, 44);
-            textBox4.TabIndex = 8;
+            lblDirLoginsRole.AutoSize = true;
+            lblDirLoginsRole.Location = new Point(12, 395);
+            lblDirLoginsRole.Name = "lblDirLoginsRole";
+            lblDirLoginsRole.Size = new Size(100, 36);
+            lblDirLoginsRole.TabIndex = 45;
+            lblDirLoginsRole.Text = "Cargo";
             // 
-            // label4
+            // txtDirLoginsPassword
             // 
-            label4.AutoSize = true;
-            label4.Location = new Point(94, 433);
-            label4.Name = "label4";
-            label4.Size = new Size(97, 36);
-            label4.TabIndex = 7;
-            label4.Text = "label4";
+            txtDirLoginsPassword.Location = new Point(12, 325);
+            txtDirLoginsPassword.Name = "txtDirLoginsPassword";
+            txtDirLoginsPassword.Size = new Size(432, 44);
+            txtDirLoginsPassword.TabIndex = 44;
             // 
-            // textBox3
+            // lblDirLoginsPassword
             // 
-            textBox3.Location = new Point(18, 341);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(385, 44);
-            textBox3.TabIndex = 6;
+            lblDirLoginsPassword.AutoSize = true;
+            lblDirLoginsPassword.Location = new Point(12, 275);
+            lblDirLoginsPassword.Name = "lblDirLoginsPassword";
+            lblDirLoginsPassword.Size = new Size(146, 36);
+            lblDirLoginsPassword.TabIndex = 43;
+            lblDirLoginsPassword.Text = "Password";
             // 
-            // label3
+            // txtDirLoginsUser
             // 
-            label3.AutoSize = true;
-            label3.Location = new Point(94, 302);
-            label3.Name = "label3";
-            label3.Size = new Size(97, 36);
-            label3.TabIndex = 5;
-            label3.Text = "label3";
+            txtDirLoginsUser.Location = new Point(12, 202);
+            txtDirLoginsUser.Name = "txtDirLoginsUser";
+            txtDirLoginsUser.Size = new Size(432, 44);
+            txtDirLoginsUser.TabIndex = 42;
             // 
-            // textBox2
+            // lblDirLoginsUser
             // 
-            textBox2.Location = new Point(18, 201);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(385, 44);
-            textBox2.TabIndex = 4;
+            lblDirLoginsUser.AutoSize = true;
+            lblDirLoginsUser.Location = new Point(12, 151);
+            lblDirLoginsUser.Name = "lblDirLoginsUser";
+            lblDirLoginsUser.Size = new Size(147, 36);
+            lblDirLoginsUser.TabIndex = 41;
+            lblDirLoginsUser.Text = "Usersame";
             // 
-            // label2
+            // txtDirLoginsId
             // 
-            label2.AutoSize = true;
-            label2.Location = new Point(94, 162);
-            label2.Name = "label2";
-            label2.Size = new Size(97, 36);
-            label2.TabIndex = 3;
-            label2.Text = "label2";
+            txtDirLoginsId.Location = new Point(12, 76);
+            txtDirLoginsId.Name = "txtDirLoginsId";
+            txtDirLoginsId.Size = new Size(432, 44);
+            txtDirLoginsId.TabIndex = 40;
             // 
-            // textBox1
+            // lblDirLoginsId
             // 
-            textBox1.Location = new Point(18, 65);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(385, 44);
-            textBox1.TabIndex = 2;
+            lblDirLoginsId.AutoSize = true;
+            lblDirLoginsId.Location = new Point(12, 22);
+            lblDirLoginsId.Name = "lblDirLoginsId";
+            lblDirLoginsId.Size = new Size(154, 36);
+            lblDirLoginsId.TabIndex = 39;
+            lblDirLoginsId.Text = "Id (Login)";
             // 
-            // label1
+            // dgvDirLogins
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(94, 26);
-            label1.Name = "label1";
-            label1.Size = new Size(97, 36);
-            label1.TabIndex = 1;
-            label1.Text = "label1";
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(423, 6);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 82;
-            dataGridView1.Size = new Size(1467, 938);
-            dataGridView1.TabIndex = 0;
+            dgvDirLogins.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvDirLogins.Location = new Point(471, 2);
+            dgvDirLogins.Name = "dgvDirLogins";
+            dgvDirLogins.RowHeadersWidth = 82;
+            dgvDirLogins.Size = new Size(1413, 871);
+            dgvDirLogins.TabIndex = 38;
             // 
             // tabPFuncionarios
             // 
+            tabPFuncionarios.Controls.Add(gpbDirFuncionariosFiltrarCargo);
+            tabPFuncionarios.Controls.Add(btnDirFuncionariosRemover);
+            tabPFuncionarios.Controls.Add(btnDirFuncionariosAtualizar);
+            tabPFuncionarios.Controls.Add(btnDirFuncionariosAdicionar);
+            tabPFuncionarios.Controls.Add(cbxDirFuncionarioCargo);
+            tabPFuncionarios.Controls.Add(lblDirFuncionarioCargo);
+            tabPFuncionarios.Controls.Add(txtDirFuncionarioNome);
+            tabPFuncionarios.Controls.Add(lblDirFuncionarioNome);
+            tabPFuncionarios.Controls.Add(txtDirFuncionarioId);
+            tabPFuncionarios.Controls.Add(lblDirFuncionarioId);
+            tabPFuncionarios.Controls.Add(dgvDirFuncionarios);
             tabPFuncionarios.Location = new Point(8, 50);
             tabPFuncionarios.Name = "tabPFuncionarios";
             tabPFuncionarios.Size = new Size(1896, 1082);
@@ -262,28 +344,131 @@
             tabPFuncionarios.Text = "        Funcionários        ";
             tabPFuncionarios.UseVisualStyleBackColor = true;
             // 
+            // gpbDirFuncionariosFiltrarCargo
+            // 
+            gpbDirFuncionariosFiltrarCargo.Controls.Add(cbxDirFuncionariosFiltrarCargo);
+            gpbDirFuncionariosFiltrarCargo.Location = new Point(948, 881);
+            gpbDirFuncionariosFiltrarCargo.Name = "gpbDirFuncionariosFiltrarCargo";
+            gpbDirFuncionariosFiltrarCargo.Size = new Size(460, 200);
+            gpbDirFuncionariosFiltrarCargo.TabIndex = 57;
+            gpbDirFuncionariosFiltrarCargo.TabStop = false;
+            gpbDirFuncionariosFiltrarCargo.Text = "Filtrar por Cargo";
+            // 
+            // cbxDirFuncionariosFiltrarCargo
+            // 
+            cbxDirFuncionariosFiltrarCargo.FormattingEnabled = true;
+            cbxDirFuncionariosFiltrarCargo.Location = new Point(32, 74);
+            cbxDirFuncionariosFiltrarCargo.Name = "cbxDirFuncionariosFiltrarCargo";
+            cbxDirFuncionariosFiltrarCargo.Size = new Size(397, 44);
+            cbxDirFuncionariosFiltrarCargo.TabIndex = 31;
+            // 
+            // btnDirFuncionariosRemover
+            // 
+            btnDirFuncionariosRemover.Location = new Point(58, 1018);
+            btnDirFuncionariosRemover.Name = "btnDirFuncionariosRemover";
+            btnDirFuncionariosRemover.Size = new Size(326, 46);
+            btnDirFuncionariosRemover.TabIndex = 55;
+            btnDirFuncionariosRemover.Text = "Remover";
+            btnDirFuncionariosRemover.UseVisualStyleBackColor = true;
+            // 
+            // btnDirFuncionariosAtualizar
+            // 
+            btnDirFuncionariosAtualizar.Location = new Point(58, 953);
+            btnDirFuncionariosAtualizar.Name = "btnDirFuncionariosAtualizar";
+            btnDirFuncionariosAtualizar.Size = new Size(326, 46);
+            btnDirFuncionariosAtualizar.TabIndex = 54;
+            btnDirFuncionariosAtualizar.Text = "Atualizar";
+            btnDirFuncionariosAtualizar.UseVisualStyleBackColor = true;
+            // 
+            // btnDirFuncionariosAdicionar
+            // 
+            btnDirFuncionariosAdicionar.Location = new Point(58, 892);
+            btnDirFuncionariosAdicionar.Name = "btnDirFuncionariosAdicionar";
+            btnDirFuncionariosAdicionar.Size = new Size(326, 46);
+            btnDirFuncionariosAdicionar.TabIndex = 53;
+            btnDirFuncionariosAdicionar.Text = "Adicionar";
+            btnDirFuncionariosAdicionar.UseVisualStyleBackColor = true;
+            // 
+            // cbxDirFuncionarioCargo
+            // 
+            cbxDirFuncionarioCargo.FormattingEnabled = true;
+            cbxDirFuncionarioCargo.Location = new Point(12, 335);
+            cbxDirFuncionarioCargo.Name = "cbxDirFuncionarioCargo";
+            cbxDirFuncionarioCargo.Size = new Size(432, 44);
+            cbxDirFuncionarioCargo.TabIndex = 51;
+            // 
+            // lblDirFuncionarioCargo
+            // 
+            lblDirFuncionarioCargo.AutoSize = true;
+            lblDirFuncionarioCargo.Location = new Point(12, 275);
+            lblDirFuncionarioCargo.Name = "lblDirFuncionarioCargo";
+            lblDirFuncionarioCargo.Size = new Size(100, 36);
+            lblDirFuncionarioCargo.TabIndex = 43;
+            lblDirFuncionarioCargo.Text = "Cargo";
+            // 
+            // txtDirFuncionarioNome
+            // 
+            txtDirFuncionarioNome.Location = new Point(12, 202);
+            txtDirFuncionarioNome.Name = "txtDirFuncionarioNome";
+            txtDirFuncionarioNome.Size = new Size(432, 44);
+            txtDirFuncionarioNome.TabIndex = 42;
+            // 
+            // lblDirFuncionarioNome
+            // 
+            lblDirFuncionarioNome.AutoSize = true;
+            lblDirFuncionarioNome.Location = new Point(12, 151);
+            lblDirFuncionarioNome.Name = "lblDirFuncionarioNome";
+            lblDirFuncionarioNome.Size = new Size(293, 36);
+            lblDirFuncionarioNome.TabIndex = 41;
+            lblDirFuncionarioNome.Text = "Nome (Funcionario)";
+            // 
+            // txtDirFuncionarioId
+            // 
+            txtDirFuncionarioId.Location = new Point(12, 76);
+            txtDirFuncionarioId.Name = "txtDirFuncionarioId";
+            txtDirFuncionarioId.Size = new Size(432, 44);
+            txtDirFuncionarioId.TabIndex = 40;
+            // 
+            // lblDirFuncionarioId
+            // 
+            lblDirFuncionarioId.AutoSize = true;
+            lblDirFuncionarioId.Location = new Point(12, 22);
+            lblDirFuncionarioId.Name = "lblDirFuncionarioId";
+            lblDirFuncionarioId.Size = new Size(242, 36);
+            lblDirFuncionarioId.TabIndex = 39;
+            lblDirFuncionarioId.Text = "Id (Funcionário)";
+            // 
+            // dgvDirFuncionarios
+            // 
+            dgvDirFuncionarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvDirFuncionarios.Location = new Point(471, 2);
+            dgvDirFuncionarios.Name = "dgvDirFuncionarios";
+            dgvDirFuncionarios.RowHeadersWidth = 82;
+            dgvDirFuncionarios.Size = new Size(1413, 871);
+            dgvDirFuncionarios.TabIndex = 38;
+            // 
             // tabPAlunos
             // 
-            tabPAlunos.Controls.Add(gpbFiltrarPorDisciplina);
-            tabPAlunos.Controls.Add(gpbDirFiltrarPorNota);
-            tabPAlunos.Controls.Add(gpbDirFiltroPorTurma);
-            tabPAlunos.Controls.Add(btnRemover);
-            tabPAlunos.Controls.Add(btnDirAtualizar);
-            tabPAlunos.Controls.Add(btnDirAdicionar);
-            tabPAlunos.Controls.Add(cbxDirLoginId);
-            tabPAlunos.Controls.Add(cbxDirTurma);
-            tabPAlunos.Controls.Add(lblDirAlunoLogin);
-            tabPAlunos.Controls.Add(lblDirAlunoTurma);
-            tabPAlunos.Controls.Add(txtDirAlunoEmail);
-            tabPAlunos.Controls.Add(lblDirAlunoEmail);
-            tabPAlunos.Controls.Add(txtDirAlunoIdade);
-            tabPAlunos.Controls.Add(lblDirAlunoIdade);
-            tabPAlunos.Controls.Add(txtDirAlunoApelido);
-            tabPAlunos.Controls.Add(lblDirAlunoApelido);
-            tabPAlunos.Controls.Add(txtDirAlunoNome);
-            tabPAlunos.Controls.Add(lblDirAlunoNome);
-            tabPAlunos.Controls.Add(txtDirIdAluno);
-            tabPAlunos.Controls.Add(lblDirIdAluno);
+            tabPAlunos.Controls.Add(gpbDirAlunosFiltrarDisciplina);
+            tabPAlunos.Controls.Add(gpbDirAlunosFiltrarNota);
+            tabPAlunos.Controls.Add(gpbDirAlunosFiltrarTurma);
+            tabPAlunos.Controls.Add(btnDirAlunosRemover);
+            tabPAlunos.Controls.Add(btnDirAlunosAtualizar);
+            tabPAlunos.Controls.Add(btnDirAlunosAdicionar);
+            tabPAlunos.Controls.Add(cbxDirAlunosLoginId);
+            tabPAlunos.Controls.Add(cbxDirAlunosTurma);
+            tabPAlunos.Controls.Add(lblDirAlunosLogin);
+            tabPAlunos.Controls.Add(lblDirAlunosTurma);
+            tabPAlunos.Controls.Add(txtDirAlunosEmail);
+            tabPAlunos.Controls.Add(lblDirAlunosEmail);
+            tabPAlunos.Controls.Add(txtDirAlunosIdade);
+            tabPAlunos.Controls.Add(lblDirAlunosIdade);
+            tabPAlunos.Controls.Add(txtDirAlunosApelido);
+            tabPAlunos.Controls.Add(lblDirAlunosApelido);
+            tabPAlunos.Controls.Add(txtDirAlunosNome);
+            tabPAlunos.Controls.Add(lblDirAlunosNome);
+            tabPAlunos.Controls.Add(txtDirAlunosId);
+            tabPAlunos.Controls.Add(lblDirAlunosId);
             tabPAlunos.Controls.Add(dgvDirAlunos);
             tabPAlunos.Location = new Point(8, 50);
             tabPAlunos.Name = "tabPAlunos";
@@ -292,195 +477,272 @@
             tabPAlunos.Text = "        Alunos            ";
             tabPAlunos.UseVisualStyleBackColor = true;
             // 
-            // gpbFiltrarPorDisciplina
+            // gpbDirAlunosFiltrarDisciplina
             // 
-            gpbFiltrarPorDisciplina.Location = new Point(1433, 882);
-            gpbFiltrarPorDisciplina.Name = "gpbFiltrarPorDisciplina";
-            gpbFiltrarPorDisciplina.Size = new Size(460, 200);
-            gpbFiltrarPorDisciplina.TabIndex = 37;
-            gpbFiltrarPorDisciplina.TabStop = false;
-            gpbFiltrarPorDisciplina.Text = "Filtrar por Disciplina";
+            gpbDirAlunosFiltrarDisciplina.Controls.Add(cbxDirAlunosFiltrarDisciplina);
+            gpbDirAlunosFiltrarDisciplina.Location = new Point(1433, 882);
+            gpbDirAlunosFiltrarDisciplina.Name = "gpbDirAlunosFiltrarDisciplina";
+            gpbDirAlunosFiltrarDisciplina.Size = new Size(460, 200);
+            gpbDirAlunosFiltrarDisciplina.TabIndex = 37;
+            gpbDirAlunosFiltrarDisciplina.TabStop = false;
+            gpbDirAlunosFiltrarDisciplina.Text = "Filtrar por Disciplina";
             // 
-            // gpbDirFiltrarPorNota
+            // cbxDirAlunosFiltrarDisciplina
             // 
-            gpbDirFiltrarPorNota.Location = new Point(957, 882);
-            gpbDirFiltrarPorNota.Name = "gpbDirFiltrarPorNota";
-            gpbDirFiltrarPorNota.Size = new Size(460, 200);
-            gpbDirFiltrarPorNota.TabIndex = 36;
-            gpbDirFiltrarPorNota.TabStop = false;
-            gpbDirFiltrarPorNota.Text = "Filtrar por Nota";
+            cbxDirAlunosFiltrarDisciplina.FormattingEnabled = true;
+            cbxDirAlunosFiltrarDisciplina.Location = new Point(41, 88);
+            cbxDirAlunosFiltrarDisciplina.Name = "cbxDirAlunosFiltrarDisciplina";
+            cbxDirAlunosFiltrarDisciplina.Size = new Size(397, 44);
+            cbxDirAlunosFiltrarDisciplina.TabIndex = 31;
             // 
-            // gpbDirFiltroPorTurma
+            // gpbDirAlunosFiltrarNota
             // 
-            gpbDirFiltroPorTurma.Controls.Add(checkBox2);
-            gpbDirFiltroPorTurma.Controls.Add(checkBox1);
-            gpbDirFiltroPorTurma.Location = new Point(480, 879);
-            gpbDirFiltroPorTurma.Name = "gpbDirFiltroPorTurma";
-            gpbDirFiltroPorTurma.Size = new Size(460, 200);
-            gpbDirFiltroPorTurma.TabIndex = 35;
-            gpbDirFiltroPorTurma.TabStop = false;
-            gpbDirFiltroPorTurma.Text = "Filtrar por Turma";
+            gpbDirAlunosFiltrarNota.Controls.Add(btnDirAlunosFiltrar);
+            gpbDirAlunosFiltrarNota.Controls.Add(txtDirAlunosFiltrarNotaMaxima);
+            gpbDirAlunosFiltrarNota.Controls.Add(txtDirAlunosFiltrarNotaMinima);
+            gpbDirAlunosFiltrarNota.Controls.Add(lblDirAlunosFiltrarNotaMaxima);
+            gpbDirAlunosFiltrarNota.Controls.Add(lblDirAlunosFiltrarNotaMinima);
+            gpbDirAlunosFiltrarNota.Location = new Point(957, 882);
+            gpbDirAlunosFiltrarNota.Name = "gpbDirAlunosFiltrarNota";
+            gpbDirAlunosFiltrarNota.Size = new Size(460, 200);
+            gpbDirAlunosFiltrarNota.TabIndex = 36;
+            gpbDirAlunosFiltrarNota.TabStop = false;
+            gpbDirAlunosFiltrarNota.Text = "Filtrar por Nota";
             // 
-            // checkBox2
+            // btnDirAlunosFiltrar
             // 
-            checkBox2.AutoSize = true;
-            checkBox2.Location = new Point(133, 80);
-            checkBox2.Name = "checkBox2";
-            checkBox2.Size = new Size(194, 40);
-            checkBox2.TabIndex = 1;
-            checkBox2.Text = "checkBox2";
-            checkBox2.UseVisualStyleBackColor = true;
+            btnDirAlunosFiltrar.Location = new Point(118, 148);
+            btnDirAlunosFiltrar.Name = "btnDirAlunosFiltrar";
+            btnDirAlunosFiltrar.Size = new Size(216, 46);
+            btnDirAlunosFiltrar.TabIndex = 33;
+            btnDirAlunosFiltrar.Text = "Filtrar";
+            btnDirAlunosFiltrar.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // txtDirAlunosFiltrarNotaMaxima
             // 
-            checkBox1.AutoSize = true;
-            checkBox1.Location = new Point(33, 63);
-            checkBox1.Name = "checkBox1";
-            checkBox1.Size = new Size(194, 40);
-            checkBox1.TabIndex = 0;
-            checkBox1.Text = "checkBox1";
-            checkBox1.UseVisualStyleBackColor = true;
+            txtDirAlunosFiltrarNotaMaxima.Location = new Point(241, 88);
+            txtDirAlunosFiltrarNotaMaxima.Name = "txtDirAlunosFiltrarNotaMaxima";
+            txtDirAlunosFiltrarNotaMaxima.Size = new Size(200, 44);
+            txtDirAlunosFiltrarNotaMaxima.TabIndex = 3;
             // 
-            // btnRemover
+            // txtDirAlunosFiltrarNotaMinima
             // 
-            btnRemover.Location = new Point(67, 1019);
-            btnRemover.Name = "btnRemover";
-            btnRemover.Size = new Size(326, 46);
-            btnRemover.TabIndex = 34;
-            btnRemover.Text = "Remover";
-            btnRemover.UseVisualStyleBackColor = true;
+            txtDirAlunosFiltrarNotaMinima.Location = new Point(25, 88);
+            txtDirAlunosFiltrarNotaMinima.Name = "txtDirAlunosFiltrarNotaMinima";
+            txtDirAlunosFiltrarNotaMinima.Size = new Size(200, 44);
+            txtDirAlunosFiltrarNotaMinima.TabIndex = 2;
             // 
-            // btnDirAtualizar
+            // lblDirAlunosFiltrarNotaMaxima
             // 
-            btnDirAtualizar.Location = new Point(67, 954);
-            btnDirAtualizar.Name = "btnDirAtualizar";
-            btnDirAtualizar.Size = new Size(326, 46);
-            btnDirAtualizar.TabIndex = 33;
-            btnDirAtualizar.Text = "Atualizar";
-            btnDirAtualizar.UseVisualStyleBackColor = true;
+            lblDirAlunosFiltrarNotaMaxima.AutoSize = true;
+            lblDirAlunosFiltrarNotaMaxima.Location = new Point(286, 49);
+            lblDirAlunosFiltrarNotaMaxima.Name = "lblDirAlunosFiltrarNotaMaxima";
+            lblDirAlunosFiltrarNotaMaxima.Size = new Size(130, 36);
+            lblDirAlunosFiltrarNotaMaxima.TabIndex = 1;
+            lblDirAlunosFiltrarNotaMaxima.Text = "Máxima";
             // 
-            // btnDirAdicionar
+            // lblDirAlunosFiltrarNotaMinima
             // 
-            btnDirAdicionar.Location = new Point(67, 893);
-            btnDirAdicionar.Name = "btnDirAdicionar";
-            btnDirAdicionar.Size = new Size(326, 46);
-            btnDirAdicionar.TabIndex = 32;
-            btnDirAdicionar.Text = "Adicionar";
-            btnDirAdicionar.UseVisualStyleBackColor = true;
+            lblDirAlunosFiltrarNotaMinima.AutoSize = true;
+            lblDirAlunosFiltrarNotaMinima.Location = new Point(73, 49);
+            lblDirAlunosFiltrarNotaMinima.Name = "lblDirAlunosFiltrarNotaMinima";
+            lblDirAlunosFiltrarNotaMinima.Size = new Size(125, 36);
+            lblDirAlunosFiltrarNotaMinima.TabIndex = 0;
+            lblDirAlunosFiltrarNotaMinima.Text = "Mínima";
             // 
-            // cbxDirLoginId
+            // gpbDirAlunosFiltrarTurma
             // 
-            cbxDirLoginId.FormattingEnabled = true;
-            cbxDirLoginId.Location = new Point(21, 830);
-            cbxDirLoginId.Name = "cbxDirLoginId";
-            cbxDirLoginId.Size = new Size(432, 44);
-            cbxDirLoginId.TabIndex = 31;
+            gpbDirAlunosFiltrarTurma.Controls.Add(ckbDirAlunos4Ano);
+            gpbDirAlunosFiltrarTurma.Controls.Add(ckbDirAlunos3Ano);
+            gpbDirAlunosFiltrarTurma.Controls.Add(ckbDirAlunos2Ano);
+            gpbDirAlunosFiltrarTurma.Controls.Add(ckbDirAlunos1Ano);
+            gpbDirAlunosFiltrarTurma.Location = new Point(480, 879);
+            gpbDirAlunosFiltrarTurma.Name = "gpbDirAlunosFiltrarTurma";
+            gpbDirAlunosFiltrarTurma.Size = new Size(460, 200);
+            gpbDirAlunosFiltrarTurma.TabIndex = 35;
+            gpbDirAlunosFiltrarTurma.TabStop = false;
+            gpbDirAlunosFiltrarTurma.Text = "Filtrar por Turma";
             // 
-            // cbxDirTurma
+            // ckbDirAlunos4Ano
             // 
-            cbxDirTurma.FormattingEnabled = true;
-            cbxDirTurma.Location = new Point(21, 700);
-            cbxDirTurma.Name = "cbxDirTurma";
-            cbxDirTurma.Size = new Size(432, 44);
-            cbxDirTurma.TabIndex = 30;
+            ckbDirAlunos4Ano.AutoSize = true;
+            ckbDirAlunos4Ano.Location = new Point(260, 126);
+            ckbDirAlunos4Ano.Name = "ckbDirAlunos4Ano";
+            ckbDirAlunos4Ano.Size = new Size(137, 40);
+            ckbDirAlunos4Ano.TabIndex = 3;
+            ckbDirAlunos4Ano.Text = "4º Ano";
+            ckbDirAlunos4Ano.UseVisualStyleBackColor = true;
             // 
-            // lblDirAlunoLogin
+            // ckbDirAlunos3Ano
             // 
-            lblDirAlunoLogin.AutoSize = true;
-            lblDirAlunoLogin.Location = new Point(21, 775);
-            lblDirAlunoLogin.Name = "lblDirAlunoLogin";
-            lblDirAlunoLogin.Size = new Size(246, 36);
-            lblDirAlunoLogin.TabIndex = 28;
-            lblDirAlunoLogin.Text = "Login Id (Aluno)";
+            ckbDirAlunos3Ano.AutoSize = true;
+            ckbDirAlunos3Ano.Location = new Point(260, 63);
+            ckbDirAlunos3Ano.Name = "ckbDirAlunos3Ano";
+            ckbDirAlunos3Ano.Size = new Size(137, 40);
+            ckbDirAlunos3Ano.TabIndex = 2;
+            ckbDirAlunos3Ano.Text = "3º Ano";
+            ckbDirAlunos3Ano.UseVisualStyleBackColor = true;
             // 
-            // lblDirAlunoTurma
+            // ckbDirAlunos2Ano
             // 
-            lblDirAlunoTurma.AutoSize = true;
-            lblDirAlunoTurma.Location = new Point(21, 640);
-            lblDirAlunoTurma.Name = "lblDirAlunoTurma";
-            lblDirAlunoTurma.Size = new Size(222, 36);
-            lblDirAlunoTurma.TabIndex = 26;
-            lblDirAlunoTurma.Text = "Turma (Aluno)";
+            ckbDirAlunos2Ano.AutoSize = true;
+            ckbDirAlunos2Ano.Location = new Point(33, 126);
+            ckbDirAlunos2Ano.Name = "ckbDirAlunos2Ano";
+            ckbDirAlunos2Ano.Size = new Size(137, 40);
+            ckbDirAlunos2Ano.TabIndex = 1;
+            ckbDirAlunos2Ano.Text = "2º Ano";
+            ckbDirAlunos2Ano.UseVisualStyleBackColor = true;
             // 
-            // txtDirAlunoEmail
+            // ckbDirAlunos1Ano
             // 
-            txtDirAlunoEmail.Location = new Point(21, 578);
-            txtDirAlunoEmail.Name = "txtDirAlunoEmail";
-            txtDirAlunoEmail.Size = new Size(432, 44);
-            txtDirAlunoEmail.TabIndex = 25;
+            ckbDirAlunos1Ano.AutoSize = true;
+            ckbDirAlunos1Ano.Location = new Point(33, 63);
+            ckbDirAlunos1Ano.Name = "ckbDirAlunos1Ano";
+            ckbDirAlunos1Ano.Size = new Size(137, 40);
+            ckbDirAlunos1Ano.TabIndex = 0;
+            ckbDirAlunos1Ano.Text = "1º Ano";
+            ckbDirAlunos1Ano.UseVisualStyleBackColor = true;
             // 
-            // lblDirAlunoEmail
+            // btnDirAlunosRemover
             // 
-            lblDirAlunoEmail.AutoSize = true;
-            lblDirAlunoEmail.Location = new Point(21, 528);
-            lblDirAlunoEmail.Name = "lblDirAlunoEmail";
-            lblDirAlunoEmail.Size = new Size(211, 36);
-            lblDirAlunoEmail.TabIndex = 24;
-            lblDirAlunoEmail.Text = "Email (Aluno)";
+            btnDirAlunosRemover.Location = new Point(67, 1019);
+            btnDirAlunosRemover.Name = "btnDirAlunosRemover";
+            btnDirAlunosRemover.Size = new Size(326, 46);
+            btnDirAlunosRemover.TabIndex = 34;
+            btnDirAlunosRemover.Text = "Remover";
+            btnDirAlunosRemover.UseVisualStyleBackColor = true;
             // 
-            // txtDirAlunoIdade
+            // btnDirAlunosAtualizar
             // 
-            txtDirAlunoIdade.Location = new Point(21, 452);
-            txtDirAlunoIdade.Name = "txtDirAlunoIdade";
-            txtDirAlunoIdade.Size = new Size(432, 44);
-            txtDirAlunoIdade.TabIndex = 23;
+            btnDirAlunosAtualizar.Location = new Point(67, 954);
+            btnDirAlunosAtualizar.Name = "btnDirAlunosAtualizar";
+            btnDirAlunosAtualizar.Size = new Size(326, 46);
+            btnDirAlunosAtualizar.TabIndex = 33;
+            btnDirAlunosAtualizar.Text = "Atualizar";
+            btnDirAlunosAtualizar.UseVisualStyleBackColor = true;
             // 
-            // lblDirAlunoIdade
+            // btnDirAlunosAdicionar
             // 
-            lblDirAlunoIdade.AutoSize = true;
-            lblDirAlunoIdade.Location = new Point(21, 396);
-            lblDirAlunoIdade.Name = "lblDirAlunoIdade";
-            lblDirAlunoIdade.Size = new Size(206, 36);
-            lblDirAlunoIdade.TabIndex = 22;
-            lblDirAlunoIdade.Text = "Idade (Aluno)";
+            btnDirAlunosAdicionar.Location = new Point(67, 893);
+            btnDirAlunosAdicionar.Name = "btnDirAlunosAdicionar";
+            btnDirAlunosAdicionar.Size = new Size(326, 46);
+            btnDirAlunosAdicionar.TabIndex = 32;
+            btnDirAlunosAdicionar.Text = "Adicionar";
+            btnDirAlunosAdicionar.UseVisualStyleBackColor = true;
             // 
-            // txtDirAlunoApelido
+            // cbxDirAlunosLoginId
             // 
-            txtDirAlunoApelido.Location = new Point(21, 326);
-            txtDirAlunoApelido.Name = "txtDirAlunoApelido";
-            txtDirAlunoApelido.Size = new Size(432, 44);
-            txtDirAlunoApelido.TabIndex = 21;
+            cbxDirAlunosLoginId.FormattingEnabled = true;
+            cbxDirAlunosLoginId.Location = new Point(21, 830);
+            cbxDirAlunosLoginId.Name = "cbxDirAlunosLoginId";
+            cbxDirAlunosLoginId.Size = new Size(432, 44);
+            cbxDirAlunosLoginId.TabIndex = 31;
             // 
-            // lblDirAlunoApelido
+            // cbxDirAlunosTurma
             // 
-            lblDirAlunoApelido.AutoSize = true;
-            lblDirAlunoApelido.Location = new Point(21, 276);
-            lblDirAlunoApelido.Name = "lblDirAlunoApelido";
-            lblDirAlunoApelido.Size = new Size(236, 36);
-            lblDirAlunoApelido.TabIndex = 20;
-            lblDirAlunoApelido.Text = "Apelido (Aluno)";
+            cbxDirAlunosTurma.FormattingEnabled = true;
+            cbxDirAlunosTurma.Location = new Point(21, 700);
+            cbxDirAlunosTurma.Name = "cbxDirAlunosTurma";
+            cbxDirAlunosTurma.Size = new Size(432, 44);
+            cbxDirAlunosTurma.TabIndex = 30;
             // 
-            // txtDirAlunoNome
+            // lblDirAlunosLogin
             // 
-            txtDirAlunoNome.Location = new Point(21, 203);
-            txtDirAlunoNome.Name = "txtDirAlunoNome";
-            txtDirAlunoNome.Size = new Size(432, 44);
-            txtDirAlunoNome.TabIndex = 19;
+            lblDirAlunosLogin.AutoSize = true;
+            lblDirAlunosLogin.Location = new Point(21, 775);
+            lblDirAlunosLogin.Name = "lblDirAlunosLogin";
+            lblDirAlunosLogin.Size = new Size(246, 36);
+            lblDirAlunosLogin.TabIndex = 28;
+            lblDirAlunosLogin.Text = "Login Id (Aluno)";
             // 
-            // lblDirAlunoNome
+            // lblDirAlunosTurma
             // 
-            lblDirAlunoNome.AutoSize = true;
-            lblDirAlunoNome.Location = new Point(21, 152);
-            lblDirAlunoNome.Name = "lblDirAlunoNome";
-            lblDirAlunoNome.Size = new Size(209, 36);
-            lblDirAlunoNome.TabIndex = 18;
-            lblDirAlunoNome.Text = "Nome (Aluno)";
+            lblDirAlunosTurma.AutoSize = true;
+            lblDirAlunosTurma.Location = new Point(21, 640);
+            lblDirAlunosTurma.Name = "lblDirAlunosTurma";
+            lblDirAlunosTurma.Size = new Size(222, 36);
+            lblDirAlunosTurma.TabIndex = 26;
+            lblDirAlunosTurma.Text = "Turma (Aluno)";
             // 
-            // txtDirIdAluno
+            // txtDirAlunosEmail
             // 
-            txtDirIdAluno.Location = new Point(21, 77);
-            txtDirIdAluno.Name = "txtDirIdAluno";
-            txtDirIdAluno.Size = new Size(432, 44);
-            txtDirIdAluno.TabIndex = 17;
+            txtDirAlunosEmail.Location = new Point(21, 578);
+            txtDirAlunosEmail.Name = "txtDirAlunosEmail";
+            txtDirAlunosEmail.Size = new Size(432, 44);
+            txtDirAlunosEmail.TabIndex = 25;
             // 
-            // lblDirIdAluno
+            // lblDirAlunosEmail
             // 
-            lblDirIdAluno.AutoSize = true;
-            lblDirIdAluno.Location = new Point(21, 23);
-            lblDirIdAluno.Name = "lblDirIdAluno";
-            lblDirIdAluno.Size = new Size(158, 36);
-            lblDirIdAluno.TabIndex = 16;
-            lblDirIdAluno.Text = "Id (Aluno)";
+            lblDirAlunosEmail.AutoSize = true;
+            lblDirAlunosEmail.Location = new Point(21, 528);
+            lblDirAlunosEmail.Name = "lblDirAlunosEmail";
+            lblDirAlunosEmail.Size = new Size(211, 36);
+            lblDirAlunosEmail.TabIndex = 24;
+            lblDirAlunosEmail.Text = "Email (Aluno)";
+            // 
+            // txtDirAlunosIdade
+            // 
+            txtDirAlunosIdade.Location = new Point(21, 452);
+            txtDirAlunosIdade.Name = "txtDirAlunosIdade";
+            txtDirAlunosIdade.Size = new Size(432, 44);
+            txtDirAlunosIdade.TabIndex = 23;
+            // 
+            // lblDirAlunosIdade
+            // 
+            lblDirAlunosIdade.AutoSize = true;
+            lblDirAlunosIdade.Location = new Point(21, 396);
+            lblDirAlunosIdade.Name = "lblDirAlunosIdade";
+            lblDirAlunosIdade.Size = new Size(206, 36);
+            lblDirAlunosIdade.TabIndex = 22;
+            lblDirAlunosIdade.Text = "Idade (Aluno)";
+            // 
+            // txtDirAlunosApelido
+            // 
+            txtDirAlunosApelido.Location = new Point(21, 326);
+            txtDirAlunosApelido.Name = "txtDirAlunosApelido";
+            txtDirAlunosApelido.Size = new Size(432, 44);
+            txtDirAlunosApelido.TabIndex = 21;
+            // 
+            // lblDirAlunosApelido
+            // 
+            lblDirAlunosApelido.AutoSize = true;
+            lblDirAlunosApelido.Location = new Point(21, 276);
+            lblDirAlunosApelido.Name = "lblDirAlunosApelido";
+            lblDirAlunosApelido.Size = new Size(236, 36);
+            lblDirAlunosApelido.TabIndex = 20;
+            lblDirAlunosApelido.Text = "Apelido (Aluno)";
+            // 
+            // txtDirAlunosNome
+            // 
+            txtDirAlunosNome.Location = new Point(21, 203);
+            txtDirAlunosNome.Name = "txtDirAlunosNome";
+            txtDirAlunosNome.Size = new Size(432, 44);
+            txtDirAlunosNome.TabIndex = 19;
+            // 
+            // lblDirAlunosNome
+            // 
+            lblDirAlunosNome.AutoSize = true;
+            lblDirAlunosNome.Location = new Point(21, 152);
+            lblDirAlunosNome.Name = "lblDirAlunosNome";
+            lblDirAlunosNome.Size = new Size(209, 36);
+            lblDirAlunosNome.TabIndex = 18;
+            lblDirAlunosNome.Text = "Nome (Aluno)";
+            // 
+            // txtDirAlunosId
+            // 
+            txtDirAlunosId.Location = new Point(21, 77);
+            txtDirAlunosId.Name = "txtDirAlunosId";
+            txtDirAlunosId.Size = new Size(432, 44);
+            txtDirAlunosId.TabIndex = 17;
+            // 
+            // lblDirAlunosId
+            // 
+            lblDirAlunosId.AutoSize = true;
+            lblDirAlunosId.Location = new Point(21, 23);
+            lblDirAlunosId.Name = "lblDirAlunosId";
+            lblDirAlunosId.Size = new Size(158, 36);
+            lblDirAlunosId.TabIndex = 16;
+            lblDirAlunosId.Text = "Id (Aluno)";
             // 
             // dgvDirAlunos
             // 
@@ -493,6 +755,17 @@
             // 
             // tabPTurmas
             // 
+            tabPTurmas.Controls.Add(gpbDirTurmasFiltrarTurma);
+            tabPTurmas.Controls.Add(btnDirTurmasRemover);
+            tabPTurmas.Controls.Add(btnDirTurmasAtualizar);
+            tabPTurmas.Controls.Add(btnDirTurmasAdicionar);
+            tabPTurmas.Controls.Add(cbxDirTurmasProfessorId);
+            tabPTurmas.Controls.Add(lblDirTurmasProfessorId);
+            tabPTurmas.Controls.Add(txtDirTurmasDesignacao);
+            tabPTurmas.Controls.Add(lblDirTurmasDesignacao);
+            tabPTurmas.Controls.Add(txtDirTurmasId);
+            tabPTurmas.Controls.Add(lblDirTurmasId);
+            tabPTurmas.Controls.Add(dgvDirTurmas);
             tabPTurmas.Location = new Point(8, 50);
             tabPTurmas.Name = "tabPTurmas";
             tabPTurmas.Size = new Size(1896, 1082);
@@ -500,8 +773,120 @@
             tabPTurmas.Text = "        Turmas        ";
             tabPTurmas.UseVisualStyleBackColor = true;
             // 
+            // gpbDirTurmasFiltrarTurma
+            // 
+            gpbDirTurmasFiltrarTurma.Controls.Add(cbxDirTurmasFiltrarTurma);
+            gpbDirTurmasFiltrarTurma.Location = new Point(948, 881);
+            gpbDirTurmasFiltrarTurma.Name = "gpbDirTurmasFiltrarTurma";
+            gpbDirTurmasFiltrarTurma.Size = new Size(460, 200);
+            gpbDirTurmasFiltrarTurma.TabIndex = 57;
+            gpbDirTurmasFiltrarTurma.TabStop = false;
+            gpbDirTurmasFiltrarTurma.Text = "Filtrar por Turma";
+            // 
+            // cbxDirTurmasFiltrarTurma
+            // 
+            cbxDirTurmasFiltrarTurma.FormattingEnabled = true;
+            cbxDirTurmasFiltrarTurma.Location = new Point(31, 74);
+            cbxDirTurmasFiltrarTurma.Name = "cbxDirTurmasFiltrarTurma";
+            cbxDirTurmasFiltrarTurma.Size = new Size(397, 44);
+            cbxDirTurmasFiltrarTurma.TabIndex = 31;
+            // 
+            // btnDirTurmasRemover
+            // 
+            btnDirTurmasRemover.Location = new Point(58, 1018);
+            btnDirTurmasRemover.Name = "btnDirTurmasRemover";
+            btnDirTurmasRemover.Size = new Size(326, 46);
+            btnDirTurmasRemover.TabIndex = 55;
+            btnDirTurmasRemover.Text = "Remover";
+            btnDirTurmasRemover.UseVisualStyleBackColor = true;
+            // 
+            // btnDirTurmasAtualizar
+            // 
+            btnDirTurmasAtualizar.Location = new Point(58, 953);
+            btnDirTurmasAtualizar.Name = "btnDirTurmasAtualizar";
+            btnDirTurmasAtualizar.Size = new Size(326, 46);
+            btnDirTurmasAtualizar.TabIndex = 54;
+            btnDirTurmasAtualizar.Text = "Atualizar";
+            btnDirTurmasAtualizar.UseVisualStyleBackColor = true;
+            // 
+            // btnDirTurmasAdicionar
+            // 
+            btnDirTurmasAdicionar.Location = new Point(58, 892);
+            btnDirTurmasAdicionar.Name = "btnDirTurmasAdicionar";
+            btnDirTurmasAdicionar.Size = new Size(326, 46);
+            btnDirTurmasAdicionar.TabIndex = 53;
+            btnDirTurmasAdicionar.Text = "Adicionar";
+            btnDirTurmasAdicionar.UseVisualStyleBackColor = true;
+            // 
+            // cbxDirTurmasProfessorId
+            // 
+            cbxDirTurmasProfessorId.FormattingEnabled = true;
+            cbxDirTurmasProfessorId.Location = new Point(12, 335);
+            cbxDirTurmasProfessorId.Name = "cbxDirTurmasProfessorId";
+            cbxDirTurmasProfessorId.Size = new Size(432, 44);
+            cbxDirTurmasProfessorId.TabIndex = 51;
+            // 
+            // lblDirTurmasProfessorId
+            // 
+            lblDirTurmasProfessorId.AutoSize = true;
+            lblDirTurmasProfessorId.Location = new Point(12, 275);
+            lblDirTurmasProfessorId.Name = "lblDirTurmasProfessorId";
+            lblDirTurmasProfessorId.Size = new Size(144, 36);
+            lblDirTurmasProfessorId.TabIndex = 43;
+            lblDirTurmasProfessorId.Text = "Professor";
+            // 
+            // txtDirTurmasDesignacao
+            // 
+            txtDirTurmasDesignacao.Location = new Point(12, 202);
+            txtDirTurmasDesignacao.Name = "txtDirTurmasDesignacao";
+            txtDirTurmasDesignacao.Size = new Size(432, 44);
+            txtDirTurmasDesignacao.TabIndex = 42;
+            // 
+            // lblDirTurmasDesignacao
+            // 
+            lblDirTurmasDesignacao.AutoSize = true;
+            lblDirTurmasDesignacao.Location = new Point(12, 151);
+            lblDirTurmasDesignacao.Name = "lblDirTurmasDesignacao";
+            lblDirTurmasDesignacao.Size = new Size(300, 36);
+            lblDirTurmasDesignacao.TabIndex = 41;
+            lblDirTurmasDesignacao.Text = "Designação (Turma) ";
+            // 
+            // txtDirTurmasId
+            // 
+            txtDirTurmasId.Location = new Point(12, 76);
+            txtDirTurmasId.Name = "txtDirTurmasId";
+            txtDirTurmasId.Size = new Size(432, 44);
+            txtDirTurmasId.TabIndex = 40;
+            // 
+            // lblDirTurmasId
+            // 
+            lblDirTurmasId.AutoSize = true;
+            lblDirTurmasId.Location = new Point(12, 22);
+            lblDirTurmasId.Name = "lblDirTurmasId";
+            lblDirTurmasId.Size = new Size(167, 36);
+            lblDirTurmasId.TabIndex = 39;
+            lblDirTurmasId.Text = "Id (Turma)";
+            // 
+            // dgvDirTurmas
+            // 
+            dgvDirTurmas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvDirTurmas.Location = new Point(471, 2);
+            dgvDirTurmas.Name = "dgvDirTurmas";
+            dgvDirTurmas.RowHeadersWidth = 82;
+            dgvDirTurmas.Size = new Size(1413, 871);
+            dgvDirTurmas.TabIndex = 38;
+            // 
             // tabPDisciplinas
             // 
+            tabPDisciplinas.Controls.Add(gpbDirDisciplinaFiltrarArea);
+            tabPDisciplinas.Controls.Add(btnDirDisciplinaRemover);
+            tabPDisciplinas.Controls.Add(btnDirDisciplinaAtualizar);
+            tabPDisciplinas.Controls.Add(btnDirDisciplinaAdicionar);
+            tabPDisciplinas.Controls.Add(txtDirDisciplinaDesignacao);
+            tabPDisciplinas.Controls.Add(lblDirDisciplinaDesignacao);
+            tabPDisciplinas.Controls.Add(txtDirDisciplinaId);
+            tabPDisciplinas.Controls.Add(lblDirDisciplinaId);
+            tabPDisciplinas.Controls.Add(dgvDirDisciplinas);
             tabPDisciplinas.Location = new Point(8, 50);
             tabPDisciplinas.Name = "tabPDisciplinas";
             tabPDisciplinas.Size = new Size(1896, 1082);
@@ -509,14 +894,286 @@
             tabPDisciplinas.Text = "        Disciplinas        ";
             tabPDisciplinas.UseVisualStyleBackColor = true;
             // 
+            // gpbDirDisciplinaFiltrarArea
+            // 
+            gpbDirDisciplinaFiltrarArea.Controls.Add(cbxDirDisciplinaFiltrarArea);
+            gpbDirDisciplinaFiltrarArea.Location = new Point(948, 881);
+            gpbDirDisciplinaFiltrarArea.Name = "gpbDirDisciplinaFiltrarArea";
+            gpbDirDisciplinaFiltrarArea.Size = new Size(460, 200);
+            gpbDirDisciplinaFiltrarArea.TabIndex = 57;
+            gpbDirDisciplinaFiltrarArea.TabStop = false;
+            gpbDirDisciplinaFiltrarArea.Text = "Filtrar por Nota";
+            // 
+            // cbxDirDisciplinaFiltrarArea
+            // 
+            cbxDirDisciplinaFiltrarArea.FormattingEnabled = true;
+            cbxDirDisciplinaFiltrarArea.Location = new Point(30, 74);
+            cbxDirDisciplinaFiltrarArea.Name = "cbxDirDisciplinaFiltrarArea";
+            cbxDirDisciplinaFiltrarArea.Size = new Size(397, 44);
+            cbxDirDisciplinaFiltrarArea.TabIndex = 31;
+            // 
+            // btnDirDisciplinaRemover
+            // 
+            btnDirDisciplinaRemover.Location = new Point(58, 1018);
+            btnDirDisciplinaRemover.Name = "btnDirDisciplinaRemover";
+            btnDirDisciplinaRemover.Size = new Size(326, 46);
+            btnDirDisciplinaRemover.TabIndex = 55;
+            btnDirDisciplinaRemover.Text = "Remover";
+            btnDirDisciplinaRemover.UseVisualStyleBackColor = true;
+            // 
+            // btnDirDisciplinaAtualizar
+            // 
+            btnDirDisciplinaAtualizar.Location = new Point(58, 953);
+            btnDirDisciplinaAtualizar.Name = "btnDirDisciplinaAtualizar";
+            btnDirDisciplinaAtualizar.Size = new Size(326, 46);
+            btnDirDisciplinaAtualizar.TabIndex = 54;
+            btnDirDisciplinaAtualizar.Text = "Atualizar";
+            btnDirDisciplinaAtualizar.UseVisualStyleBackColor = true;
+            // 
+            // btnDirDisciplinaAdicionar
+            // 
+            btnDirDisciplinaAdicionar.Location = new Point(58, 892);
+            btnDirDisciplinaAdicionar.Name = "btnDirDisciplinaAdicionar";
+            btnDirDisciplinaAdicionar.Size = new Size(326, 46);
+            btnDirDisciplinaAdicionar.TabIndex = 53;
+            btnDirDisciplinaAdicionar.Text = "Adicionar";
+            btnDirDisciplinaAdicionar.UseVisualStyleBackColor = true;
+            // 
+            // txtDirDisciplinaDesignacao
+            // 
+            txtDirDisciplinaDesignacao.Location = new Point(12, 202);
+            txtDirDisciplinaDesignacao.Name = "txtDirDisciplinaDesignacao";
+            txtDirDisciplinaDesignacao.Size = new Size(432, 44);
+            txtDirDisciplinaDesignacao.TabIndex = 42;
+            // 
+            // lblDirDisciplinaDesignacao
+            // 
+            lblDirDisciplinaDesignacao.AutoSize = true;
+            lblDirDisciplinaDesignacao.Location = new Point(12, 151);
+            lblDirDisciplinaDesignacao.Name = "lblDirDisciplinaDesignacao";
+            lblDirDisciplinaDesignacao.Size = new Size(336, 36);
+            lblDirDisciplinaDesignacao.TabIndex = 41;
+            lblDirDisciplinaDesignacao.Text = "Designação (Disciplina)";
+            // 
+            // txtDirDisciplinaId
+            // 
+            txtDirDisciplinaId.Location = new Point(12, 76);
+            txtDirDisciplinaId.Name = "txtDirDisciplinaId";
+            txtDirDisciplinaId.Size = new Size(432, 44);
+            txtDirDisciplinaId.TabIndex = 40;
+            // 
+            // lblDirDisciplinaId
+            // 
+            lblDirDisciplinaId.AutoSize = true;
+            lblDirDisciplinaId.Location = new Point(12, 22);
+            lblDirDisciplinaId.Name = "lblDirDisciplinaId";
+            lblDirDisciplinaId.Size = new Size(211, 36);
+            lblDirDisciplinaId.TabIndex = 39;
+            lblDirDisciplinaId.Text = "Id (Disciplina)";
+            // 
+            // dgvDirDisciplinas
+            // 
+            dgvDirDisciplinas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvDirDisciplinas.Location = new Point(471, 2);
+            dgvDirDisciplinas.Name = "dgvDirDisciplinas";
+            dgvDirDisciplinas.RowHeadersWidth = 82;
+            dgvDirDisciplinas.Size = new Size(1413, 871);
+            dgvDirDisciplinas.TabIndex = 38;
+            // 
             // tabPNotas
             // 
+            tabPNotas.Controls.Add(dtpDirNotaData);
+            tabPNotas.Controls.Add(gpbDirNotasFiltrarFaixa);
+            tabPNotas.Controls.Add(btnDirNotasRemover);
+            tabPNotas.Controls.Add(btnDirNotasAtualizar);
+            tabPNotas.Controls.Add(btnDirNotasAdicionar);
+            tabPNotas.Controls.Add(cbxDirNotaDisciplina);
+            tabPNotas.Controls.Add(cbxDirNotaAluno);
+            tabPNotas.Controls.Add(txtDirNotaNota);
+            tabPNotas.Controls.Add(lblDirNotaNota);
+            tabPNotas.Controls.Add(lblDirNotaData);
+            tabPNotas.Controls.Add(lblDirNotaDisciplina);
+            tabPNotas.Controls.Add(lblDirNotaAluno);
+            tabPNotas.Controls.Add(txtDirNotaId);
+            tabPNotas.Controls.Add(lblDirNotaId);
+            tabPNotas.Controls.Add(dgvDirNotas);
             tabPNotas.Location = new Point(8, 50);
             tabPNotas.Name = "tabPNotas";
             tabPNotas.Size = new Size(1896, 1082);
             tabPNotas.TabIndex = 5;
             tabPNotas.Text = "        Notas        ";
             tabPNotas.UseVisualStyleBackColor = true;
+            // 
+            // gpbDirNotasFiltrarFaixa
+            // 
+            gpbDirNotasFiltrarFaixa.Controls.Add(ckxDirNotasFiltrarFaixa15A20);
+            gpbDirNotasFiltrarFaixa.Controls.Add(ckxDirNotasFiltrarFaixa0A5);
+            gpbDirNotasFiltrarFaixa.Controls.Add(ckxDirNotasFiltrarFaixa10A15);
+            gpbDirNotasFiltrarFaixa.Controls.Add(ckxDirNotasFiltrarFaixa6A9);
+            gpbDirNotasFiltrarFaixa.Location = new Point(948, 881);
+            gpbDirNotasFiltrarFaixa.Name = "gpbDirNotasFiltrarFaixa";
+            gpbDirNotasFiltrarFaixa.Size = new Size(460, 200);
+            gpbDirNotasFiltrarFaixa.TabIndex = 57;
+            gpbDirNotasFiltrarFaixa.TabStop = false;
+            gpbDirNotasFiltrarFaixa.Text = "Filtrar por Faixa";
+            // 
+            // ckxDirNotasFiltrarFaixa15A20
+            // 
+            ckxDirNotasFiltrarFaixa15A20.AutoSize = true;
+            ckxDirNotasFiltrarFaixa15A20.Location = new Point(281, 125);
+            ckxDirNotasFiltrarFaixa15A20.Name = "ckxDirNotasFiltrarFaixa15A20";
+            ckxDirNotasFiltrarFaixa15A20.Size = new Size(143, 40);
+            ckxDirNotasFiltrarFaixa15A20.TabIndex = 3;
+            ckxDirNotasFiltrarFaixa15A20.Text = "15 à 20";
+            ckxDirNotasFiltrarFaixa15A20.UseVisualStyleBackColor = true;
+            // 
+            // ckxDirNotasFiltrarFaixa0A5
+            // 
+            ckxDirNotasFiltrarFaixa0A5.AutoSize = true;
+            ckxDirNotasFiltrarFaixa0A5.Location = new Point(54, 62);
+            ckxDirNotasFiltrarFaixa0A5.Name = "ckxDirNotasFiltrarFaixa0A5";
+            ckxDirNotasFiltrarFaixa0A5.Size = new Size(111, 40);
+            ckxDirNotasFiltrarFaixa0A5.TabIndex = 0;
+            ckxDirNotasFiltrarFaixa0A5.Text = "0 à 5";
+            ckxDirNotasFiltrarFaixa0A5.UseVisualStyleBackColor = true;
+            // 
+            // ckxDirNotasFiltrarFaixa10A15
+            // 
+            ckxDirNotasFiltrarFaixa10A15.AutoSize = true;
+            ckxDirNotasFiltrarFaixa10A15.Location = new Point(281, 62);
+            ckxDirNotasFiltrarFaixa10A15.Name = "ckxDirNotasFiltrarFaixa10A15";
+            ckxDirNotasFiltrarFaixa10A15.Size = new Size(143, 40);
+            ckxDirNotasFiltrarFaixa10A15.TabIndex = 2;
+            ckxDirNotasFiltrarFaixa10A15.Text = "10 à 15";
+            ckxDirNotasFiltrarFaixa10A15.UseVisualStyleBackColor = true;
+            // 
+            // ckxDirNotasFiltrarFaixa6A9
+            // 
+            ckxDirNotasFiltrarFaixa6A9.AutoSize = true;
+            ckxDirNotasFiltrarFaixa6A9.Location = new Point(54, 125);
+            ckxDirNotasFiltrarFaixa6A9.Name = "ckxDirNotasFiltrarFaixa6A9";
+            ckxDirNotasFiltrarFaixa6A9.Size = new Size(111, 40);
+            ckxDirNotasFiltrarFaixa6A9.TabIndex = 1;
+            ckxDirNotasFiltrarFaixa6A9.Text = "6 à 9";
+            ckxDirNotasFiltrarFaixa6A9.UseVisualStyleBackColor = true;
+            // 
+            // btnDirNotasRemover
+            // 
+            btnDirNotasRemover.Location = new Point(58, 1018);
+            btnDirNotasRemover.Name = "btnDirNotasRemover";
+            btnDirNotasRemover.Size = new Size(326, 46);
+            btnDirNotasRemover.TabIndex = 55;
+            btnDirNotasRemover.Text = "Remover";
+            btnDirNotasRemover.UseVisualStyleBackColor = true;
+            // 
+            // btnDirNotasAtualizar
+            // 
+            btnDirNotasAtualizar.Location = new Point(58, 953);
+            btnDirNotasAtualizar.Name = "btnDirNotasAtualizar";
+            btnDirNotasAtualizar.Size = new Size(326, 46);
+            btnDirNotasAtualizar.TabIndex = 54;
+            btnDirNotasAtualizar.Text = "Atualizar";
+            btnDirNotasAtualizar.UseVisualStyleBackColor = true;
+            // 
+            // btnDirNotasAdicionar
+            // 
+            btnDirNotasAdicionar.Location = new Point(58, 892);
+            btnDirNotasAdicionar.Name = "btnDirNotasAdicionar";
+            btnDirNotasAdicionar.Size = new Size(326, 46);
+            btnDirNotasAdicionar.TabIndex = 53;
+            btnDirNotasAdicionar.Text = "Adicionar";
+            btnDirNotasAdicionar.UseVisualStyleBackColor = true;
+            // 
+            // cbxDirNotaDisciplina
+            // 
+            cbxDirNotaDisciplina.FormattingEnabled = true;
+            cbxDirNotaDisciplina.Location = new Point(12, 332);
+            cbxDirNotaDisciplina.Name = "cbxDirNotaDisciplina";
+            cbxDirNotaDisciplina.Size = new Size(432, 44);
+            cbxDirNotaDisciplina.TabIndex = 52;
+            // 
+            // cbxDirNotaAluno
+            // 
+            cbxDirNotaAluno.FormattingEnabled = true;
+            cbxDirNotaAluno.Location = new Point(12, 200);
+            cbxDirNotaAluno.Name = "cbxDirNotaAluno";
+            cbxDirNotaAluno.Size = new Size(432, 44);
+            cbxDirNotaAluno.TabIndex = 51;
+            // 
+            // txtDirNotaNota
+            // 
+            txtDirNotaNota.Location = new Point(12, 577);
+            txtDirNotaNota.Name = "txtDirNotaNota";
+            txtDirNotaNota.Size = new Size(432, 44);
+            txtDirNotaNota.TabIndex = 48;
+            // 
+            // lblDirNotaNota
+            // 
+            lblDirNotaNota.AutoSize = true;
+            lblDirNotaNota.Location = new Point(12, 527);
+            lblDirNotaNota.Name = "lblDirNotaNota";
+            lblDirNotaNota.Size = new Size(223, 36);
+            lblDirNotaNota.TabIndex = 47;
+            lblDirNotaNota.Text = "Nota (Decimal)";
+            // 
+            // lblDirNotaData
+            // 
+            lblDirNotaData.AutoSize = true;
+            lblDirNotaData.Location = new Point(12, 395);
+            lblDirNotaData.Name = "lblDirNotaData";
+            lblDirNotaData.Size = new Size(275, 36);
+            lblDirNotaData.TabIndex = 45;
+            lblDirNotaData.Text = "Data de Atribuição";
+            // 
+            // lblDirNotaDisciplina
+            // 
+            lblDirNotaDisciplina.AutoSize = true;
+            lblDirNotaDisciplina.Location = new Point(12, 275);
+            lblDirNotaDisciplina.Name = "lblDirNotaDisciplina";
+            lblDirNotaDisciplina.Size = new Size(152, 36);
+            lblDirNotaDisciplina.TabIndex = 43;
+            lblDirNotaDisciplina.Text = "Disciplina";
+            // 
+            // lblDirNotaAluno
+            // 
+            lblDirNotaAluno.AutoSize = true;
+            lblDirNotaAluno.Location = new Point(12, 151);
+            lblDirNotaAluno.Name = "lblDirNotaAluno";
+            lblDirNotaAluno.Size = new Size(99, 36);
+            lblDirNotaAluno.TabIndex = 41;
+            lblDirNotaAluno.Text = "Aluno";
+            // 
+            // txtDirNotaId
+            // 
+            txtDirNotaId.Location = new Point(12, 76);
+            txtDirNotaId.Name = "txtDirNotaId";
+            txtDirNotaId.Size = new Size(432, 44);
+            txtDirNotaId.TabIndex = 40;
+            // 
+            // lblDirNotaId
+            // 
+            lblDirNotaId.AutoSize = true;
+            lblDirNotaId.Location = new Point(12, 22);
+            lblDirNotaId.Name = "lblDirNotaId";
+            lblDirNotaId.Size = new Size(140, 36);
+            lblDirNotaId.TabIndex = 39;
+            lblDirNotaId.Text = "Id (Nota)";
+            // 
+            // dgvDirNotas
+            // 
+            dgvDirNotas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvDirNotas.Location = new Point(471, 2);
+            dgvDirNotas.Name = "dgvDirNotas";
+            dgvDirNotas.RowHeadersWidth = 82;
+            dgvDirNotas.Size = new Size(1413, 871);
+            dgvDirNotas.TabIndex = 38;
+            // 
+            // dtpDirNotaData
+            // 
+            dtpDirNotaData.Location = new Point(12, 453);
+            dtpDirNotaData.Name = "dtpDirNotaData";
+            dtpDirNotaData.Size = new Size(432, 44);
+            dtpDirNotaData.TabIndex = 58;
             // 
             // DiretorForm
             // 
@@ -532,12 +1189,33 @@
             tabCDiretor.ResumeLayout(false);
             tabPLogins.ResumeLayout(false);
             tabPLogins.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            gpbDirLoginsFiltrarCargo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvDirLogins).EndInit();
+            tabPFuncionarios.ResumeLayout(false);
+            tabPFuncionarios.PerformLayout();
+            gpbDirFuncionariosFiltrarCargo.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvDirFuncionarios).EndInit();
             tabPAlunos.ResumeLayout(false);
             tabPAlunos.PerformLayout();
-            gpbDirFiltroPorTurma.ResumeLayout(false);
-            gpbDirFiltroPorTurma.PerformLayout();
+            gpbDirAlunosFiltrarDisciplina.ResumeLayout(false);
+            gpbDirAlunosFiltrarNota.ResumeLayout(false);
+            gpbDirAlunosFiltrarNota.PerformLayout();
+            gpbDirAlunosFiltrarTurma.ResumeLayout(false);
+            gpbDirAlunosFiltrarTurma.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDirAlunos).EndInit();
+            tabPTurmas.ResumeLayout(false);
+            tabPTurmas.PerformLayout();
+            gpbDirTurmasFiltrarTurma.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvDirTurmas).EndInit();
+            tabPDisciplinas.ResumeLayout(false);
+            tabPDisciplinas.PerformLayout();
+            gpbDirDisciplinaFiltrarArea.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)dgvDirDisciplinas).EndInit();
+            tabPNotas.ResumeLayout(false);
+            tabPNotas.PerformLayout();
+            gpbDirNotasFiltrarFaixa.ResumeLayout(false);
+            gpbDirNotasFiltrarFaixa.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dgvDirNotas).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -552,43 +1230,122 @@
         private TabPage tabPTurmas;
         private TabPage tabPDisciplinas;
         private TabPage tabPNotas;
-        private DataGridView dataGridView1;
-        private TextBox textBox7;
-        private Label label7;
-        private TextBox textBox6;
-        private Label label6;
-        private TextBox textBox5;
-        private Label label5;
-        private TextBox textBox4;
-        private Label label4;
-        private TextBox textBox3;
-        private Label label3;
-        private TextBox textBox2;
-        private Label label2;
-        private TextBox textBox1;
-        private Label label1;
-        private ComboBox cbxDirTurma;
-        private Label lblDirAlunoLogin;
-        private Label lblDirAlunoTurma;
-        private TextBox txtDirAlunoEmail;
-        private Label lblDirAlunoEmail;
-        private TextBox txtDirAlunoIdade;
-        private Label lblDirAlunoIdade;
-        private TextBox txtDirAlunoApelido;
-        private Label lblDirAlunoApelido;
-        private TextBox txtDirAlunoNome;
-        private Label lblDirAlunoNome;
-        private TextBox txtDirIdAluno;
-        private Label lblDirIdAluno;
+        private ComboBox cbxDirAlunosTurma;
+        private Label lblDirAlunosLogin;
+        private Label lblDirAlunosTurma;
+        private TextBox txtDirAlunosEmail;
+        private Label lblDirAlunosEmail;
+        private TextBox txtDirAlunosIdade;
+        private Label lblDirAlunosIdade;
+        private TextBox txtDirAlunosApelido;
+        private Label lblDirAlunosApelido;
+        private TextBox txtDirAlunosNome;
+        private Label lblDirAlunosNome;
+        private TextBox txtDirAlunosId;
+        private Label lblDirAlunosId;
         private DataGridView dgvDirAlunos;
-        private ComboBox cbxDirLoginId;
-        private Button btnRemover;
-        private Button btnDirAtualizar;
-        private Button btnDirAdicionar;
-        private GroupBox gpbFiltrarPorDisciplina;
-        private GroupBox gpbDirFiltrarPorNota;
-        private GroupBox gpbDirFiltroPorTurma;
-        private CheckBox checkBox2;
-        private CheckBox checkBox1;
+        private ComboBox cbxDirAlunosLoginId;
+        private Button btnDirAlunosRemover;
+        private Button btnDirAlunosAtualizar;
+        private Button btnDirAlunosAdicionar;
+        private GroupBox gpbDirAlunosFiltrarDisciplina;
+        private GroupBox gpbDirAlunosFiltrarNota;
+        private GroupBox gpbDirAlunosFiltrarTurma;
+        private CheckBox ckbDirAlunos1Ano;
+        private ComboBox cbxDirAlunosFiltrarDisciplina;
+        private Button btnDirAlunosFiltrar;
+        private TextBox txtDirAlunosFiltrarNotaMaxima;
+        private TextBox txtDirAlunosFiltrarNotaMinima;
+        private Label lblDirAlunosFiltrarNotaMaxima;
+        private Label lblDirAlunosFiltrarNotaMinima;
+        private CheckBox ckbDirAlunos4Ano;
+        private CheckBox ckbDirAlunos3Ano;
+        private CheckBox ckbDirAlunos2Ano;
+        private ComboBox cbxDirLoginsFiltrarCargo;
+        private GroupBox gpbDirLoginsFiltrarCargo;
+        private Button btnDirLoginsRemover;
+        private Button btnDirLoginsAtualizar;
+        private Button btnDirLoginsAdicionar;
+        private ComboBox cbxDirLoginsRole;
+        private Label lblDirLoginsRole;
+        private TextBox txtDirLoginsPassword;
+        private Label lblDirLoginsPassword;
+        private TextBox txtDirLoginsUser;
+        private Label lblDirLoginsUser;
+        private TextBox txtDirLoginsId;
+        private Label lblDirLoginsId;
+        private DataGridView dgvDirLogins;
+        private ComboBox cbxDirFuncionariosFiltrarCargo;
+        private GroupBox gpbDirFuncionariosFiltrarCargo;
+        private Button btnDirFuncionariosRemover;
+        private Button btnDirFuncionariosAtualizar;
+        private Button btnDirFuncionariosAdicionar;
+        private ComboBox cbxDirFuncionarioCargo;
+        private Label lblDirFuncionarioCargo;
+        private TextBox txtDirFuncionarioNome;
+        private Label lblDirFuncionarioNome;
+        private TextBox txtDirFuncionarioId;
+        private Label lblDirFuncionarioId;
+        private DataGridView dgvDirFuncionarios;
+        private GroupBox groupBox7;
+        private ComboBox cbxDirTurmasFiltrarTurma;
+        private GroupBox gpbDirTurmasFiltrarTurma;
+        private Button button9;
+        private TextBox textBox15;
+        private TextBox textBox16;
+        private Label label19;
+        private Label label20;
+        private GroupBox groupBox9;
+        private CheckBox checkBox9;
+        private CheckBox checkBox10;
+        private CheckBox checkBox11;
+        private CheckBox checkBox12;
+        private Button btnDirTurmasRemover;
+        private Button btnDirTurmasAtualizar;
+        private Button btnDirTurmasAdicionar;
+        private ComboBox comboBox8;
+        private ComboBox cbxDirTurmasProfessorId;
+        private Label label21;
+        private Label label22;
+        private TextBox textBox17;
+        private Label label23;
+        private TextBox textBox18;
+        private Label label24;
+        private TextBox textBox19;
+        private Label lblDirTurmasProfessorId;
+        private TextBox txtDirTurmasDesignacao;
+        private Label lblDirTurmasDesignacao;
+        private TextBox txtDirTurmasId;
+        private Label lblDirTurmasId;
+        private DataGridView dgvDirTurmas;
+        private ComboBox cbxDirDisciplinaFiltrarArea;
+        private GroupBox gpbDirDisciplinaFiltrarArea;
+        private Button btnDirDisciplinaRemover;
+        private Button btnDirDisciplinaAtualizar;
+        private Button btnDirDisciplinaAdicionar;
+        private TextBox txtDirDisciplinaDesignacao;
+        private Label lblDirDisciplinaDesignacao;
+        private TextBox txtDirDisciplinaId;
+        private Label lblDirDisciplinaId;
+        private DataGridView dgvDirDisciplinas;
+        private GroupBox gpbDirNotasFiltrarFaixa;
+        private CheckBox ckxDirNotasFiltrarFaixa15A20;
+        private CheckBox ckxDirNotasFiltrarFaixa10A15;
+        private CheckBox ckxDirNotasFiltrarFaixa6A9;
+        private CheckBox ckxDirNotasFiltrarFaixa0A5;
+        private Button btnDirNotasRemover;
+        private Button btnDirNotasAtualizar;
+        private Button btnDirNotasAdicionar;
+        private ComboBox cbxDirNotaDisciplina;
+        private ComboBox cbxDirNotaAluno;
+        private TextBox txtDirNotaNota;
+        private Label lblDirNotaNota;
+        private Label lblDirNotaData;
+        private Label lblDirNotaDisciplina;
+        private Label lblDirNotaAluno;
+        private TextBox txtDirNotaId;
+        private Label lblDirNotaId;
+        private DataGridView dgvDirNotas;
+        private DateTimePicker dtpDirNotaData;
     }
 }
