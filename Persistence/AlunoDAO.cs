@@ -1,4 +1,5 @@
-﻿using projeto_form_camila.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using projeto_form_camila.Models;
 
 namespace projeto_form_camila.Persistence
 {
@@ -16,7 +17,7 @@ namespace projeto_form_camila.Persistence
         //método que pede para o _Context para buscar uma lista de alunos
         internal List<Aluno> buscarAlunos() 
         { 
-            return _Context.Alunos.ToList();
+            return _Context.Alunos.AsNoTracking().ToList();
         }
 
         //método que envia ao _context um aluno para salvar

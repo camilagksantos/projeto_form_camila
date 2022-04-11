@@ -115,6 +115,7 @@
             lblDirDisciplinaId = new Label();
             dgvDirDisciplinas = new DataGridView();
             tabPNotas = new TabPage();
+            dtpDirNotaData = new DateTimePicker();
             gpbDirNotasFiltrarFaixa = new GroupBox();
             ckxDirNotasFiltrarFaixa15A20 = new CheckBox();
             ckxDirNotasFiltrarFaixa0A5 = new CheckBox();
@@ -133,7 +134,6 @@
             txtDirNotaId = new TextBox();
             lblDirNotaId = new Label();
             dgvDirNotas = new DataGridView();
-            dtpDirNotaData = new DateTimePicker();
             tabCDiretor.SuspendLayout();
             tabPLogins.SuspendLayout();
             gpbDirLoginsFiltrarCargo.SuspendLayout();
@@ -231,6 +231,7 @@
             btnDirLoginsRemover.TabIndex = 55;
             btnDirLoginsRemover.Text = "Remover";
             btnDirLoginsRemover.UseVisualStyleBackColor = true;
+            btnDirLoginsRemover.Click += btnDirLoginsRemover_Click;
             // 
             // btnDirLoginsAtualizar
             // 
@@ -240,6 +241,7 @@
             btnDirLoginsAtualizar.TabIndex = 54;
             btnDirLoginsAtualizar.Text = "Atualizar";
             btnDirLoginsAtualizar.UseVisualStyleBackColor = true;
+            btnDirLoginsAtualizar.Click += btnDirLoginsAtualizar_Click;
             // 
             // btnDirLoginsAdicionar
             // 
@@ -249,6 +251,7 @@
             btnDirLoginsAdicionar.TabIndex = 53;
             btnDirLoginsAdicionar.Text = "Adicionar";
             btnDirLoginsAdicionar.UseVisualStyleBackColor = true;
+            btnDirLoginsAdicionar.Click += btnDirLoginsAdicionar_Click;
             // 
             // cbxDirLoginsRole
             // 
@@ -321,8 +324,10 @@
             dgvDirLogins.Location = new Point(471, 2);
             dgvDirLogins.Name = "dgvDirLogins";
             dgvDirLogins.RowHeadersWidth = 82;
+            dgvDirLogins.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvDirLogins.Size = new Size(1413, 871);
             dgvDirLogins.TabIndex = 38;
+            dgvDirLogins.SelectionChanged += dgvDirLogins_SelectionChanged;
             // 
             // tabPFuncionarios
             // 
@@ -1004,6 +1009,13 @@
             tabPNotas.Text = "        Notas        ";
             tabPNotas.UseVisualStyleBackColor = true;
             // 
+            // dtpDirNotaData
+            // 
+            dtpDirNotaData.Location = new Point(12, 453);
+            dtpDirNotaData.Name = "dtpDirNotaData";
+            dtpDirNotaData.Size = new Size(432, 44);
+            dtpDirNotaData.TabIndex = 58;
+            // 
             // gpbDirNotasFiltrarFaixa
             // 
             gpbDirNotasFiltrarFaixa.Controls.Add(ckxDirNotasFiltrarFaixa15A20);
@@ -1167,13 +1179,6 @@
             dgvDirNotas.RowHeadersWidth = 82;
             dgvDirNotas.Size = new Size(1413, 871);
             dgvDirNotas.TabIndex = 38;
-            // 
-            // dtpDirNotaData
-            // 
-            dtpDirNotaData.Location = new Point(12, 453);
-            dtpDirNotaData.Name = "dtpDirNotaData";
-            dtpDirNotaData.Size = new Size(432, 44);
-            dtpDirNotaData.TabIndex = 58;
             // 
             // DiretorForm
             // 

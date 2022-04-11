@@ -1,4 +1,5 @@
-﻿using projeto_form_camila.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using projeto_form_camila.Models;
 
 
 namespace projeto_form_camila.Persistence
@@ -17,7 +18,7 @@ namespace projeto_form_camila.Persistence
         //método que pede para o _Context para buscar uma lista de Nota
         internal List<Nota> buscarNotas()
         {
-            return _Context.Nota.ToList();
+            return _Context.Nota.AsNoTracking().ToList();
         }
 
         //método que envia ao _context uma Nota para salvar

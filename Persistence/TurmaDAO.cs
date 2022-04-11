@@ -1,4 +1,5 @@
-﻿using projeto_form_camila.Business.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using projeto_form_camila.Business.Models;
 using projeto_form_camila.Models;
 
 namespace projeto_form_camila.Persistence
@@ -17,7 +18,7 @@ namespace projeto_form_camila.Persistence
         //método que pede para o _Context para buscar uma lista de Turma
         internal List<Turma> buscarTurmas()
         {
-            return _Context.Turmas.ToList();
+            return _Context.Turmas.AsNoTracking().ToList();
         }
 
         //método que envia ao _context uma Turma para salvar

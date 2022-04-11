@@ -32,7 +32,7 @@ namespace projeto_form_camila.Business.Modal
         }
 
         //metodo que cria um obj do tipo Login, atribui valores recebidos por parametros e solicita ao LoginDAO para atualizar
-        internal void atualizarCliente(int idLogin, string username, string password, string role)
+        internal void atualizarLogin(int idLogin, string username, string password, string role)
         {
             Login login = new Login();
             login.IdLogin = idLogin;
@@ -44,7 +44,7 @@ namespace projeto_form_camila.Business.Modal
         }
 
         //método que cria um obj do tipo Login para referenciar ao LoginDAO um obj para remover
-        internal void removerCliente(int idLogin, string username, string password, string role)
+        internal void removerLogin(int idLogin, string username, string password, string role)
         {
             Login login = new Login();
             login.IdLogin = idLogin;
@@ -58,6 +58,11 @@ namespace projeto_form_camila.Business.Modal
         internal Login validarCredenciais(Login login)
         {
             return LoginDAO.validarCredenciais(login);
+        }
+
+        internal List<string> buscarRoles()
+        {
+            return LoginDAO.buscarRoles();
         }
     }
 }

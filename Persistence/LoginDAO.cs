@@ -1,4 +1,5 @@
-﻿using projeto_form_camila.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using projeto_form_camila.Models;
 
 namespace projeto_form_camila.Persistence
 {
@@ -16,7 +17,7 @@ namespace projeto_form_camila.Persistence
         //método que pede para o _Context para buscar uma lista de Login
         internal List<Login> buscarLogins()
         {
-            return _Context.Logins.ToList();
+            return _Context.Logins.AsNoTracking().ToList();
         }
 
         //método que envia ao _context uma Login para salvar
@@ -57,6 +58,11 @@ namespace projeto_form_camila.Persistence
                 // Caso não encontre um usuário correspondente, retorna o objeto login sem modificação
                 return login;
             }
+        }
+
+        internal List<string> buscarRoles()
+        {
+            return _Context.Logins.Select(login => login.Role).Distinct().ToList();
         }
     }
 }

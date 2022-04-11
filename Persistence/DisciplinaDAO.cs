@@ -1,4 +1,5 @@
-﻿using projeto_form_camila.Models;
+﻿using Microsoft.EntityFrameworkCore;
+using projeto_form_camila.Models;
 
 namespace projeto_form_camila.Persistence
 {
@@ -16,7 +17,7 @@ namespace projeto_form_camila.Persistence
         //método que pede para o _Context para buscar uma lista de Disciplinas
         internal List<Disciplina> buscarDisciplinas()
         {
-            return _Context.Disciplinas.ToList();
+            return _Context.Disciplinas.AsNoTracking().ToList();
         }
 
         //método que envia ao _context uma Disciplina para salvar
