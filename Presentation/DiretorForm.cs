@@ -86,11 +86,14 @@ namespace projeto_form_camila.Presentation
         public void PreencherCombosLogin()
         {
             //Obtenha a lista de roles
-           var listaRoles = loginService.buscarRoles();
+            var listaRoles = loginService.buscarTodasRoles();
 
             //Limpe a combobox antes de preenchê - la
             cbxDirLoginsRole.Items.Clear();
             cbxDirLoginsFiltrarCargo.Items.Clear();
+
+            // Adicione a opção "Todos" no início da lista
+            cbxDirLoginsFiltrarCargo.Items.Add("Todos");
 
             // Preencha a combobox com os roles
             foreach (var role in listaRoles)
@@ -171,6 +174,28 @@ namespace projeto_form_camila.Presentation
             }
         }
 
+        //método que filtra os logins por cargo
+        private void cbxDirLoginsFiltrarCargo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Obtém o cargo selecionado na ComboBox
+            string cargoSelecionado = cbxDirLoginsFiltrarCargo.SelectedItem.ToString();
+
+            // Verifica se a opção "Todos" foi selecionada
+            if (cargoSelecionado == "Todos")
+            {
+                // Carrega todos os logins sem filtro
+                dgvDirLogins.DataSource = loginService.buscarLogins();
+            }
+            else
+            {
+                // Filtra os logins com base no cargo selecionado
+                var loginsFiltrados = loginService.buscarLoginsFiltrados(cargoSelecionado);
+
+                // Atualiza a fonte de dados da DataGridView com os logins filtrados
+                dgvDirLogins.DataSource = loginsFiltrados;
+            }
+        }
+
         //=======================================================================
         //Funcionario
         //=======================================================================
@@ -180,11 +205,14 @@ namespace projeto_form_camila.Presentation
         {
             // Obtenha a lista de roles  e logins
             var listaLogin = loginService.buscarLogins();
-            var listaRoles = loginService.buscarRoles();
+            var listaRoles = loginService.buscarRolesSemAluno();
 
             // Limpe a combobox antes de preenchê-la
             cbxDirFuncionariosLogin.Items.Clear();
             cbxDirFuncionariosFiltrarCargo.Items.Clear();
+
+            // Adicione a opção "Todos" no início da lista
+            cbxDirFuncionariosFiltrarCargo.Items.Add("Todos");
 
             // Defina o DisplayMember e ValueMember para a combobox
             cbxDirFuncionariosLogin.DisplayMember = "Username";
@@ -250,23 +278,44 @@ namespace projeto_form_camila.Presentation
             txtDirFuncionarioId.Text = string.Empty;
             txtDirFuncionarioNome.Text = string.Empty;
             cbxDirFuncionariosLogin.Text = string.Empty;
-            cbxDirFuncionariosFiltrarCargo.Text= string.Empty;
+            cbxDirFuncionariosFiltrarCargo.Text = string.Empty;
         }
 
         //método que ao selecionar umalista na dgv preenche os respectivos campos
         private void dgvDirFuncionarios_SelectionChanged(object sender, EventArgs e)
         {
-            //// Verifica se há uma linha selecionada
-            //if (dgvDirFuncionarios.SelectedRows.Count > 0)
-            //{
-            //    // Obtem a linha selecionada
-            //    DataGridViewRow selectedRow = dgvDirFuncionarios.SelectedRows[0];
+            // Verifica se há uma linha selecionada
+            if (dgvDirFuncionarios.SelectedRows.Count > 0)
+            {
+                // Obtem a linha selecionada
+                DataGridViewRow selectedRow = dgvDirFuncionarios.SelectedRows[0];
 
-            //    // Preenche os campos do formulário com os dados da linha selecionada
-            //    txtDirFuncionarioId.Text = selectedRow.Cells["IdFuncionario"].Value.ToString();
-            //    txtDirFuncionarioNome.Text = selectedRow.Cells["Nome"].Value.ToString();
-            //    cbxDirFuncionarioCargo.Text = selectedRow.Cells["LoginId"].Value.ToString();
-            //}
+                // Preenche os campos do formulário com os dados da linha selecionada
+                txtDirFuncionarioId.Text = selectedRow.Cells["IdFuncionario"].Value.ToString();
+                txtDirFuncionarioNome.Text = selectedRow.Cells["Nome"].Value.ToString();
+                cbxDirFuncionariosLogin.Text = selectedRow.Cells["LoginId"].Value.ToString();
+            }
+        }
+
+        private void cbxDirFuncionariosFiltrarCargo_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Obtém o cargo selecionado na ComboBox
+            string cargoSelecionado = cbxDirFuncionariosFiltrarCargo.SelectedItem.ToString();
+
+            // Verifica se a opção "Todos" foi selecionada
+            if (cargoSelecionado == "Todos")
+            {
+                // Carrega todos os funcionários sem filtro
+                dgvDirFuncionarios.DataSource = funcionarioService.buscarFuncionarios();
+            }
+            else
+            {
+                // Filtra os funcionários com base no cargo selecionado, incluindo o objeto Login
+                var funcionariosFiltrados = funcionarioService.buscarFuncionariosFiltrados(cargoSelecionado);
+
+                // Atualiza a fonte de dados da DataGridView com os funcionários filtrados
+                dgvDirFuncionarios.DataSource = funcionariosFiltrados;
+            }
         }
 
         //=======================================================================

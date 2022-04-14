@@ -60,9 +60,18 @@ namespace projeto_form_camila.Business.Modal
             return LoginDAO.validarCredenciais(login);
         }
 
-        internal List<string> buscarRoles()
+        internal List<string> buscarTodasRoles()
         {
-            return LoginDAO.buscarRoles();
+            return LoginDAO.buscarTodasRoles();
+        }
+        internal List<string> buscarRolesSemAluno()
+        {
+            return LoginDAO.buscarRolesSemAluno();
+        }
+
+        internal List<Login> buscarLoginsFiltrados(string cargoSelecionado)
+        {
+            return LoginDAO.buscarLoginsFiltrados(cargoSelecionado);
         }
     }
 }

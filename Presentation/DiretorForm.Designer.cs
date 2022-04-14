@@ -222,6 +222,7 @@
             cbxDirLoginsFiltrarCargo.Name = "cbxDirLoginsFiltrarCargo";
             cbxDirLoginsFiltrarCargo.Size = new Size(397, 44);
             cbxDirLoginsFiltrarCargo.TabIndex = 31;
+            cbxDirLoginsFiltrarCargo.SelectedIndexChanged += cbxDirLoginsFiltrarCargo_SelectedIndexChanged;
             // 
             // btnDirLoginsRemover
             // 
@@ -366,6 +367,7 @@
             cbxDirFuncionariosFiltrarCargo.Name = "cbxDirFuncionariosFiltrarCargo";
             cbxDirFuncionariosFiltrarCargo.Size = new Size(397, 44);
             cbxDirFuncionariosFiltrarCargo.TabIndex = 31;
+            cbxDirFuncionariosFiltrarCargo.SelectedIndexChanged += cbxDirFuncionariosFiltrarCargo_SelectedIndexChanged;
             // 
             // btnDirFuncionariosRemover
             // 
@@ -455,6 +457,7 @@
             dgvDirFuncionarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvDirFuncionarios.Size = new Size(1413, 871);
             dgvDirFuncionarios.TabIndex = 38;
+            dgvDirFuncionarios.SelectionChanged += dgvDirFuncionarios_SelectionChanged;
             // 
             // tabPAlunos
             // 

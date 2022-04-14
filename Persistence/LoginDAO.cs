@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualBasic.Logging;
+using projeto_form_camila.Business.Modal;
 using projeto_form_camila.Business.Models;
 using projeto_form_camila.Models;
 
@@ -68,9 +69,24 @@ namespace projeto_form_camila.Persistence
             }
         }
 
-        internal List<string> buscarRoles()
+        //método que busca todas as roles
+        internal List<string> buscarTodasRoles()
         {
-            return _Context.Logins.Select(login => login.Role).Distinct().ToList();
+            return _Context.Logins
+                .Select(login => login.Role).Distinct().ToList();
+        }
+
+        //método que busca as roles sem alunos
+        internal List<string> buscarRolesSemAluno()
+        {
+            return _Context.Logins
+                .Where(login => !login.Role.Equals("Aluno"))
+                .Select(login => login.Role).Distinct().ToList();
+        }
+
+        internal List<Login> buscarLoginsFiltrados(string cargoSelecionado)
+        {
+            return _Context.Logins.AsNoTracking().Where(login => login.Role == cargoSelecionado).ToList();
         }
     }
 }

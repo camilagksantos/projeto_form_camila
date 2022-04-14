@@ -48,5 +48,13 @@ namespace projeto_form_camila.Persistence
             _Context.Funcionarios.Remove(funcionario);
             _Context.SaveChanges();
         }
+
+        internal List<Funcionario> buscarFuncionariosFiltrados(string cargoSelecionado)
+        {
+            return _Context.Funcionarios.AsNoTracking()
+                    .Include(funcionario => funcionario.Login) // Inclui o objeto Login na consulta
+                    .Where(funcionario => funcionario.Login.Role == cargoSelecionado)
+                    .ToList();
+        }
     }
 }

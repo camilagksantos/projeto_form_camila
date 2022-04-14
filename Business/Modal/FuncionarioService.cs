@@ -6,18 +6,18 @@ namespace projeto_form_camila.Business.Modal
     internal class FuncionarioService
     {
         //propriedade 
-        public FuncionarioDAO FuncionarioDAO { get; set; }
+        public FuncionarioDAO funcionarioDAO { get; set; }
 
         //construtor que instancia um obj do tipo FuncionarioDao que é a classe que solicita ao _contexto o acesso a base de dados
         public FuncionarioService()
         {
-            FuncionarioDAO = new FuncionarioDAO();
+            funcionarioDAO = new FuncionarioDAO();
         }
 
         //método que faz a requisição da lista completa de Funcionarios
         internal List<Funcionario> buscarFuncionarios()
         {
-            return FuncionarioDAO.buscarFuncionarios();
+            return funcionarioDAO.buscarFuncionarios();
         }
 
         //metodo que cria um obj do tipo Funcionario, atribui valores recebidos por parametros e solicita ao FuncionarioDAO para salvar
@@ -27,7 +27,7 @@ namespace projeto_form_camila.Business.Modal
             funcionario.Nome = nome;
             funcionario.LoginId = loginId;
 
-            FuncionarioDAO.salvarFuncionarioBd(funcionario);
+            funcionarioDAO.salvarFuncionarioBd(funcionario);
         }
 
         //metodo que cria um obj do tipo Funcionario, atribui valores recebidos por parametros e solicita ao FuncionarioDAO para atualizar
@@ -38,7 +38,7 @@ namespace projeto_form_camila.Business.Modal
             funcionario.Nome = nome;
             funcionario.LoginId = loginId;
 
-            FuncionarioDAO.atualizarFuncionarioBd(funcionario);
+            funcionarioDAO.atualizarFuncionarioBd(funcionario);
         }
 
         //método que cria um obj do tipo Funcionario para referenciar ao FuncionarioDAO um obj para remover
@@ -49,7 +49,12 @@ namespace projeto_form_camila.Business.Modal
             funcionario.Nome = nome;
             funcionario.LoginId = loginId;
 
-            FuncionarioDAO.removerFuncionarioBd(funcionario);
+            funcionarioDAO.removerFuncionarioBd(funcionario);
+        }
+
+        internal List<Funcionario> buscarFuncionariosFiltrados(string cargoSelecionado)
+        {
+            return funcionarioDAO.buscarFuncionariosFiltrados(cargoSelecionado);
         }
     }
 }
