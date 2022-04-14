@@ -1,5 +1,4 @@
 ﻿using projeto_form_camila.Business.Models;
-using projeto_form_camila.Models;
 using projeto_form_camila.Persistence;
 
 namespace projeto_form_camila.Business.Modal
@@ -32,7 +31,7 @@ namespace projeto_form_camila.Business.Modal
         }
 
         //metodo que cria um obj do tipo Funcionario, atribui valores recebidos por parametros e solicita ao FuncionarioDAO para atualizar
-        internal void atualizarCliente(int idFuncionario, string nome, int loginId)
+        internal void atualizarFuncionario(int idFuncionario, string nome, int loginId)
         {
             Funcionario funcionario = new Funcionario();
             funcionario.IdFuncionario = idFuncionario;
@@ -43,7 +42,7 @@ namespace projeto_form_camila.Business.Modal
         }
 
         //método que cria um obj do tipo Funcionario para referenciar ao FuncionarioDAO um obj para remover
-        internal void removerCliente(int idFuncionario, string nome, int loginId)
+        internal void removerFuncionario(int idFuncionario, string nome, int loginId)
         {
             Funcionario funcionario = new Funcionario();
             funcionario.IdFuncionario = idFuncionario;

@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using projeto_form_camila.Business.Models;
 using projeto_form_camila.Models;
 
 namespace projeto_form_camila.Persistence
@@ -30,6 +31,9 @@ namespace projeto_form_camila.Persistence
         //método que envia uma solicitação de atualização de um Disciplina
         internal void atualizarDisciplinaBd(Disciplina disciplina)
         {
+            var disciplinaFind = _Context.Disciplinas.Find(disciplina.IdDisciplina); // Encontra a entidade existente
+            _Context.Entry(disciplinaFind).State = EntityState.Detached; // Desanexa a entidade
+
             _Context.Disciplinas.Update(disciplina);
             _Context.SaveChanges();
         }

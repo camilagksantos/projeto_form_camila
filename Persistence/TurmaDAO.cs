@@ -31,6 +31,9 @@ namespace projeto_form_camila.Persistence
         //método que envia uma solicitação de atualização de um Turma
         internal void atualizarTurmaBd(Turma turma)
         {
+            var turmaFind = _Context.Turmas.Find(turma.IdTurma); // Encontra a entidade existente
+            _Context.Entry(turmaFind).State = EntityState.Detached; // Desanexa a entidade
+
             _Context.Turmas.Update(turma);
             _Context.SaveChanges();
         }

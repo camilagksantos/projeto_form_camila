@@ -1,4 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualBasic.Logging;
+using projeto_form_camila.Business.Models;
 using projeto_form_camila.Models;
 
 namespace projeto_form_camila.Persistence
@@ -30,14 +32,20 @@ namespace projeto_form_camila.Persistence
         //método que envia uma solicitação de atualização de um Login
         internal void atualizarLoginBd(Login login)
         {
+            var loginFind = _Context.Logins.Find(login.IdLogin); // Encontra a entidade existente
+            _Context.Entry(loginFind).State = EntityState.Detached; // Desanexa a entidade
+
             _Context.Logins.Update(login);
             _Context.SaveChanges();
         }
 
         //método que pede ao _Context para remover um Login
-        internal void removerLoginBd(Login user)
+        internal void removerLoginBd(Login login)
         {
-            _Context.Logins.Remove(user);
+            var loginFind = _Context.Logins.Find(login.IdLogin); // Encontra a entidade existente
+            _Context.Entry(loginFind).State = EntityState.Detached; // Desanexa a entidade
+
+            _Context.Logins.Remove(login);
             _Context.SaveChanges();
         }
 

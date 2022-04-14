@@ -51,8 +51,8 @@
             btnDirFuncionariosRemover = new Button();
             btnDirFuncionariosAtualizar = new Button();
             btnDirFuncionariosAdicionar = new Button();
-            cbxDirFuncionarioCargo = new ComboBox();
-            lblDirFuncionarioCargo = new Label();
+            cbxDirFuncionarioLogin = new ComboBox();
+            lblDirFuncionarioLogin = new Label();
             txtDirFuncionarioNome = new TextBox();
             lblDirFuncionarioNome = new Label();
             txtDirFuncionarioId = new TextBox();
@@ -335,8 +335,8 @@
             tabPFuncionarios.Controls.Add(btnDirFuncionariosRemover);
             tabPFuncionarios.Controls.Add(btnDirFuncionariosAtualizar);
             tabPFuncionarios.Controls.Add(btnDirFuncionariosAdicionar);
-            tabPFuncionarios.Controls.Add(cbxDirFuncionarioCargo);
-            tabPFuncionarios.Controls.Add(lblDirFuncionarioCargo);
+            tabPFuncionarios.Controls.Add(cbxDirFuncionarioLogin);
+            tabPFuncionarios.Controls.Add(lblDirFuncionarioLogin);
             tabPFuncionarios.Controls.Add(txtDirFuncionarioNome);
             tabPFuncionarios.Controls.Add(lblDirFuncionarioNome);
             tabPFuncionarios.Controls.Add(txtDirFuncionarioId);
@@ -375,6 +375,7 @@
             btnDirFuncionariosRemover.TabIndex = 55;
             btnDirFuncionariosRemover.Text = "Remover";
             btnDirFuncionariosRemover.UseVisualStyleBackColor = true;
+            btnDirFuncionariosRemover.Click += btnDirFuncionariosRemover_Click;
             // 
             // btnDirFuncionariosAtualizar
             // 
@@ -384,6 +385,7 @@
             btnDirFuncionariosAtualizar.TabIndex = 54;
             btnDirFuncionariosAtualizar.Text = "Atualizar";
             btnDirFuncionariosAtualizar.UseVisualStyleBackColor = true;
+            btnDirFuncionariosAtualizar.Click += btnDirFuncionariosAtualizar_Click;
             // 
             // btnDirFuncionariosAdicionar
             // 
@@ -393,23 +395,24 @@
             btnDirFuncionariosAdicionar.TabIndex = 53;
             btnDirFuncionariosAdicionar.Text = "Adicionar";
             btnDirFuncionariosAdicionar.UseVisualStyleBackColor = true;
+            btnDirFuncionariosAdicionar.Click += btnDirFuncionariosAdicionar_Click;
             // 
-            // cbxDirFuncionarioCargo
+            // cbxDirFuncionarioLogin
             // 
-            cbxDirFuncionarioCargo.FormattingEnabled = true;
-            cbxDirFuncionarioCargo.Location = new Point(12, 335);
-            cbxDirFuncionarioCargo.Name = "cbxDirFuncionarioCargo";
-            cbxDirFuncionarioCargo.Size = new Size(432, 44);
-            cbxDirFuncionarioCargo.TabIndex = 51;
+            cbxDirFuncionarioLogin.FormattingEnabled = true;
+            cbxDirFuncionarioLogin.Location = new Point(12, 335);
+            cbxDirFuncionarioLogin.Name = "cbxDirFuncionarioLogin";
+            cbxDirFuncionarioLogin.Size = new Size(432, 44);
+            cbxDirFuncionarioLogin.TabIndex = 51;
             // 
-            // lblDirFuncionarioCargo
+            // lblDirFuncionarioLogin
             // 
-            lblDirFuncionarioCargo.AutoSize = true;
-            lblDirFuncionarioCargo.Location = new Point(12, 275);
-            lblDirFuncionarioCargo.Name = "lblDirFuncionarioCargo";
-            lblDirFuncionarioCargo.Size = new Size(100, 36);
-            lblDirFuncionarioCargo.TabIndex = 43;
-            lblDirFuncionarioCargo.Text = "Cargo";
+            lblDirFuncionarioLogin.AutoSize = true;
+            lblDirFuncionarioLogin.Location = new Point(12, 275);
+            lblDirFuncionarioLogin.Name = "lblDirFuncionarioLogin";
+            lblDirFuncionarioLogin.Size = new Size(95, 36);
+            lblDirFuncionarioLogin.TabIndex = 43;
+            lblDirFuncionarioLogin.Text = "Login";
             // 
             // txtDirFuncionarioNome
             // 
@@ -449,6 +452,7 @@
             dgvDirFuncionarios.Location = new Point(471, 2);
             dgvDirFuncionarios.Name = "dgvDirFuncionarios";
             dgvDirFuncionarios.RowHeadersWidth = 82;
+            dgvDirFuncionarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvDirFuncionarios.Size = new Size(1413, 871);
             dgvDirFuncionarios.TabIndex = 38;
             // 
@@ -1286,7 +1290,7 @@
         private Button btnDirFuncionariosAtualizar;
         private Button btnDirFuncionariosAdicionar;
         private ComboBox cbxDirFuncionarioCargo;
-        private Label lblDirFuncionarioCargo;
+        private Label lblDirFuncionarioLogin;
         private TextBox txtDirFuncionarioNome;
         private Label lblDirFuncionarioNome;
         private TextBox txtDirFuncionarioId;
@@ -1352,5 +1356,6 @@
         private Label lblDirNotaId;
         private DataGridView dgvDirNotas;
         private DateTimePicker dtpDirNotaData;
+        private ComboBox cbxDirFuncionarioLogin;
     }
 }

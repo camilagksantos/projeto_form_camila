@@ -3,7 +3,6 @@ using projeto_form_camila.Business.Modal;
 using projeto_form_camila.Models;
 using projeto_form_camila.Presentation;
 
-
 namespace projeto_form_camila
 {
     public partial class LoginForm : Form
@@ -77,7 +76,8 @@ namespace projeto_form_camila
                 }
             }
         }
-
+        
+        //método que encerra toda a aplicação
         private void LoginForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             Application.Exit();

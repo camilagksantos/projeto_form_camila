@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using projeto_form_camila.Business.Models;
 using projeto_form_camila.Models;
 
 namespace projeto_form_camila.Persistence
@@ -30,6 +31,9 @@ namespace projeto_form_camila.Persistence
         //método que envia uma solicitação de atualização de um aluno
         internal void atualizarAlunoBd(Aluno aluno)
         {
+            var alunoFind = _Context.Alunos.Find(aluno.IdAluno); // Encontra a entidade existente
+            _Context.Entry(alunoFind).State = EntityState.Detached; // Desanexa a entidade
+
             _Context.Alunos.Update(aluno);
             _Context.SaveChanges();
         }

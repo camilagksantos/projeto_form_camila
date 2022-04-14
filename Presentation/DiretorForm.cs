@@ -1,23 +1,31 @@
 ﻿using projeto_form_camila.Business.Modal;
+using projeto_form_camila.Models;
 using System.Data;
+using System.Windows.Forms;
 
 namespace projeto_form_camila.Presentation
 {
     public partial class DiretorForm : Form
     {
-        //nova instancia dos serviços que gerem os modelos 
-        LoginService loginService = new LoginService();
-        FuncionarioService funcionarioService = new FuncionarioService();
-        AlunoService alunoService = new AlunoService();
-        TurmaService turmaService = new TurmaService();
-        DisciplinaService disciplinaService = new DisciplinaService();
-        NotaService notaService = new NotaService();
+        //declaração dos serviços que gerem os modelos 
+        LoginService loginService;
+        FuncionarioService funcionarioService;
+        AlunoService alunoService;
+        TurmaService turmaService;
+        DisciplinaService disciplinaService;
+        NotaService notaService;
         //=======================================================================
         //construtor
         //=======================================================================
         public DiretorForm()
         {
             InitializeComponent();
+            loginService = new LoginService();
+            funcionarioService = new FuncionarioService();
+            alunoService = new AlunoService();
+            turmaService = new TurmaService();
+            disciplinaService = new DisciplinaService();
+            notaService = new NotaService();
         }
 
         //=======================================================================
@@ -75,12 +83,12 @@ namespace projeto_form_camila.Presentation
         //=======================================================================
 
         //método que preenche as combobox do Login
-        public void PreencherCombosLogin() 
+        public void PreencherCombosLogin()
         {
-            // Obtenha a lista de roles 
-            var listaRoles = loginService.buscarRoles();
+            //Obtenha a lista de roles
+           var listaRoles = loginService.buscarRoles();
 
-            // Limpe a combobox antes de preenchê-la
+            //Limpe a combobox antes de preenchê - la
             cbxDirLoginsRole.Items.Clear();
             cbxDirLoginsFiltrarCargo.Items.Clear();
 
@@ -103,7 +111,7 @@ namespace projeto_form_camila.Presentation
 
             dgvDirLogins.DataSource = loginService.buscarLogins();
 
-            LimparCampos();
+            LimparCamposLogins();
         }
 
         //método que atualiza um Login
@@ -118,7 +126,7 @@ namespace projeto_form_camila.Presentation
 
             dgvDirLogins.DataSource = loginService.buscarLogins();
 
-            LimparCampos();
+            LimparCamposLogins();
         }
 
         //método que Remove um login
@@ -133,11 +141,11 @@ namespace projeto_form_camila.Presentation
 
             dgvDirLogins.DataSource = loginService.buscarLogins();
 
-            LimparCampos();
+            LimparCamposLogins();
         }
 
-        //método que limpa os campos do form Login
-        public void LimparCampos()
+        //método que limpa os campos da aba Login
+        public void LimparCamposLogins()
         {
             txtDirLoginsId.Text = string.Empty;
             txtDirLoginsUser.Text = string.Empty;
@@ -171,18 +179,84 @@ namespace projeto_form_camila.Presentation
         public void PreencherCombosFuncionario()
         {
             // Obtenha a lista de roles 
-            var listaRoles = loginService.buscarRoles();
+            var listaLogin = loginService.buscarLogins();
 
             // Limpe a combobox antes de preenchê-la
-            cbxDirFuncionarioCargo.Items.Clear();
+            cbxDirFuncionarioLogin.Items.Clear();
             cbxDirFuncionariosFiltrarCargo.Items.Clear();
 
             // Preencha a combobox com os roles
-            foreach (var role in listaRoles)
+            foreach (var role in listaLogin)
             {
-                cbxDirFuncionarioCargo.Items.Add(role);
+                cbxDirFuncionarioLogin.Items.Add(role);
                 cbxDirFuncionariosFiltrarCargo.Items.Add(role);
             }
+        }
+
+        //método que adiciona um funcionario
+        private void btnDirFuncionariosAdicionar_Click(object sender, EventArgs e)
+        {
+            string nome = txtDirFuncionarioNome.Text;
+            int role = Convert.ToInt32(cbxDirFuncionarioCargo.SelectedIndex);
+
+            funcionarioService.salvarFuncionario(nome, role);
+
+            dgvDirFuncionarios.DataSource = funcionarioService.buscarFuncionarios();
+
+            LimparCamposFuncionarios();
+        }
+
+        //método que atualiza um funcionario
+        private void btnDirFuncionariosAtualizar_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(txtDirFuncionarioId.Text);
+            string nome = txtDirFuncionarioNome.Text;
+            int role = Convert.ToInt32(cbxDirFuncionarioCargo.SelectedIndex);
+
+            funcionarioService.atualizarFuncionario(id, nome, role);
+
+            dgvDirFuncionarios.DataSource = funcionarioService.buscarFuncionarios();
+
+            LimparCamposFuncionarios();
+        }
+
+        //método que Remove um Funcionario
+        private void btnDirFuncionariosRemover_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(txtDirFuncionarioId.Text);
+            string nome = txtDirFuncionarioNome.Text;
+            int role = Convert.ToInt32(cbxDirFuncionarioCargo.SelectedIndex);
+
+            funcionarioService.removerFuncionario(id, nome, role);
+
+            dgvDirFuncionarios.DataSource = funcionarioService.buscarFuncionarios();
+
+            LimparCamposFuncionarios();
+        }
+
+        //método que limpa os campos da aba FUncionarios
+        public void LimparCamposFuncionarios()
+        {
+            txtDirFuncionarioId.Text = string.Empty;
+            txtDirFuncionarioNome.Text = string.Empty;
+            cbxDirFuncionarioCargo.Text = string.Empty;
+            cbxDirFuncionariosFiltrarCargo.Text= string.Empty;
+        }
+
+        //método que ao selecionar umalista na dgv preenche os respectivos campos
+        private void dgvDirFuncionarios_SelectionChanged(object sender, EventArgs e)
+        {
+            //// Verifica se há uma linha selecionada
+            //if (dgvDirFuncionarios.SelectedRows.Count > 0)
+            //{
+            //    // Obtem a linha selecionada
+            //    DataGridViewRow selectedRow = dgvDirFuncionarios.SelectedRows[0];
+
+            //    // Preenche os campos do formulário com os dados da linha selecionada
+            //    txtDirFuncionarioId.Text = selectedRow.Cells["IdFuncionario"].Value.ToString();
+            //    txtDirFuncionarioNome.Text = selectedRow.Cells["Nome"].Value.ToString();
+            //    cbxDirFuncionarioCargo.Text = selectedRow.Cells["LoginId"].Value.ToString();
+            //}
         }
 
         //=======================================================================

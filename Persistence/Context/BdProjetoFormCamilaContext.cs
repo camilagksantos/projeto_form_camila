@@ -24,12 +24,12 @@ public partial class BdProjetoFormCamilaContext : DbContext
 
     public virtual DbSet<Login> Logins { get; set; }
 
-    public virtual DbSet<Nota> Nota { get; set; }
+    public virtual DbSet<Nota> Notas { get; set; }
 
     public virtual DbSet<Turma> Turmas { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        => optionsBuilder.UseSqlServer("Data Source=XX.XX.XX.XX,62444;Initial Catalog=bd_projeto_form_camila;User ID=EFACAMILA;Password=123.Abc##;Trust Server Certificate=True");
+        => optionsBuilder.UseSqlServer("Data Source=62.28.39.135,62444;Initial Catalog=bd_projeto_form_camila;User ID=EFACAMILA;Password=123.Abc##;Trust Server Certificate=True");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

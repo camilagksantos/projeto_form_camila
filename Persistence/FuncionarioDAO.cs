@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualBasic.Logging;
 using projeto_form_camila.Business.Models;
 using projeto_form_camila.Models;
 
@@ -31,6 +32,9 @@ namespace projeto_form_camila.Persistence
         //método que envia uma solicitação de atualização de um Funcionario
         internal void atualizarFuncionarioBd(Funcionario funcionario)
         {
+            var funcionarioFind = _Context.Funcionarios.Find(funcionario.IdFuncionario); // Encontra a entidade existente
+            _Context.Entry(funcionarioFind).State = EntityState.Detached; // Desanexa a entidade
+
             _Context.Funcionarios.Update(funcionario);
             _Context.SaveChanges();
         }
