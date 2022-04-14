@@ -41,6 +41,9 @@ namespace projeto_form_camila.Persistence
         //método que pede ao _Context para remover um aluno
         internal void removerAlunoBd(Aluno aluno)
         {
+            var alunoFind = _Context.Alunos.Find(aluno.IdAluno); // Encontra a entidade existente
+            _Context.Entry(alunoFind).State = EntityState.Detached; // Desanexa a entidade
+
             _Context.Alunos.Remove(aluno);
             _Context.SaveChanges();
         }

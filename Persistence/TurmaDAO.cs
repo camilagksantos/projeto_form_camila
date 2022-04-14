@@ -41,6 +41,9 @@ namespace projeto_form_camila.Persistence
         //método que pede ao _Context para remover um Turma
         internal void removerTurmaBd(Turma turma)
         {
+            var turmaFind = _Context.Turmas.Find(turma.IdTurma); // Encontra a entidade existente
+            _Context.Entry(turmaFind).State = EntityState.Detached; // Desanexa a entidade
+
             _Context.Turmas.Remove(turma);
             _Context.SaveChanges();
         }

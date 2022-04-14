@@ -40,9 +40,12 @@ namespace projeto_form_camila.Persistence
         }
 
         //método que pede ao _Context para remover um Nota
-        internal void removerNotaBd(Nota Nota)
+        internal void removerNotaBd(Nota nota)
         {
-            _Context.Notas.Remove(Nota);
+            var notaFind = _Context.Notas.Find(nota.IdNota); // Encontra a entidade existente
+            _Context.Entry(notaFind).State = EntityState.Detached; // Desanexa a entidade
+
+            _Context.Notas.Remove(nota);
             _Context.SaveChanges();
         }
     }

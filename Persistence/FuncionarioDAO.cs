@@ -42,6 +42,9 @@ namespace projeto_form_camila.Persistence
         //método que pede ao _Context para remover um Funcionario
         internal void removerFuncionarioBd(Funcionario funcionario)
         {
+            var funcionarioFind = _Context.Funcionarios.Find(funcionario.IdFuncionario); // Encontra a entidade existente
+            _Context.Entry(funcionarioFind).State = EntityState.Detached; // Desanexa a entidade
+
             _Context.Funcionarios.Remove(funcionario);
             _Context.SaveChanges();
         }

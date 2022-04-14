@@ -178,17 +178,27 @@ namespace projeto_form_camila.Presentation
         //método que preenche as combobox do Funcionario
         public void PreencherCombosFuncionario()
         {
-            // Obtenha a lista de roles 
+            // Obtenha a lista de roles  e logins
             var listaLogin = loginService.buscarLogins();
+            var listaRoles = loginService.buscarRoles();
 
             // Limpe a combobox antes de preenchê-la
-            cbxDirFuncionarioLogin.Items.Clear();
+            cbxDirFuncionariosLogin.Items.Clear();
             cbxDirFuncionariosFiltrarCargo.Items.Clear();
 
-            // Preencha a combobox com os roles
-            foreach (var role in listaLogin)
+            // Defina o DisplayMember e ValueMember para a combobox
+            cbxDirFuncionariosLogin.DisplayMember = "Username";
+            cbxDirFuncionariosLogin.ValueMember = "IdLogin";
+
+            // Preencha a combobox com os logins
+            foreach (var login in listaLogin)
             {
-                cbxDirFuncionarioLogin.Items.Add(role);
+                cbxDirFuncionariosLogin.Items.Add(login);
+            }
+
+            // Preencha a combobox com os roles
+            foreach (var role in listaRoles)
+            {
                 cbxDirFuncionariosFiltrarCargo.Items.Add(role);
             }
         }
@@ -197,9 +207,9 @@ namespace projeto_form_camila.Presentation
         private void btnDirFuncionariosAdicionar_Click(object sender, EventArgs e)
         {
             string nome = txtDirFuncionarioNome.Text;
-            int role = Convert.ToInt32(cbxDirFuncionarioCargo.SelectedIndex);
+            int login = Convert.ToInt32(cbxDirFuncionariosLogin.SelectedIndex);
 
-            funcionarioService.salvarFuncionario(nome, role);
+            funcionarioService.salvarFuncionario(nome, login);
 
             dgvDirFuncionarios.DataSource = funcionarioService.buscarFuncionarios();
 
@@ -211,9 +221,9 @@ namespace projeto_form_camila.Presentation
         {
             int id = Convert.ToInt32(txtDirFuncionarioId.Text);
             string nome = txtDirFuncionarioNome.Text;
-            int role = Convert.ToInt32(cbxDirFuncionarioCargo.SelectedIndex);
+            int login = Convert.ToInt32(cbxDirFuncionariosLogin.SelectedIndex);
 
-            funcionarioService.atualizarFuncionario(id, nome, role);
+            funcionarioService.atualizarFuncionario(id, nome, login);
 
             dgvDirFuncionarios.DataSource = funcionarioService.buscarFuncionarios();
 
@@ -225,9 +235,9 @@ namespace projeto_form_camila.Presentation
         {
             int id = Convert.ToInt32(txtDirFuncionarioId.Text);
             string nome = txtDirFuncionarioNome.Text;
-            int role = Convert.ToInt32(cbxDirFuncionarioCargo.SelectedIndex);
+            int login = Convert.ToInt32(cbxDirFuncionariosLogin.SelectedIndex);
 
-            funcionarioService.removerFuncionario(id, nome, role);
+            funcionarioService.removerFuncionario(id, nome, login);
 
             dgvDirFuncionarios.DataSource = funcionarioService.buscarFuncionarios();
 
@@ -239,7 +249,7 @@ namespace projeto_form_camila.Presentation
         {
             txtDirFuncionarioId.Text = string.Empty;
             txtDirFuncionarioNome.Text = string.Empty;
-            cbxDirFuncionarioCargo.Text = string.Empty;
+            cbxDirFuncionariosLogin.Text = string.Empty;
             cbxDirFuncionariosFiltrarCargo.Text= string.Empty;
         }
 

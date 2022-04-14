@@ -51,7 +51,7 @@
             btnDirFuncionariosRemover = new Button();
             btnDirFuncionariosAtualizar = new Button();
             btnDirFuncionariosAdicionar = new Button();
-            cbxDirFuncionarioLogin = new ComboBox();
+            cbxDirFuncionariosLogin = new ComboBox();
             lblDirFuncionarioLogin = new Label();
             txtDirFuncionarioNome = new TextBox();
             lblDirFuncionarioNome = new Label();
@@ -335,7 +335,7 @@
             tabPFuncionarios.Controls.Add(btnDirFuncionariosRemover);
             tabPFuncionarios.Controls.Add(btnDirFuncionariosAtualizar);
             tabPFuncionarios.Controls.Add(btnDirFuncionariosAdicionar);
-            tabPFuncionarios.Controls.Add(cbxDirFuncionarioLogin);
+            tabPFuncionarios.Controls.Add(cbxDirFuncionariosLogin);
             tabPFuncionarios.Controls.Add(lblDirFuncionarioLogin);
             tabPFuncionarios.Controls.Add(txtDirFuncionarioNome);
             tabPFuncionarios.Controls.Add(lblDirFuncionarioNome);
@@ -397,13 +397,13 @@
             btnDirFuncionariosAdicionar.UseVisualStyleBackColor = true;
             btnDirFuncionariosAdicionar.Click += btnDirFuncionariosAdicionar_Click;
             // 
-            // cbxDirFuncionarioLogin
+            // cbxDirFuncionariosLogin
             // 
-            cbxDirFuncionarioLogin.FormattingEnabled = true;
-            cbxDirFuncionarioLogin.Location = new Point(12, 335);
-            cbxDirFuncionarioLogin.Name = "cbxDirFuncionarioLogin";
-            cbxDirFuncionarioLogin.Size = new Size(432, 44);
-            cbxDirFuncionarioLogin.TabIndex = 51;
+            cbxDirFuncionariosLogin.FormattingEnabled = true;
+            cbxDirFuncionariosLogin.Location = new Point(12, 335);
+            cbxDirFuncionariosLogin.Name = "cbxDirFuncionariosLogin";
+            cbxDirFuncionariosLogin.Size = new Size(432, 44);
+            cbxDirFuncionariosLogin.TabIndex = 51;
             // 
             // lblDirFuncionarioLogin
             // 
@@ -1356,6 +1356,6 @@
         private Label lblDirNotaId;
         private DataGridView dgvDirNotas;
         private DateTimePicker dtpDirNotaData;
-        private ComboBox cbxDirFuncionarioLogin;
+        private ComboBox cbxDirFuncionariosLogin;
     }
 }

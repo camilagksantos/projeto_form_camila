@@ -41,6 +41,9 @@ namespace projeto_form_camila.Persistence
         //método que pede ao _Context para remover um Disciplina
         internal void removerDisciplinaBd(Disciplina disciplina)
         {
+            var disciplinaFind = _Context.Disciplinas.Find(disciplina.IdDisciplina); // Encontra a entidade existente
+            _Context.Entry(disciplinaFind).State = EntityState.Detached; // Desanexa a entidade
+
             _Context.Disciplinas.Remove(disciplina);
             _Context.SaveChanges();
         }
