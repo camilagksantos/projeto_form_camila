@@ -35,7 +35,7 @@ namespace projeto_form_camila.Business.Modal
         }
 
         //metodo que cria um obj do tipo Aluno, atribui valores recebidos por parametros e solicita ao AlunoDAO para atualizar
-        internal void atualizarCliente(int idAluno, string nome, string apelido, int idade, string email, int turmaId, int loginId)
+        internal void atualizarAluno(int idAluno, string nome, string apelido, int idade, string email, int turmaId, int loginId)
         {
             Aluno aluno = new Aluno();
             aluno.IdAluno = idAluno;
@@ -50,7 +50,7 @@ namespace projeto_form_camila.Business.Modal
         }
 
         //método que cria um obj do tipo Aluno para referenciar ao AlunoDAO um obj para remover
-        internal void removerCliente(int idAluno, string nome, string apelido, int idade, string email, int turmaId, int loginId)
+        internal void removerAluno(int idAluno, string nome, string apelido, int idade, string email, int turmaId, int loginId)
         {
             Aluno aluno = new Aluno();
             aluno.IdAluno = idAluno;

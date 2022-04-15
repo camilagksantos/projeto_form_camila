@@ -2,6 +2,8 @@
 using projeto_form_camila.Models;
 using System.Data;
 using System.Windows.Forms;
+using static System.Net.Mime.MediaTypeNames;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace projeto_form_camila.Presentation
 {
@@ -35,9 +37,18 @@ namespace projeto_form_camila.Presentation
         //método que inicializa os componentes do form
         private void DiretorForm_Load(object sender, EventArgs e)
         {
+            PreencherGridsECombos();
+        }
+
+        //este método faz a chamada de todos os metodos de preenchimento
+        private void PreencherGridsECombos()
+        {
             PreencherDgvs();
             PreencherCombosLogin();
             PreencherCombosFuncionario();
+            PreencherCombosTurma();
+            PreencherCombosNotas();
+            PreencherCombosAlunos();
         }
 
         //=======================================================================
@@ -69,13 +80,27 @@ namespace projeto_form_camila.Presentation
             dgvDirDisciplinas.DataSource = disciplinaService.buscarDisciplinas();
             dgvDirNotas.DataSource = notaService.buscarNotas();
 
-            // Limpar a seleção após carregar os dados
+            // Limpa a seleção após carregar os dados
             dgvDirLogins.ClearSelection();
             dgvDirAlunos.ClearSelection();
             dgvDirFuncionarios.ClearSelection();
             dgvDirNotas.ClearSelection();
             dgvDirTurmas.ClearSelection();
             dgvDirDisciplinas.ClearSelection();
+        }
+
+        //método que procura dentro da coleção de uma combobox o index para buscar o index do valor selecionado na dgv
+        public void SelectItemByValue(System.Windows.Forms.ComboBox cbo, string value)
+        {
+            for (int i = 0; i < cbo.Items.Count; i++)
+            {
+                var prop = cbo.Items[i].GetType().GetProperty(cbo.ValueMember);
+                if (prop != null && prop.GetValue(cbo.Items[i], null).ToString() == value)
+                {
+                    cbo.SelectedIndex = i;
+                    break;
+                }
+            }
         }
 
         //=======================================================================
@@ -85,17 +110,17 @@ namespace projeto_form_camila.Presentation
         //método que preenche as combobox do Login
         public void PreencherCombosLogin()
         {
-            //Obtenha a lista de roles
+            //Obtem a lista de roles
             var listaRoles = loginService.buscarTodasRoles();
 
-            //Limpe a combobox antes de preenchê - la
+            //Limpa a combobox antes de preenchê-la
             cbxDirLoginsRole.Items.Clear();
             cbxDirLoginsFiltrarCargo.Items.Clear();
 
-            // Adicione a opção "Todos" no início da lista
+            // Adiciona a opção "Todos" no início da lista
             cbxDirLoginsFiltrarCargo.Items.Add("Todos");
 
-            // Preencha a combobox com os roles
+            // Preenche a combobox com os roles
             foreach (var role in listaRoles)
             {
                 cbxDirLoginsRole.Items.Add(role);
@@ -157,7 +182,7 @@ namespace projeto_form_camila.Presentation
             cbxDirLoginsFiltrarCargo.Text = string.Empty;
         }
 
-        //método que ao selecionar umalista na dgv preenche os respectivos campos
+        //método que ao selecionar uma lista na dgv preenche os respectivos campos
         private void dgvDirLogins_SelectionChanged(object sender, EventArgs e)
         {
             // Verifica se há uma linha selecionada
@@ -203,28 +228,28 @@ namespace projeto_form_camila.Presentation
         //método que preenche as combobox do Funcionario
         public void PreencherCombosFuncionario()
         {
-            // Obtenha a lista de roles  e logins
+            // Obtem a lista de roles  e logins
             var listaLogin = loginService.buscarLogins();
             var listaRoles = loginService.buscarRolesSemAluno();
 
-            // Limpe a combobox antes de preenchê-la
+            // Limpa a combobox antes de preenchê-la
             cbxDirFuncionariosLogin.Items.Clear();
             cbxDirFuncionariosFiltrarCargo.Items.Clear();
 
-            // Adicione a opção "Todos" no início da lista
+            // Adiciona a opção "Todos" no início da lista
             cbxDirFuncionariosFiltrarCargo.Items.Add("Todos");
 
-            // Defina o DisplayMember e ValueMember para a combobox
+            // Define o DisplayMember e ValueMember para a combobox
             cbxDirFuncionariosLogin.DisplayMember = "Username";
             cbxDirFuncionariosLogin.ValueMember = "IdLogin";
 
-            // Preencha a combobox com os logins
+            // Preenche a combobox com os logins
             foreach (var login in listaLogin)
             {
                 cbxDirFuncionariosLogin.Items.Add(login);
             }
 
-            // Preencha a combobox com os roles
+            // Preenche a combobox com os roles
             foreach (var role in listaRoles)
             {
                 cbxDirFuncionariosFiltrarCargo.Items.Add(role);
@@ -293,10 +318,17 @@ namespace projeto_form_camila.Presentation
                 // Preenche os campos do formulário com os dados da linha selecionada
                 txtDirFuncionarioId.Text = selectedRow.Cells["IdFuncionario"].Value.ToString();
                 txtDirFuncionarioNome.Text = selectedRow.Cells["Nome"].Value.ToString();
-                cbxDirFuncionariosLogin.Text = selectedRow.Cells["LoginId"].Value.ToString();
+
+
+                // guarda na variavel o valor da celula selecionada no campo "LoginId"
+                var valorSelecionado = selectedRow.Cells["LoginId"].Value.ToString();
+
+                //chama o método que procura o valor selecionado dentro  da lista dele e aplica o valor do inx no value member
+                SelectItemByValue(cbxDirFuncionariosLogin, valorSelecionado);
             }
         }
 
+        //método que filtra os resultados na grid
         private void cbxDirFuncionariosFiltrarCargo_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Obtém o cargo selecionado na ComboBox
@@ -322,16 +354,500 @@ namespace projeto_form_camila.Presentation
         //Turma
         //=======================================================================
 
+        //método que preenche as combobox da Turma
+        public void PreencherCombosTurma()
+        {
+            // Obtem a lista de Professores e Turmas
+            var listaProfessores = funcionarioService.buscarFuncionariosFiltrados("Professor");
+
+            // Limpe a combobox antes de preenchê-la
+            cbxDirTurmasProfessorId.Items.Clear();
+
+            // Defina o DisplayMember e ValueMember para a combobox de professores
+            cbxDirTurmasProfessorId.DisplayMember = "Nome";
+            cbxDirTurmasProfessorId.ValueMember = "IdFuncionario";
+
+            // Preencha a combobox com os professores
+            foreach (var professor in listaProfessores)
+            {
+                cbxDirTurmasProfessorId.Items.Add(professor);
+            }
+        }
+
+        //método que adiciona uma turma
+        private void btnDirTurmasAdicionar_Click(object sender, EventArgs e)
+        {
+            string designacao = txtDirTurmasDesignacao.Text;
+            int professorId = Convert.ToInt32(cbxDirTurmasProfessorId.SelectedIndex);
+
+            turmaService.salvarTurma(designacao, professorId);
+
+            dgvDirTurmas.DataSource = turmaService.buscarTurmas();
+
+            LimparCamposTurmas();
+        }
+
+        //método que atualiza uma turma
+        private void btnDirTurmasAtualizar_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(txtDirTurmasId.Text);
+            string designacao = txtDirTurmasDesignacao.Text;
+            int professorId = Convert.ToInt32(cbxDirTurmasProfessorId.SelectedValue);
+
+            turmaService.atualizarTurma(id, designacao, professorId);
+
+            dgvDirTurmas.DataSource = turmaService.buscarTurmas();
+
+            LimparCamposTurmas();
+        }
+
+        //método que remove uma turma
+        private void btnDirTurmasRemover_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(txtDirTurmasId.Text);
+            string designacao = txtDirTurmasDesignacao.Text;
+            int professorId = Convert.ToInt32(cbxDirTurmasProfessorId.SelectedIndex);
+
+            turmaService.removerTurma(id, designacao, professorId);
+
+            dgvDirTurmas.DataSource = turmaService.buscarTurmas();
+
+        }
+
+        //método que limpa os campos da aba Turmas
+        public void LimparCamposTurmas()
+        {
+            txtDirTurmasId.Text = string.Empty;
+            txtDirTurmasDesignacao.Text = string.Empty;
+            cbxDirTurmasProfessorId.Text = string.Empty;
+        }
+
+        //método que ao selecionar umalista na dgv preenche os respectivos campos
+        private void dgvDirTurmas_SelectionChanged(object sender, EventArgs e)
+        {
+            // Verifica se há uma linha selecionada
+            if (dgvDirTurmas.SelectedRows.Count > 0)
+            {
+                // Obtem a linha selecionada
+                DataGridViewRow selectedRow = dgvDirTurmas.SelectedRows[0];
+
+                // Preenche os campos do formulário com os dados da linha selecionada
+                txtDirTurmasId.Text = selectedRow.Cells["IdTurma"].Value.ToString();
+                txtDirTurmasDesignacao.Text = selectedRow.Cells["Designacao"].Value.ToString();
+
+                // guarda na variavel o valor da celula selecionada no campo "ProfessorId"
+                var valorSelecionado = selectedRow.Cells["ProfessorId"].Value.ToString();
+
+                //chama o método que procura o valor selecionado dentro  da lista dele e aplica o valor do inx no value member
+                SelectItemByValue(cbxDirTurmasProfessorId, valorSelecionado);
+            }
+        }
+
         //=======================================================================
         //Aluno
         //=======================================================================
+
+        //método que preenche as combobox da aluno
+        public void PreencherCombosAlunos()
+        {
+            // Obtem a lista de logins, Turmas e disciplinas
+            var listaTurmas = turmaService.buscarTurmas();
+            var listaLoginAlunos = loginService.buscarLoginsFiltrados("Aluno");
+            var listaDisciplinas = disciplinaService.buscarDisciplinas();
+
+            // Limpe a combobox antes de preenchê-la
+            cbxDirAlunosTurma.Items.Clear();
+            cbxDirAlunosLoginId.Items.Clear();
+
+            // Defina o DisplayMember e ValueMember para a combobox de turmas
+            cbxDirAlunosTurma.DisplayMember = "Designacao";
+            cbxDirAlunosTurma.ValueMember = "IdTurma";
+
+            // Defina o DisplayMember e ValueMember para a combobox de logins
+            cbxDirAlunosLoginId.DisplayMember = "Username";
+            cbxDirAlunosLoginId.ValueMember = "IdLogin";
+
+            // Preencha a combobox com as turmas
+            foreach (var turma in listaTurmas)
+            {
+                cbxDirAlunosTurma.Items.Add(turma);
+            }
+
+            // Preencha a combobox com os logins
+            foreach (var login in listaLoginAlunos)
+            {
+                cbxDirAlunosLoginId.Items.Add(login);
+            }
+        }
+
+        //método que limpa os campos da aba Turmas
+        public void LimparCamposAlunos()
+        {
+            txtDirAlunosId.Text = string.Empty;
+            txtDirAlunosNome.Text = string.Empty;
+            txtDirAlunosApelido.Text = string.Empty;
+            txtDirAlunosIdade.Text = string.Empty;
+            txtDirAlunosEmail.Text = string.Empty;
+            cbxDirAlunosTurma.Text = string.Empty;
+            cbxDirAlunosLoginId.Text = string.Empty;
+            ckxDirAlunosGpbFiltrarNotaNegativa.Checked = false;
+            ckxDirAlunosGpbFiltrarNotaPositiva.Checked = false;
+            ckbDirAlunos1Ano.Checked = false;
+            ckbDirAlunos2Ano.Checked = false;
+            ckbDirAlunos3Ano.Checked = false;
+            ckbDirAlunos4Ano.Checked = false;
+        }
+
+        //método que ao selecionar uma linha na dgv preenche os respectivos campos
+        private void dgvDirAlunos_SelectionChanged(object sender, EventArgs e)
+        {
+            // Verifica se há uma linha selecionada
+            if (dgvDirAlunos.SelectedRows.Count > 0)
+            {
+                // Obtem a linha selecionada
+                DataGridViewRow selectedRow = dgvDirAlunos.SelectedRows[0];
+
+                // Preenche os campos do formulário com os dados da linha selecionada
+                txtDirAlunosId.Text = selectedRow.Cells["IdAluno"].Value.ToString();
+                txtDirAlunosNome.Text = selectedRow.Cells["Nome"].Value.ToString();
+                txtDirAlunosApelido.Text = selectedRow.Cells["Apelido"].Value.ToString();
+                txtDirAlunosIdade.Text = selectedRow.Cells["Idade"].Value.ToString();
+                txtDirAlunosEmail.Text = selectedRow.Cells["Email"].Value.ToString();
+
+                // guarda na variavel o valor da celula selecionada no campo "ProfessorId"
+                var turmaSelecionada = selectedRow.Cells["TurmaId"].Value.ToString();
+                var LoginSelecionado = selectedRow.Cells["LoginId"].Value.ToString();
+
+                //chama o método que procura o valor selecionado dentro  da lista dele e aplica o valor do inx no value member
+                SelectItemByValue(cbxDirAlunosTurma, turmaSelecionada);
+                SelectItemByValue(cbxDirAlunosLoginId, LoginSelecionado);
+            }
+        }
+
+        //método que adiciona um aluno
+        private void btnDirAlunosAdicionar_Click(object sender, EventArgs e)
+        {
+            string nome = txtDirAlunosNome.Text;
+            string apelido = txtDirAlunosApelido.Text;
+            int idade = Convert.ToInt32(txtDirAlunosIdade.Text);
+            string email = txtDirAlunosEmail.Text;
+            int turmasId = Convert.ToInt32(cbxDirAlunosTurma.SelectedValue);
+            int loginsId = Convert.ToInt32(cbxDirAlunosLoginId.SelectedValue);
+
+            alunoService.salvarAluno(nome, apelido, idade, email, turmasId, loginsId);
+
+            dgvDirAlunos.DataSource = alunoService.buscarAlunos();
+
+            LimparCamposAlunos();
+        }
+
+        //método que atualiza um aluno
+        private void btnDirAlunosAtualizar_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(txtDirAlunosId.Text);
+            string nome = txtDirAlunosNome.Text;
+            string apelido = txtDirAlunosApelido.Text;
+            int idade = Convert.ToInt32(txtDirAlunosIdade.Text);
+            string email = txtDirAlunosEmail.Text;
+            int turmasId = Convert.ToInt32(cbxDirAlunosTurma.SelectedValue);
+            int loginsId = Convert.ToInt32(cbxDirAlunosLoginId.SelectedValue);
+
+            alunoService.atualizarAluno(id, nome, apelido, idade, email, turmasId, loginsId);
+
+            dgvDirAlunos.DataSource = alunoService.buscarAlunos();
+
+            LimparCamposAlunos();
+        }
+
+        //método que remove um aluno
+        private void btnDirAlunosRemover_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(txtDirAlunosId.Text);
+            string nome = txtDirAlunosNome.Text;
+            string apelido = txtDirAlunosApelido.Text;
+            int idade = Convert.ToInt32(txtDirAlunosIdade.Text);
+            string email = txtDirAlunosEmail.Text;
+            int turmasId = Convert.ToInt32(cbxDirAlunosTurma.SelectedValue);
+            int loginsId = Convert.ToInt32(cbxDirAlunosLoginId.SelectedValue);
+
+            alunoService.removerAluno(id, nome, apelido, idade, email, turmasId, loginsId);
+
+            dgvDirAlunos.DataSource = alunoService.buscarAlunos();
+
+            LimparCamposAlunos();
+        }
+
+        //método que aplica a lógica no filtro de pesquisa por turma
+        private void FiltrarTurmasPorTurma(int idTurma)
+        {
+            var turmasFiltradas = turmaService.buscarTurmasFiltradas(idTurma);
+            dgvDirAlunos.DataSource = turmasFiltradas;
+        }
+
+        private void ckbDirAlunos1Ano_CheckedChanged(object sender, EventArgs e)
+        {
+            FiltrarTurmasPorTurma(1);
+        }
+
+        private void ckbDirAlunos2Ano_CheckedChanged(object sender, EventArgs e)
+        {
+            FiltrarTurmasPorTurma(2);
+        }
+
+        private void ckbDirAlunos3Ano_CheckedChanged(object sender, EventArgs e)
+        {
+            FiltrarTurmasPorTurma(3);
+        }
+
+        private void ckbDirAlunos4Ano_CheckedChanged(object sender, EventArgs e)
+        {
+            FiltrarTurmasPorTurma(4);
+        }
+
+        //método que filtra as notas em positivas ou negativas
+        private void FiltrarNotasNota()
+        {
+            // Obter a lista de notas
+            var listaNotas = notaService.buscarNotas();
+
+            // Verificar se deve filtrar notas positivas
+            if (ckxDirNotasFiltrarNotaPositiva.Checked)
+            {
+                listaNotas = listaNotas.Where(n => n.ValorNota >= 10).ToList();
+            }
+
+            // Verificar se deve filtrar notas negativas
+            if (ckxDirNotasFiltrarNotaNegativa.Checked)
+            {
+                listaNotas = listaNotas.Where(n => n.ValorNota < 10).ToList();
+            }
+
+            // Atualizar a fonte de dados do DataGridView
+            dgvDirNotas.DataSource = listaNotas;
+        }
+
+        private void ckxDirAlunosGpbFiltrarNotaNegativa_CheckedChanged(object sender, EventArgs e)
+        {
+            FiltrarNotasNota();
+        }
+
+        private void ckxDirAlunosGpbFiltrarNotaPositiva_CheckedChanged(object sender, EventArgs e)
+        {
+            FiltrarNotasNota();
+        }
 
         //=======================================================================
         //Disciplina
         //=======================================================================
 
+        //método que ao selecionar uma linha na dgv atribui o valor de cada celula a peça correspondente
+        private void dgvDirDisciplinas_SelectionChanged(object sender, EventArgs e)
+        {
+            // Verifica se há uma linha selecionada
+            if (dgvDirDisciplinas.SelectedRows.Count > 0)
+            {
+                // Obtem a linha selecionada
+                DataGridViewRow selectedRow = dgvDirDisciplinas.SelectedRows[0];
+
+                // Preenche os campos do formulário com os dados da linha selecionada
+                txtDirDisciplinaId.Text = selectedRow.Cells["IdDisciplina"].Value.ToString();
+                txtDirDisciplinaDesignacao.Text = selectedRow.Cells["Designacao"].Value.ToString();
+            }
+        }
+
+        //método que limpa os campos da aba Disciplinas
+        public void LimparCamposDisciplinas()
+        {
+            txtDirDisciplinaId.Text = string.Empty;
+            txtDirDisciplinaDesignacao.Text = string.Empty;
+        }
+
+        //método que salva uma disciplina
+        private void btnDirDisciplinaAdicionar_Click(object sender, EventArgs e)
+        {
+            string designacao = txtDirDisciplinaDesignacao.Text;
+
+            disciplinaService.salvarDisciplina(designacao);
+
+            dgvDirDisciplinas.DataSource = disciplinaService.buscarDisciplinas();
+
+            LimparCamposDisciplinas();
+        }
+
+        //método que atualiza uma disciplina
+        private void btnDirDisciplinaAtualizar_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(txtDirDisciplinaId.Text);
+            string designacao = txtDirDisciplinaDesignacao.Text;
+
+            disciplinaService.atualizarDisciplina(id, designacao);
+
+            dgvDirDisciplinas.DataSource = disciplinaService.buscarDisciplinas();
+
+            LimparCamposDisciplinas();
+        }
+        //método que remove uma disciplina
+        private void btnDirDisciplinaRemover_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(txtDirDisciplinaId.Text);
+            string designacao = txtDirTurmasDesignacao.Text;
+
+            disciplinaService.removerDisciplina(id, designacao);
+
+            dgvDirDisciplinas.DataSource = disciplinaService.buscarDisciplinas();
+
+            LimparCamposDisciplinas();
+        }
+
         //=======================================================================
         //Nota
         //=======================================================================
+
+        //método que preenche as combobox da Turma
+        public void PreencherCombosNotas()
+        {
+            // Obtem a lista de Alunos e Disciplinas
+            var listaAlunos = alunoService.buscarAlunos();
+            var listaDisciplinas = disciplinaService.buscarDisciplinas();
+
+            // Limpa a combobox antes de preenchê-la
+            cbxDirNotaAluno.Items.Clear();
+            cbxDirNotaDisciplina.Items.Clear();
+
+            // Defina o DisplayMember e ValueMember para a combo alunos 
+            cbxDirNotaAluno.DisplayMember = "Nome";
+            cbxDirNotaAluno.ValueMember = "IdAluno";
+
+            // Defina o DisplayMember e ValueMember para a combo disciplinas
+            cbxDirNotaDisciplina.DisplayMember = "Designacao";
+            cbxDirNotaDisciplina.ValueMember = "IdDisciplina";
+
+            // Preencha a combobox com os Alunos
+            foreach (var aluno in listaAlunos)
+            {
+                cbxDirNotaAluno.Items.Add(aluno);
+            }
+
+            // Preencha a combobox com os Alunos
+            foreach (var disciplinas in listaDisciplinas)
+            {
+                cbxDirNotaDisciplina.Items.Add(disciplinas);
+            }
+        }
+
+        //método que limpa os campos da aba Notas
+        public void LimparCamposNotas()
+        {
+            txtDirNotaId.Text = string.Empty;
+            cbxDirNotaAluno.Text = string.Empty;
+            cbxDirNotaDisciplina.Text = string.Empty;
+            dtpDirNotaData.Value = DateTime.Now;
+            txtDirNotaNota.Text = string.Empty;
+            ckxDirNotasFiltrarNotaNegativa.Checked = false;
+            ckxDirNotasFiltrarNotaPositiva.Checked = false;
+        }
+
+        //método que ao selecionar uma linha na dgv e preenche os respectivos campos
+        private void dgvDirNotas_SelectionChanged(object sender, EventArgs e)
+        {
+            // Verifica se há uma linha selecionada
+            if (dgvDirNotas.SelectedRows.Count > 0)
+            {
+                // Obtem a linha selecionada
+                DataGridViewRow selectedRow = dgvDirNotas.SelectedRows[0];
+
+                // Preenche os campos do formulário com os dados da linha selecionada
+                txtDirNotaId.Text = selectedRow.Cells["IdNota"].Value.ToString();
+                txtDirNotaNota.Text = selectedRow.Cells["ValorNota"].Value.ToString();
+                dtpDirNotaData.Value = Convert.ToDateTime(selectedRow.Cells["DataAtribuicao"].Value);
+
+                // guarda na variavel o valor da celula selecionada 
+                var valorAlunoSelecionado = selectedRow.Cells["AlunoId"].Value.ToString();
+                var valorDisciplinaSelecionada = selectedRow.Cells["DisciplinaId"].Value.ToString();
+
+                //chama o método que procura o valor selecionado dentro  da lista dele e aplica o valor do inx no value member
+                SelectItemByValue(cbxDirNotaAluno, valorAlunoSelecionado);
+                SelectItemByValue(cbxDirNotaDisciplina, valorDisciplinaSelecionada);
+            }
+        }
+
+        //método que adiciona uma nota
+        private void btnDirNotasAdicionar_Click(object sender, EventArgs e)
+        {
+            int alunoId = Convert.ToInt32(cbxDirNotaAluno.SelectedIndex);
+            int disciplinaId = Convert.ToInt32(cbxDirNotaDisciplina.SelectedIndex);
+            DateTime dataAtribuicao = dtpDirNotaData.Value;
+            decimal nota = Convert.ToDecimal(txtDirTurmasDesignacao.Text);
+
+            notaService.salvarNota(alunoId, disciplinaId, dataAtribuicao, nota);
+
+            dgvDirNotas.DataSource = notaService.buscarNotas();
+
+            LimparCamposNotas();
+        }
+
+        //método que atualiza uma nota
+        private void btnDirNotasAtualizar_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(txtDirNotaId.Text);
+            int alunoId = Convert.ToInt32(cbxDirNotaAluno.SelectedIndex);
+            int disciplinaId = Convert.ToInt32(cbxDirNotaDisciplina.SelectedIndex);
+            DateTime dataAtribuicao = dtpDirNotaData.Value;
+            decimal nota = Convert.ToDecimal(txtDirTurmasDesignacao.Text);
+
+            notaService.atualizarNota(id, alunoId, disciplinaId, dataAtribuicao, nota);
+
+            dgvDirNotas.DataSource = notaService.buscarNotas();
+
+            LimparCamposNotas();
+        }
+
+        //método que remove uma nota
+        private void btnDirNotasRemover_Click(object sender, EventArgs e)
+        {
+            int id = Convert.ToInt32(txtDirNotaId.Text);
+            int alunoId = Convert.ToInt32(cbxDirNotaAluno.SelectedIndex);
+            int disciplinaId = Convert.ToInt32(cbxDirNotaDisciplina.SelectedIndex);
+            DateTime dataAtribuicao = dtpDirNotaData.Value;
+            decimal nota = Convert.ToDecimal(txtDirTurmasDesignacao.Text);
+
+            notaService.removerNota(id, alunoId, disciplinaId, dataAtribuicao, nota);
+
+            dgvDirNotas.DataSource = notaService.buscarNotas();
+
+            LimparCamposNotas();
+        }
+
+        //método que filtra as notas em positivas ou negativas
+        private void FiltrarNotas()
+        {
+            // Obter a lista de notas
+            var listaNotas = notaService.buscarNotas();
+
+            // Verificar se deve filtrar notas positivas
+            if (ckxDirNotasFiltrarNotaPositiva.Checked)
+            {
+                listaNotas = listaNotas.Where(n => n.ValorNota >= 10).ToList();
+            }
+
+            // Verificar se deve filtrar notas negativas
+            if (ckxDirNotasFiltrarNotaNegativa.Checked)
+            {
+                listaNotas = listaNotas.Where(n => n.ValorNota < 10).ToList();
+            }
+
+            // Atualizar a fonte de dados do DataGridView
+            dgvDirNotas.DataSource = listaNotas;
+        }
+
+        private void ckxDirNotasFiltrarNotaNegativa_CheckedChanged(object sender, EventArgs e)
+        {
+            FiltrarNotas();
+        }
+
+        private void ckxDirNotasFiltrarNotaPositiva_CheckedChanged(object sender, EventArgs e)
+        {
+            FiltrarNotas();
+        }
     }
 }

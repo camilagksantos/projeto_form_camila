@@ -1,6 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using projeto_form_camila.Business.Models;
 using projeto_form_camila.Models;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace projeto_form_camila.Persistence
 {
@@ -46,6 +47,16 @@ namespace projeto_form_camila.Persistence
 
             _Context.Turmas.Remove(turma);
             _Context.SaveChanges();
+        }
+
+        internal List<Turma> buscarTurmasFiltrada(string turmaSelecionada)
+        {
+            return _Context.Turmas.AsNoTracking().Where(turma => turma.Designacao.Equals(turmaSelecionada)).ToList();
+        }
+
+        internal List<Turma> buscarTurmasFiltradas(int idTurma)
+        {
+            return _Context.Turmas.Where(turma => turma.IdTurma.Equals(idTurma)).ToList();
         }
     }
 }

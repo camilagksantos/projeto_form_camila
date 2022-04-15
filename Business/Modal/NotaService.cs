@@ -33,7 +33,7 @@ namespace projeto_form_camila.Business.Modal
         }
 
         //metodo que cria um obj do tipo Nota, atribui valores recebidos por parametros e solicita ao NotaDAO para atualizar
-        internal void atualizarCliente(int idNota, int alunoId, int disciplinaId, DateTime dataAtribuicao, decimal valorNota)
+        internal void atualizarNota(int idNota, int alunoId, int disciplinaId, DateTime dataAtribuicao, decimal valorNota)
         {
             Nota nota = new Nota();
             nota.IdNota = idNota;
@@ -46,7 +46,7 @@ namespace projeto_form_camila.Business.Modal
         }
 
         //método que cria um obj do tipo Nota para referenciar ao NotaDAO um obj para remover
-        internal void removerCliente(int idNota, int alunoId, int disciplinaId, DateTime dataAtribuicao, decimal valorNota)
+        internal void removerNota(int idNota, int alunoId, int disciplinaId, DateTime dataAtribuicao, decimal valorNota)
         {
             Nota nota = new Nota();
             nota.IdNota = idNota;

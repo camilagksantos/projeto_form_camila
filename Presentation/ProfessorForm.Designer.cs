@@ -28,25 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            lblTitulo = new Label();
             SuspendLayout();
             // 
-            // label1
+            // lblTitulo
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Times New Roman", 16.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(195, 201);
-            label1.Name = "label1";
-            label1.Size = new Size(472, 49);
-            label1.TabIndex = 1;
-            label1.Text = "Formulário do Professor";
+            lblTitulo.AutoSize = true;
+            lblTitulo.Font = new Font("Times New Roman", 18F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
+            lblTitulo.Location = new Point(654, 44);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(485, 55);
+            lblTitulo.TabIndex = 2;
+            lblTitulo.Text = "Formulário do Diretor";
             // 
             // ProfessorForm
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
-            Controls.Add(label1);
+            ClientSize = new Size(1920, 1220);
+            Controls.Add(lblTitulo);
             Name = "ProfessorForm";
             Text = "ProfessorForm";
             FormClosed += ProfessorForm_FormClosed;
@@ -57,6 +57,6 @@
 
         #endregion
 
-        private Label label1;
+        private Label lblTitulo;
     }
 }

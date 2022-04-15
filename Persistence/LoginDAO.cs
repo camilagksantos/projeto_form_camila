@@ -88,5 +88,11 @@ namespace projeto_form_camila.Persistence
         {
             return _Context.Logins.AsNoTracking().Where(login => login.Role == cargoSelecionado).ToList();
         }
+
+        internal Login buscarUmLogin(string valorSelecionado)
+        {
+            var id = Convert.ToInt32(valorSelecionado); 
+            return _Context.Logins.Find(id);
+        }
     }
 }

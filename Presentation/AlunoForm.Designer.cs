@@ -28,19 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
             btnSair = new Button();
+            lblTitulo = new Label();
             SuspendLayout();
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Times New Roman", 16.125F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(156, 152);
-            label1.Name = "label1";
-            label1.Size = new Size(411, 49);
-            label1.TabIndex = 0;
-            label1.Text = "Formulário do Aluno";
             // 
             // btnSair
             // 
@@ -49,13 +39,23 @@
             btnSair.Size = new Size(75, 23);
             btnSair.TabIndex = 0;
             // 
+            // lblTitulo
+            // 
+            lblTitulo.AutoSize = true;
+            lblTitulo.Font = new Font("Times New Roman", 18F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
+            lblTitulo.Location = new Point(697, 28);
+            lblTitulo.Name = "lblTitulo";
+            lblTitulo.Size = new Size(485, 55);
+            lblTitulo.TabIndex = 2;
+            lblTitulo.Text = "Formulário do Diretor";
+            // 
             // AlunoForm
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(1920, 1220);
+            Controls.Add(lblTitulo);
             Controls.Add(btnSair);
-            Controls.Add(label1);
             Name = "AlunoForm";
             Text = "AlunoForm";
             FormClosed += AlunoForm_FormClosed;
@@ -65,8 +65,7 @@
         }
 
         #endregion
-
-        private Label label1;
         private Button btnSair;
+        private Label lblTitulo;
     }
 }

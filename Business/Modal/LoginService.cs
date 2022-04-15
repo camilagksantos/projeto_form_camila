@@ -73,5 +73,10 @@ namespace projeto_form_camila.Business.Modal
         {
             return LoginDAO.buscarLoginsFiltrados(cargoSelecionado);
         }
+
+        internal Login buscarUmLogin(string valorSelecionado)
+        {
+            return LoginDAO.buscarUmLogin(valorSelecionado);
+        }
     }
 }

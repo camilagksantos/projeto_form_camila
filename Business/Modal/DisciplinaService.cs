@@ -30,7 +30,7 @@ namespace projeto_form_camila.Business.Modal
         }
 
         //metodo que cria um obj do tipo Disciplina, atribui valores recebidos por parametros e solicita ao DisciplinaDAO para atualizar
-        internal void atualizarCliente(int idDisciplina, string designacao)
+        internal void atualizarDisciplina(int idDisciplina, string designacao)
         {
             Disciplina disciplina = new Disciplina();
             disciplina.IdDisciplina = idDisciplina;
@@ -40,7 +40,7 @@ namespace projeto_form_camila.Business.Modal
         }
 
         //método que cria um obj do tipo Disciplina para referenciar ao DisciplinaDAO um obj para remover
-        internal void removerCliente(int idDisciplina, string designacao)
+        internal void removerDisciplina(int idDisciplina, string designacao)
         {
             Disciplina disciplina = new Disciplina();
             disciplina.IdDisciplina = idDisciplina;
