@@ -29,28 +29,226 @@
         private void InitializeComponent()
         {
             lblTitulo = new Label();
+            dgvProfessor = new DataGridView();
+            dtpProfNotaData = new DateTimePicker();
+            btnProfNotasRemover = new Button();
+            btnProfNotasAtualizar = new Button();
+            btnProfNotasAdicionar = new Button();
+            cbxProfNotaDisciplina = new ComboBox();
+            cbxProfNotaAluno = new ComboBox();
+            txtProfNotaNota = new TextBox();
+            lblProfNotaNota = new Label();
+            lblProfNotaData = new Label();
+            lblProfNotaDisciplina = new Label();
+            lblProfNotaAluno = new Label();
+            txtProfNotaId = new TextBox();
+            lblProfNotaId = new Label();
+            gpbProfFiltrarNota = new GroupBox();
+            ckxProfNotaPositiva = new CheckBox();
+            ckxProfNotaNegativa = new CheckBox();
+            lblListaAlunos = new Label();
+            ((System.ComponentModel.ISupportInitialize)dgvProfessor).BeginInit();
+            gpbProfFiltrarNota.SuspendLayout();
             SuspendLayout();
             // 
             // lblTitulo
             // 
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Times New Roman", 18F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
-            lblTitulo.Location = new Point(654, 44);
+            lblTitulo.Location = new Point(641, 9);
             lblTitulo.Name = "lblTitulo";
-            lblTitulo.Size = new Size(485, 55);
+            lblTitulo.Size = new Size(528, 55);
             lblTitulo.TabIndex = 2;
-            lblTitulo.Text = "Formulário do Diretor";
+            lblTitulo.Text = "Formulário do Professor";
+            // 
+            // dgvProfessor
+            // 
+            dgvProfessor.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dgvProfessor.Location = new Point(493, 175);
+            dgvProfessor.Name = "dgvProfessor";
+            dgvProfessor.RowHeadersWidth = 82;
+            dgvProfessor.Size = new Size(1417, 1033);
+            dgvProfessor.TabIndex = 3;
+            // 
+            // dtpProfNotaData
+            // 
+            dtpProfNotaData.Location = new Point(27, 602);
+            dtpProfNotaData.Name = "dtpProfNotaData";
+            dtpProfNotaData.Size = new Size(432, 39);
+            dtpProfNotaData.TabIndex = 71;
+            // 
+            // btnProfNotasRemover
+            // 
+            btnProfNotasRemover.Location = new Point(68, 922);
+            btnProfNotasRemover.Name = "btnProfNotasRemover";
+            btnProfNotasRemover.Size = new Size(326, 46);
+            btnProfNotasRemover.TabIndex = 70;
+            btnProfNotasRemover.Text = "Remover";
+            btnProfNotasRemover.UseVisualStyleBackColor = true;
+            // 
+            // btnProfNotasAtualizar
+            // 
+            btnProfNotasAtualizar.Location = new Point(68, 857);
+            btnProfNotasAtualizar.Name = "btnProfNotasAtualizar";
+            btnProfNotasAtualizar.Size = new Size(326, 46);
+            btnProfNotasAtualizar.TabIndex = 69;
+            btnProfNotasAtualizar.Text = "Atualizar";
+            btnProfNotasAtualizar.UseVisualStyleBackColor = true;
+            // 
+            // btnProfNotasAdicionar
+            // 
+            btnProfNotasAdicionar.Location = new Point(68, 796);
+            btnProfNotasAdicionar.Name = "btnProfNotasAdicionar";
+            btnProfNotasAdicionar.Size = new Size(326, 46);
+            btnProfNotasAdicionar.TabIndex = 68;
+            btnProfNotasAdicionar.Text = "Adicionar";
+            btnProfNotasAdicionar.UseVisualStyleBackColor = true;
+            // 
+            // cbxProfNotaDisciplina
+            // 
+            cbxProfNotaDisciplina.FormattingEnabled = true;
+            cbxProfNotaDisciplina.Location = new Point(27, 481);
+            cbxProfNotaDisciplina.Name = "cbxProfNotaDisciplina";
+            cbxProfNotaDisciplina.Size = new Size(432, 40);
+            cbxProfNotaDisciplina.TabIndex = 67;
+            // 
+            // cbxProfNotaAluno
+            // 
+            cbxProfNotaAluno.FormattingEnabled = true;
+            cbxProfNotaAluno.Location = new Point(27, 349);
+            cbxProfNotaAluno.Name = "cbxProfNotaAluno";
+            cbxProfNotaAluno.Size = new Size(432, 40);
+            cbxProfNotaAluno.TabIndex = 66;
+            // 
+            // txtProfNotaNota
+            // 
+            txtProfNotaNota.Location = new Point(27, 726);
+            txtProfNotaNota.Name = "txtProfNotaNota";
+            txtProfNotaNota.Size = new Size(432, 39);
+            txtProfNotaNota.TabIndex = 65;
+            // 
+            // lblProfNotaNota
+            // 
+            lblProfNotaNota.AutoSize = true;
+            lblProfNotaNota.Location = new Point(27, 676);
+            lblProfNotaNota.Name = "lblProfNotaNota";
+            lblProfNotaNota.Size = new Size(173, 32);
+            lblProfNotaNota.TabIndex = 64;
+            lblProfNotaNota.Text = "Nota (Decimal)";
+            // 
+            // lblProfNotaData
+            // 
+            lblProfNotaData.AutoSize = true;
+            lblProfNotaData.Location = new Point(27, 544);
+            lblProfNotaData.Name = "lblProfNotaData";
+            lblProfNotaData.Size = new Size(212, 32);
+            lblProfNotaData.TabIndex = 63;
+            lblProfNotaData.Text = "Data de Atribuição";
+            // 
+            // lblProfNotaDisciplina
+            // 
+            lblProfNotaDisciplina.AutoSize = true;
+            lblProfNotaDisciplina.Location = new Point(27, 424);
+            lblProfNotaDisciplina.Name = "lblProfNotaDisciplina";
+            lblProfNotaDisciplina.Size = new Size(116, 32);
+            lblProfNotaDisciplina.TabIndex = 62;
+            lblProfNotaDisciplina.Text = "Disciplina";
+            // 
+            // lblProfNotaAluno
+            // 
+            lblProfNotaAluno.AutoSize = true;
+            lblProfNotaAluno.Location = new Point(27, 300);
+            lblProfNotaAluno.Name = "lblProfNotaAluno";
+            lblProfNotaAluno.Size = new Size(77, 32);
+            lblProfNotaAluno.TabIndex = 61;
+            lblProfNotaAluno.Text = "Aluno";
+            // 
+            // txtProfNotaId
+            // 
+            txtProfNotaId.Location = new Point(27, 225);
+            txtProfNotaId.Name = "txtProfNotaId";
+            txtProfNotaId.Size = new Size(432, 39);
+            txtProfNotaId.TabIndex = 60;
+            // 
+            // lblProfNotaId
+            // 
+            lblProfNotaId.AutoSize = true;
+            lblProfNotaId.Location = new Point(27, 171);
+            lblProfNotaId.Name = "lblProfNotaId";
+            lblProfNotaId.Size = new Size(107, 32);
+            lblProfNotaId.TabIndex = 59;
+            lblProfNotaId.Text = "Id (Nota)";
+            // 
+            // gpbProfFiltrarNota
+            // 
+            gpbProfFiltrarNota.Controls.Add(ckxProfNotaPositiva);
+            gpbProfFiltrarNota.Controls.Add(ckxProfNotaNegativa);
+            gpbProfFiltrarNota.Location = new Point(12, 1008);
+            gpbProfFiltrarNota.Name = "gpbProfFiltrarNota";
+            gpbProfFiltrarNota.Size = new Size(460, 200);
+            gpbProfFiltrarNota.TabIndex = 72;
+            gpbProfFiltrarNota.TabStop = false;
+            gpbProfFiltrarNota.Text = "Filtrar por Nota";
+            // 
+            // ckxProfNotaPositiva
+            // 
+            ckxProfNotaPositiva.AutoSize = true;
+            ckxProfNotaPositiva.Location = new Point(256, 98);
+            ckxProfNotaPositiva.Name = "ckxProfNotaPositiva";
+            ckxProfNotaPositiva.Size = new Size(126, 36);
+            ckxProfNotaPositiva.TabIndex = 1;
+            ckxProfNotaPositiva.Text = "Positiva";
+            ckxProfNotaPositiva.UseVisualStyleBackColor = true;
+            // 
+            // ckxProfNotaNegativa
+            // 
+            ckxProfNotaNegativa.AutoSize = true;
+            ckxProfNotaNegativa.Location = new Point(52, 98);
+            ckxProfNotaNegativa.Name = "ckxProfNotaNegativa";
+            ckxProfNotaNegativa.Size = new Size(141, 36);
+            ckxProfNotaNegativa.TabIndex = 0;
+            ckxProfNotaNegativa.Text = "Negativa";
+            ckxProfNotaNegativa.UseVisualStyleBackColor = true;
+            // 
+            // lblListaAlunos
+            // 
+            lblListaAlunos.AutoSize = true;
+            lblListaAlunos.Font = new Font("Times New Roman", 13.875F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
+            lblListaAlunos.Location = new Point(1022, 118);
+            lblListaAlunos.Name = "lblListaAlunos";
+            lblListaAlunos.Size = new Size(386, 42);
+            lblListaAlunos.TabIndex = 73;
+            lblListaAlunos.Text = "Lista de Alunos e Notas";
             // 
             // ProfessorForm
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1920, 1220);
+            Controls.Add(lblListaAlunos);
+            Controls.Add(gpbProfFiltrarNota);
+            Controls.Add(dtpProfNotaData);
+            Controls.Add(btnProfNotasRemover);
+            Controls.Add(btnProfNotasAtualizar);
+            Controls.Add(btnProfNotasAdicionar);
+            Controls.Add(cbxProfNotaDisciplina);
+            Controls.Add(cbxProfNotaAluno);
+            Controls.Add(txtProfNotaNota);
+            Controls.Add(lblProfNotaNota);
+            Controls.Add(lblProfNotaData);
+            Controls.Add(lblProfNotaDisciplina);
+            Controls.Add(lblProfNotaAluno);
+            Controls.Add(txtProfNotaId);
+            Controls.Add(lblProfNotaId);
+            Controls.Add(dgvProfessor);
             Controls.Add(lblTitulo);
             Name = "ProfessorForm";
             Text = "ProfessorForm";
             FormClosed += ProfessorForm_FormClosed;
             Load += ProfessorForm_Load;
+            ((System.ComponentModel.ISupportInitialize)dgvProfessor).EndInit();
+            gpbProfFiltrarNota.ResumeLayout(false);
+            gpbProfFiltrarNota.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -58,5 +256,23 @@
         #endregion
 
         private Label lblTitulo;
+        private DataGridView dgvProfessor;
+        private DateTimePicker dtpProfNotaData;
+        private Button btnProfNotasRemover;
+        private Button btnProfNotasAtualizar;
+        private Button btnProfNotasAdicionar;
+        private ComboBox cbxProfNotaDisciplina;
+        private ComboBox cbxProfNotaAluno;
+        private TextBox txtProfNotaNota;
+        private Label lblProfNotaNota;
+        private Label lblProfNotaData;
+        private Label lblProfNotaDisciplina;
+        private Label lblProfNotaAluno;
+        private TextBox txtProfNotaId;
+        private Label lblProfNotaId;
+        private GroupBox gpbProfFiltrarNota;
+        private CheckBox ckxProfNotaPositiva;
+        private CheckBox ckxProfNotaNegativa;
+        private Label lblListaAlunos;
     }
 }

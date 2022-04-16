@@ -31,6 +31,7 @@
             lblTitulo = new Label();
             tabCDiretor = new TabControl();
             tabPLogins = new TabPage();
+            btnDirLoginsLimpar = new Button();
             gpbDirLoginsFiltrarCargo = new GroupBox();
             cbxDirLoginsFiltrarCargo = new ComboBox();
             btnDirLoginsRemover = new Button();
@@ -46,6 +47,7 @@
             lblDirLoginsId = new Label();
             dgvDirLogins = new DataGridView();
             tabPFuncionarios = new TabPage();
+            btnDirFuncionariosLimpar = new Button();
             gpbDirFuncionariosFiltrarCargo = new GroupBox();
             cbxDirFuncionariosFiltrarCargo = new ComboBox();
             btnDirFuncionariosRemover = new Button();
@@ -59,9 +61,7 @@
             lblDirFuncionarioId = new Label();
             dgvDirFuncionarios = new DataGridView();
             tabPAlunos = new TabPage();
-            gpbDirAlunosFiltrarNota = new GroupBox();
-            ckxDirAlunosGpbFiltrarNotaPositiva = new CheckBox();
-            ckxDirAlunosGpbFiltrarNotaNegativa = new CheckBox();
+            btnDirAlunosLimpar = new Button();
             gpbDirAlunosFiltrarTurma = new GroupBox();
             ckbDirAlunos4Ano = new CheckBox();
             ckbDirAlunos3Ano = new CheckBox();
@@ -86,6 +86,7 @@
             lblDirAlunosId = new Label();
             dgvDirAlunos = new DataGridView();
             tabPTurmas = new TabPage();
+            btnDirTurmasLimpar = new Button();
             btnDirTurmasRemover = new Button();
             btnDirTurmasAtualizar = new Button();
             btnDirTurmasAdicionar = new Button();
@@ -97,6 +98,7 @@
             lblDirTurmasId = new Label();
             dgvDirTurmas = new DataGridView();
             tabPDisciplinas = new TabPage();
+            btnDirDisciplinasLimpar = new Button();
             btnDirDisciplinaRemover = new Button();
             btnDirDisciplinaAtualizar = new Button();
             btnDirDisciplinaAdicionar = new Button();
@@ -106,6 +108,7 @@
             lblDirDisciplinaId = new Label();
             dgvDirDisciplinas = new DataGridView();
             tabPNotas = new TabPage();
+            btnDirNotasLimpar = new Button();
             dtpDirNotaData = new DateTimePicker();
             gpbDirNotasFiltrarNota = new GroupBox();
             ckxDirNotasFiltrarNotaPositiva = new CheckBox();
@@ -131,7 +134,6 @@
             gpbDirFuncionariosFiltrarCargo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDirFuncionarios).BeginInit();
             tabPAlunos.SuspendLayout();
-            gpbDirAlunosFiltrarNota.SuspendLayout();
             gpbDirAlunosFiltrarTurma.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDirAlunos).BeginInit();
             tabPTurmas.SuspendLayout();
@@ -170,6 +172,7 @@
             // 
             // tabPLogins
             // 
+            tabPLogins.Controls.Add(btnDirLoginsLimpar);
             tabPLogins.Controls.Add(gpbDirLoginsFiltrarCargo);
             tabPLogins.Controls.Add(btnDirLoginsRemover);
             tabPLogins.Controls.Add(btnDirLoginsAtualizar);
@@ -190,6 +193,16 @@
             tabPLogins.TabIndex = 0;
             tabPLogins.Text = "        Logins        ";
             tabPLogins.UseVisualStyleBackColor = true;
+            // 
+            // btnDirLoginsLimpar
+            // 
+            btnDirLoginsLimpar.Location = new Point(58, 827);
+            btnDirLoginsLimpar.Name = "btnDirLoginsLimpar";
+            btnDirLoginsLimpar.Size = new Size(326, 46);
+            btnDirLoginsLimpar.TabIndex = 58;
+            btnDirLoginsLimpar.Text = "Limpar";
+            btnDirLoginsLimpar.UseVisualStyleBackColor = true;
+            btnDirLoginsLimpar.Click += btnDirLoginsLimpar_Click;
             // 
             // gpbDirLoginsFiltrarCargo
             // 
@@ -293,6 +306,7 @@
             // 
             txtDirLoginsId.Location = new Point(12, 76);
             txtDirLoginsId.Name = "txtDirLoginsId";
+            txtDirLoginsId.ReadOnly = true;
             txtDirLoginsId.Size = new Size(432, 44);
             txtDirLoginsId.TabIndex = 40;
             // 
@@ -318,6 +332,7 @@
             // 
             // tabPFuncionarios
             // 
+            tabPFuncionarios.Controls.Add(btnDirFuncionariosLimpar);
             tabPFuncionarios.Controls.Add(gpbDirFuncionariosFiltrarCargo);
             tabPFuncionarios.Controls.Add(btnDirFuncionariosRemover);
             tabPFuncionarios.Controls.Add(btnDirFuncionariosAtualizar);
@@ -335,6 +350,16 @@
             tabPFuncionarios.TabIndex = 1;
             tabPFuncionarios.Text = "        Funcionários        ";
             tabPFuncionarios.UseVisualStyleBackColor = true;
+            // 
+            // btnDirFuncionariosLimpar
+            // 
+            btnDirFuncionariosLimpar.Location = new Point(58, 827);
+            btnDirFuncionariosLimpar.Name = "btnDirFuncionariosLimpar";
+            btnDirFuncionariosLimpar.Size = new Size(326, 46);
+            btnDirFuncionariosLimpar.TabIndex = 59;
+            btnDirFuncionariosLimpar.Text = "Limpar";
+            btnDirFuncionariosLimpar.UseVisualStyleBackColor = true;
+            btnDirFuncionariosLimpar.Click += btnDirFuncionariosLimpar_Click;
             // 
             // gpbDirFuncionariosFiltrarCargo
             // 
@@ -422,6 +447,7 @@
             // 
             txtDirFuncionarioId.Location = new Point(12, 76);
             txtDirFuncionarioId.Name = "txtDirFuncionarioId";
+            txtDirFuncionarioId.ReadOnly = true;
             txtDirFuncionarioId.Size = new Size(432, 44);
             txtDirFuncionarioId.TabIndex = 40;
             // 
@@ -447,7 +473,7 @@
             // 
             // tabPAlunos
             // 
-            tabPAlunos.Controls.Add(gpbDirAlunosFiltrarNota);
+            tabPAlunos.Controls.Add(btnDirAlunosLimpar);
             tabPAlunos.Controls.Add(gpbDirAlunosFiltrarTurma);
             tabPAlunos.Controls.Add(btnDirAlunosRemover);
             tabPAlunos.Controls.Add(btnDirAlunosAtualizar);
@@ -474,38 +500,15 @@
             tabPAlunos.Text = "        Alunos            ";
             tabPAlunos.UseVisualStyleBackColor = true;
             // 
-            // gpbDirAlunosFiltrarNota
+            // btnDirAlunosLimpar
             // 
-            gpbDirAlunosFiltrarNota.Controls.Add(ckxDirAlunosGpbFiltrarNotaPositiva);
-            gpbDirAlunosFiltrarNota.Controls.Add(ckxDirAlunosGpbFiltrarNotaNegativa);
-            gpbDirAlunosFiltrarNota.Location = new Point(1265, 879);
-            gpbDirAlunosFiltrarNota.Name = "gpbDirAlunosFiltrarNota";
-            gpbDirAlunosFiltrarNota.Size = new Size(460, 200);
-            gpbDirAlunosFiltrarNota.TabIndex = 36;
-            gpbDirAlunosFiltrarNota.TabStop = false;
-            gpbDirAlunosFiltrarNota.Text = "Filtrar por Nota";
-            // 
-            // ckxDirAlunosGpbFiltrarNotaPositiva
-            // 
-            ckxDirAlunosGpbFiltrarNotaPositiva.AutoSize = true;
-            ckxDirAlunosGpbFiltrarNotaPositiva.Location = new Point(275, 80);
-            ckxDirAlunosGpbFiltrarNotaPositiva.Name = "ckxDirAlunosGpbFiltrarNotaPositiva";
-            ckxDirAlunosGpbFiltrarNotaPositiva.Size = new Size(156, 40);
-            ckxDirAlunosGpbFiltrarNotaPositiva.TabIndex = 35;
-            ckxDirAlunosGpbFiltrarNotaPositiva.Text = "Positiva";
-            ckxDirAlunosGpbFiltrarNotaPositiva.UseVisualStyleBackColor = true;
-            ckxDirAlunosGpbFiltrarNotaPositiva.CheckedChanged += ckxDirAlunosGpbFiltrarNotaPositiva_CheckedChanged;
-            // 
-            // ckxDirAlunosGpbFiltrarNotaNegativa
-            // 
-            ckxDirAlunosGpbFiltrarNotaNegativa.AutoSize = true;
-            ckxDirAlunosGpbFiltrarNotaNegativa.Location = new Point(48, 80);
-            ckxDirAlunosGpbFiltrarNotaNegativa.Name = "ckxDirAlunosGpbFiltrarNotaNegativa";
-            ckxDirAlunosGpbFiltrarNotaNegativa.Size = new Size(168, 40);
-            ckxDirAlunosGpbFiltrarNotaNegativa.TabIndex = 34;
-            ckxDirAlunosGpbFiltrarNotaNegativa.Text = "Negativa";
-            ckxDirAlunosGpbFiltrarNotaNegativa.UseVisualStyleBackColor = true;
-            ckxDirAlunosGpbFiltrarNotaNegativa.CheckedChanged += ckxDirAlunosGpbFiltrarNotaNegativa_CheckedChanged;
+            btnDirAlunosLimpar.Location = new Point(70, 837);
+            btnDirAlunosLimpar.Name = "btnDirAlunosLimpar";
+            btnDirAlunosLimpar.Size = new Size(326, 46);
+            btnDirAlunosLimpar.TabIndex = 37;
+            btnDirAlunosLimpar.Text = "Limpar";
+            btnDirAlunosLimpar.UseVisualStyleBackColor = true;
+            btnDirAlunosLimpar.Click += btnDirAlunosLimpar_Click;
             // 
             // gpbDirAlunosFiltrarTurma
             // 
@@ -513,7 +516,7 @@
             gpbDirAlunosFiltrarTurma.Controls.Add(ckbDirAlunos3Ano);
             gpbDirAlunosFiltrarTurma.Controls.Add(ckbDirAlunos2Ano);
             gpbDirAlunosFiltrarTurma.Controls.Add(ckbDirAlunos1Ano);
-            gpbDirAlunosFiltrarTurma.Location = new Point(719, 879);
+            gpbDirAlunosFiltrarTurma.Location = new Point(977, 879);
             gpbDirAlunosFiltrarTurma.Name = "gpbDirAlunosFiltrarTurma";
             gpbDirAlunosFiltrarTurma.Size = new Size(460, 200);
             gpbDirAlunosFiltrarTurma.TabIndex = 35;
@@ -566,7 +569,7 @@
             // 
             // btnDirAlunosRemover
             // 
-            btnDirAlunosRemover.Location = new Point(67, 1019);
+            btnDirAlunosRemover.Location = new Point(70, 1024);
             btnDirAlunosRemover.Name = "btnDirAlunosRemover";
             btnDirAlunosRemover.Size = new Size(326, 46);
             btnDirAlunosRemover.TabIndex = 34;
@@ -576,7 +579,7 @@
             // 
             // btnDirAlunosAtualizar
             // 
-            btnDirAlunosAtualizar.Location = new Point(67, 954);
+            btnDirAlunosAtualizar.Location = new Point(70, 959);
             btnDirAlunosAtualizar.Name = "btnDirAlunosAtualizar";
             btnDirAlunosAtualizar.Size = new Size(326, 46);
             btnDirAlunosAtualizar.TabIndex = 33;
@@ -586,7 +589,7 @@
             // 
             // btnDirAlunosAdicionar
             // 
-            btnDirAlunosAdicionar.Location = new Point(67, 893);
+            btnDirAlunosAdicionar.Location = new Point(70, 898);
             btnDirAlunosAdicionar.Name = "btnDirAlunosAdicionar";
             btnDirAlunosAdicionar.Size = new Size(326, 46);
             btnDirAlunosAdicionar.TabIndex = 32;
@@ -597,7 +600,7 @@
             // cbxDirAlunosLoginId
             // 
             cbxDirAlunosLoginId.FormattingEnabled = true;
-            cbxDirAlunosLoginId.Location = new Point(21, 830);
+            cbxDirAlunosLoginId.Location = new Point(21, 744);
             cbxDirAlunosLoginId.Name = "cbxDirAlunosLoginId";
             cbxDirAlunosLoginId.Size = new Size(432, 44);
             cbxDirAlunosLoginId.TabIndex = 31;
@@ -605,7 +608,7 @@
             // cbxDirAlunosTurma
             // 
             cbxDirAlunosTurma.FormattingEnabled = true;
-            cbxDirAlunosTurma.Location = new Point(21, 700);
+            cbxDirAlunosTurma.Location = new Point(21, 630);
             cbxDirAlunosTurma.Name = "cbxDirAlunosTurma";
             cbxDirAlunosTurma.Size = new Size(432, 44);
             cbxDirAlunosTurma.TabIndex = 30;
@@ -613,7 +616,7 @@
             // lblDirAlunosLogin
             // 
             lblDirAlunosLogin.AutoSize = true;
-            lblDirAlunosLogin.Location = new Point(21, 775);
+            lblDirAlunosLogin.Location = new Point(21, 695);
             lblDirAlunosLogin.Name = "lblDirAlunosLogin";
             lblDirAlunosLogin.Size = new Size(132, 36);
             lblDirAlunosLogin.TabIndex = 28;
@@ -622,7 +625,7 @@
             // lblDirAlunosTurma
             // 
             lblDirAlunosTurma.AutoSize = true;
-            lblDirAlunosTurma.Location = new Point(21, 640);
+            lblDirAlunosTurma.Location = new Point(21, 591);
             lblDirAlunosTurma.Name = "lblDirAlunosTurma";
             lblDirAlunosTurma.Size = new Size(120, 36);
             lblDirAlunosTurma.TabIndex = 26;
@@ -630,7 +633,7 @@
             // 
             // txtDirAlunosEmail
             // 
-            txtDirAlunosEmail.Location = new Point(21, 578);
+            txtDirAlunosEmail.Location = new Point(21, 526);
             txtDirAlunosEmail.Name = "txtDirAlunosEmail";
             txtDirAlunosEmail.Size = new Size(432, 44);
             txtDirAlunosEmail.TabIndex = 25;
@@ -638,7 +641,7 @@
             // lblDirAlunosEmail
             // 
             lblDirAlunosEmail.AutoSize = true;
-            lblDirAlunosEmail.Location = new Point(21, 528);
+            lblDirAlunosEmail.Location = new Point(21, 487);
             lblDirAlunosEmail.Name = "lblDirAlunosEmail";
             lblDirAlunosEmail.Size = new Size(97, 36);
             lblDirAlunosEmail.TabIndex = 24;
@@ -646,7 +649,7 @@
             // 
             // txtDirAlunosIdade
             // 
-            txtDirAlunosIdade.Location = new Point(21, 452);
+            txtDirAlunosIdade.Location = new Point(21, 421);
             txtDirAlunosIdade.Name = "txtDirAlunosIdade";
             txtDirAlunosIdade.Size = new Size(432, 44);
             txtDirAlunosIdade.TabIndex = 23;
@@ -654,7 +657,7 @@
             // lblDirAlunosIdade
             // 
             lblDirAlunosIdade.AutoSize = true;
-            lblDirAlunosIdade.Location = new Point(21, 396);
+            lblDirAlunosIdade.Location = new Point(21, 372);
             lblDirAlunosIdade.Name = "lblDirAlunosIdade";
             lblDirAlunosIdade.Size = new Size(92, 36);
             lblDirAlunosIdade.TabIndex = 22;
@@ -662,7 +665,7 @@
             // 
             // txtDirAlunosApelido
             // 
-            txtDirAlunosApelido.Location = new Point(21, 326);
+            txtDirAlunosApelido.Location = new Point(21, 303);
             txtDirAlunosApelido.Name = "txtDirAlunosApelido";
             txtDirAlunosApelido.Size = new Size(432, 44);
             txtDirAlunosApelido.TabIndex = 21;
@@ -670,7 +673,7 @@
             // lblDirAlunosApelido
             // 
             lblDirAlunosApelido.AutoSize = true;
-            lblDirAlunosApelido.Location = new Point(21, 276);
+            lblDirAlunosApelido.Location = new Point(21, 264);
             lblDirAlunosApelido.Name = "lblDirAlunosApelido";
             lblDirAlunosApelido.Size = new Size(122, 36);
             lblDirAlunosApelido.TabIndex = 20;
@@ -678,7 +681,7 @@
             // 
             // txtDirAlunosNome
             // 
-            txtDirAlunosNome.Location = new Point(21, 203);
+            txtDirAlunosNome.Location = new Point(21, 195);
             txtDirAlunosNome.Name = "txtDirAlunosNome";
             txtDirAlunosNome.Size = new Size(432, 44);
             txtDirAlunosNome.TabIndex = 19;
@@ -686,7 +689,7 @@
             // lblDirAlunosNome
             // 
             lblDirAlunosNome.AutoSize = true;
-            lblDirAlunosNome.Location = new Point(21, 152);
+            lblDirAlunosNome.Location = new Point(21, 147);
             lblDirAlunosNome.Name = "lblDirAlunosNome";
             lblDirAlunosNome.Size = new Size(103, 36);
             lblDirAlunosNome.TabIndex = 18;
@@ -694,8 +697,9 @@
             // 
             // txtDirAlunosId
             // 
-            txtDirAlunosId.Location = new Point(21, 77);
+            txtDirAlunosId.Location = new Point(21, 73);
             txtDirAlunosId.Name = "txtDirAlunosId";
+            txtDirAlunosId.ReadOnly = true;
             txtDirAlunosId.Size = new Size(432, 44);
             txtDirAlunosId.TabIndex = 17;
             // 
@@ -721,6 +725,7 @@
             // 
             // tabPTurmas
             // 
+            tabPTurmas.Controls.Add(btnDirTurmasLimpar);
             tabPTurmas.Controls.Add(btnDirTurmasRemover);
             tabPTurmas.Controls.Add(btnDirTurmasAtualizar);
             tabPTurmas.Controls.Add(btnDirTurmasAdicionar);
@@ -737,6 +742,16 @@
             tabPTurmas.TabIndex = 3;
             tabPTurmas.Text = "        Turmas        ";
             tabPTurmas.UseVisualStyleBackColor = true;
+            // 
+            // btnDirTurmasLimpar
+            // 
+            btnDirTurmasLimpar.Location = new Point(58, 827);
+            btnDirTurmasLimpar.Name = "btnDirTurmasLimpar";
+            btnDirTurmasLimpar.Size = new Size(326, 46);
+            btnDirTurmasLimpar.TabIndex = 60;
+            btnDirTurmasLimpar.Text = "Limpar";
+            btnDirTurmasLimpar.UseVisualStyleBackColor = true;
+            btnDirTurmasLimpar.Click += btnDirTurmasLimpar_Click;
             // 
             // btnDirTurmasRemover
             // 
@@ -805,6 +820,7 @@
             // 
             txtDirTurmasId.Location = new Point(12, 76);
             txtDirTurmasId.Name = "txtDirTurmasId";
+            txtDirTurmasId.ReadOnly = true;
             txtDirTurmasId.Size = new Size(432, 44);
             txtDirTurmasId.TabIndex = 40;
             // 
@@ -830,6 +846,7 @@
             // 
             // tabPDisciplinas
             // 
+            tabPDisciplinas.Controls.Add(btnDirDisciplinasLimpar);
             tabPDisciplinas.Controls.Add(btnDirDisciplinaRemover);
             tabPDisciplinas.Controls.Add(btnDirDisciplinaAtualizar);
             tabPDisciplinas.Controls.Add(btnDirDisciplinaAdicionar);
@@ -844,6 +861,16 @@
             tabPDisciplinas.TabIndex = 4;
             tabPDisciplinas.Text = "        Disciplinas        ";
             tabPDisciplinas.UseVisualStyleBackColor = true;
+            // 
+            // btnDirDisciplinasLimpar
+            // 
+            btnDirDisciplinasLimpar.Location = new Point(58, 827);
+            btnDirDisciplinasLimpar.Name = "btnDirDisciplinasLimpar";
+            btnDirDisciplinasLimpar.Size = new Size(326, 46);
+            btnDirDisciplinasLimpar.TabIndex = 61;
+            btnDirDisciplinasLimpar.Text = "Limpar";
+            btnDirDisciplinasLimpar.UseVisualStyleBackColor = true;
+            btnDirDisciplinasLimpar.Click += btnDirDisciplinasLimpar_Click;
             // 
             // btnDirDisciplinaRemover
             // 
@@ -895,6 +922,7 @@
             // 
             txtDirDisciplinaId.Location = new Point(12, 76);
             txtDirDisciplinaId.Name = "txtDirDisciplinaId";
+            txtDirDisciplinaId.ReadOnly = true;
             txtDirDisciplinaId.Size = new Size(432, 44);
             txtDirDisciplinaId.TabIndex = 40;
             // 
@@ -920,6 +948,7 @@
             // 
             // tabPNotas
             // 
+            tabPNotas.Controls.Add(btnDirNotasLimpar);
             tabPNotas.Controls.Add(dtpDirNotaData);
             tabPNotas.Controls.Add(gpbDirNotasFiltrarNota);
             tabPNotas.Controls.Add(btnDirNotasRemover);
@@ -941,6 +970,16 @@
             tabPNotas.TabIndex = 5;
             tabPNotas.Text = "        Notas        ";
             tabPNotas.UseVisualStyleBackColor = true;
+            // 
+            // btnDirNotasLimpar
+            // 
+            btnDirNotasLimpar.Location = new Point(58, 827);
+            btnDirNotasLimpar.Name = "btnDirNotasLimpar";
+            btnDirNotasLimpar.Size = new Size(326, 46);
+            btnDirNotasLimpar.TabIndex = 62;
+            btnDirNotasLimpar.Text = "Limpar";
+            btnDirNotasLimpar.UseVisualStyleBackColor = true;
+            btnDirNotasLimpar.Click += btnDirNotasLimpar_Click;
             // 
             // dtpDirNotaData
             // 
@@ -1075,6 +1114,7 @@
             // 
             txtDirNotaId.Location = new Point(12, 76);
             txtDirNotaId.Name = "txtDirNotaId";
+            txtDirNotaId.ReadOnly = true;
             txtDirNotaId.Size = new Size(432, 44);
             txtDirNotaId.TabIndex = 40;
             // 
@@ -1120,8 +1160,6 @@
             ((System.ComponentModel.ISupportInitialize)dgvDirFuncionarios).EndInit();
             tabPAlunos.ResumeLayout(false);
             tabPAlunos.PerformLayout();
-            gpbDirAlunosFiltrarNota.ResumeLayout(false);
-            gpbDirAlunosFiltrarNota.PerformLayout();
             gpbDirAlunosFiltrarTurma.ResumeLayout(false);
             gpbDirAlunosFiltrarTurma.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dgvDirAlunos).EndInit();
@@ -1168,7 +1206,6 @@
         private Button btnDirAlunosRemover;
         private Button btnDirAlunosAtualizar;
         private Button btnDirAlunosAdicionar;
-        private GroupBox gpbDirAlunosFiltrarNota;
         private GroupBox gpbDirAlunosFiltrarTurma;
         private CheckBox ckbDirAlunos1Ano;
         private TextBox txtDirAlunosFiltrarNotaMaxima;
@@ -1261,8 +1298,12 @@
         private DataGridView dgvDirNotas;
         private DateTimePicker dtpDirNotaData;
         private ComboBox cbxDirFuncionariosLogin;
-        private CheckBox ckxDirAlunosGpbFiltrarNotaPositiva;
-        private CheckBox ckxDirAlunosGpbFiltrarNotaNegativa;
         private CheckBox ckxDirNotasFiltrarNotaPositiva;
+        private Button btnDirLoginsLimpar;
+        private Button btnDirAlunosLimpar;
+        private Button btnDirFuncionariosLimpar;
+        private Button btnDirTurmasLimpar;
+        private Button btnDirDisciplinasLimpar;
+        private Button btnDirNotasLimpar;
     }
 }

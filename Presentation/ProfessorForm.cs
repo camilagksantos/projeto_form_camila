@@ -1,4 +1,5 @@
-﻿using System;
+﻿using projeto_form_camila.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,11 @@ namespace projeto_form_camila.Presentation
 {
     public partial class ProfessorForm : Form
     {
-        public ProfessorForm()
+        private Login login;
+        public ProfessorForm(Login login)
         {
             InitializeComponent();
+            this.login = login;
         }
 
         private void ProfessorForm_Load(object sender, EventArgs e)

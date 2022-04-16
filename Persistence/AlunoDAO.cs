@@ -47,5 +47,20 @@ namespace projeto_form_camila.Persistence
             _Context.Alunos.Remove(aluno);
             _Context.SaveChanges();
         }
+
+        internal Aluno buscarAluno(int alunoLoginId)
+        {
+            return _Context.Alunos.SingleOrDefault(aluno => aluno.LoginId == alunoLoginId);
+        }
+
+        internal List<Aluno> buscarAlunosFiltrados(int idTurma)
+        {
+            return _Context.Alunos.Where(aluno => aluno.TurmaId == idTurma).ToList();
+        }
+
+        internal List<Aluno> FiltrarAlunosPorTurmasSelecionadas(List<int> turmasSelecionadas)
+        {
+            return _Context.Alunos.Where(aluno => turmasSelecionadas.Contains(aluno.TurmaId)).ToList();
+        }
     }
 }

@@ -34,6 +34,7 @@ namespace projeto_form_camila.Business.Modal
         internal void atualizarTurma(int idTurma, string designacao, int professorId)
         {
             Turma turma = new Turma();
+            turma.IdTurma = idTurma;
             turma.Designacao = designacao;
             turma.ProfessorId = professorId;
 
@@ -44,6 +45,7 @@ namespace projeto_form_camila.Business.Modal
         internal void removerTurma(int idTurma, string designacao, int professorId)
         {
             Turma turma = new Turma();
+            turma.IdTurma = idTurma;
             turma.Designacao = designacao;
             turma.ProfessorId = professorId;
 
@@ -53,11 +55,6 @@ namespace projeto_form_camila.Business.Modal
         internal List<Turma> buscarTurmasFiltrada(string? turmaSelecionada)
         {
             return turmaDAO.buscarTurmasFiltrada(turmaSelecionada);
-        }
-
-        internal List<Turma> buscarTurmasFiltradas(int idTurma)
-        {
-            return turmaDAO.buscarTurmasFiltradas(idTurma);
         }
     }
 }

@@ -54,7 +54,7 @@ namespace projeto_form_camila
                         case "Professor":
                             MessageBox.Show("Login efetuado com sucesso!");
                             // Chamar ProfessorForm
-                            ProfessorForm professorForm = new ProfessorForm();
+                            ProfessorForm professorForm = new ProfessorForm(login);
                             professorForm.Show();
                             // Ocultar o formulário atual
                             this.Hide();
@@ -62,7 +62,7 @@ namespace projeto_form_camila
                         default:
                             MessageBox.Show("Login efetuado com sucesso!");
                             // Chamar AlunoForm
-                            AlunoForm alunoForm = new AlunoForm();
+                            AlunoForm alunoForm = new AlunoForm(login);
                             alunoForm.Show();
                             // Ocultar o formulário atual
                             this.Hide();

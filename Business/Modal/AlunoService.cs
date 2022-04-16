@@ -6,18 +6,18 @@ namespace projeto_form_camila.Business.Modal
     internal class AlunoService
     {
         //propriedade 
-        public AlunoDAO AlunoDAO { get; set; }
+        public AlunoDAO alunoDAO { get; set; }
 
         //construtor que instancia um obj do tipo AlunoDao que é a classe que solicita ao _contexto o acesso a base de dados
         public AlunoService()
         {
-            AlunoDAO = new AlunoDAO();
+            alunoDAO = new AlunoDAO();
         }
 
         //método que faz a requisição da lista completa de Alunos
         internal List<Aluno> buscarAlunos()
         {
-            return AlunoDAO.buscarAlunos();
+            return alunoDAO.buscarAlunos();
         }
 
         //metodo que cria um obj do tipo Aluno, atribui valores recebidos por parametros e solicita ao AlunoDAO para salvar
@@ -31,7 +31,7 @@ namespace projeto_form_camila.Business.Modal
             aluno.TurmaId = turmaId;
             aluno.LoginId = loginId;
 
-            AlunoDAO.salvarAlunoBd(aluno);
+            alunoDAO.salvarAlunoBd(aluno);
         }
 
         //metodo que cria um obj do tipo Aluno, atribui valores recebidos por parametros e solicita ao AlunoDAO para atualizar
@@ -46,7 +46,7 @@ namespace projeto_form_camila.Business.Modal
             aluno.TurmaId = turmaId;
             aluno.LoginId = loginId;
 
-            AlunoDAO.atualizarAlunoBd(aluno);
+            alunoDAO.atualizarAlunoBd(aluno);
         }
 
         //método que cria um obj do tipo Aluno para referenciar ao AlunoDAO um obj para remover
@@ -61,7 +61,23 @@ namespace projeto_form_camila.Business.Modal
             aluno.TurmaId = turmaId;
             aluno.LoginId = loginId;
 
-            AlunoDAO.atualizarAlunoBd(aluno);
+            alunoDAO.removerAlunoBd(aluno);
+        }
+
+        //método que busca um aluno especifico
+        internal Aluno buscarAlunoPorLoginId(int alunoLoginId)
+        {
+            return alunoDAO.buscarAluno(alunoLoginId);
+        }
+
+        internal List<Aluno> buscarAlunosFiltrados(int idTurma)
+        {
+            return alunoDAO.buscarAlunosFiltrados(idTurma);
+        }
+
+        internal List<Aluno> FiltrarAlunosPorTurmasSelecionadas(List<int> turmasSelecionadas)
+        {
+            return alunoDAO.FiltrarAlunosPorTurmasSelecionadas(turmasSelecionadas);
         }
     }
 }

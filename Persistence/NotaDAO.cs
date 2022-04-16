@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using projeto_form_camila.Business.Modal;
 using projeto_form_camila.Business.Models;
 using projeto_form_camila.Models;
-
 
 namespace projeto_form_camila.Persistence
 {
@@ -47,6 +47,18 @@ namespace projeto_form_camila.Persistence
 
             _Context.Notas.Remove(nota);
             _Context.SaveChanges();
+        }
+
+        internal List<Nota> FiltrarNotasPositivas()
+        {
+                // Verificar se deve filtrar notas positivas
+               return _Context.Notas.Where(n => n.ValorNota >= 10).ToList();
+        }
+
+        internal List<Nota> FiltrarNotasNegativas()
+        {
+                // Verificar se deve filtrar notas negativas
+                return _Context.Notas.Where(n => n.ValorNota < 10).ToList();
         }
     }
 }

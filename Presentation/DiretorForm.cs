@@ -1,4 +1,6 @@
-﻿using projeto_form_camila.Business.Modal;
+﻿using Microsoft.EntityFrameworkCore;
+using projeto_form_camila.Business.Modal;
+using projeto_form_camila.Business.Models;
 using projeto_form_camila.Models;
 using System.Data;
 using System.Windows.Forms;
@@ -87,6 +89,31 @@ namespace projeto_form_camila.Presentation
             dgvDirNotas.ClearSelection();
             dgvDirTurmas.ClearSelection();
             dgvDirDisciplinas.ClearSelection();
+
+            //Esconder as colunas referente aos relacionamentos dos objetos
+            // Logins
+            dgvDirLogins.Columns["Alunos"].Visible = false;
+            dgvDirLogins.Columns["Funcionarios"].Visible = false;
+
+            // Funcionarios
+            dgvDirFuncionarios.Columns["Login"].Visible = false;
+            dgvDirFuncionarios.Columns["Turmas"].Visible = false;
+
+            // Alunos
+            dgvDirAlunos.Columns["Login"].Visible = false;
+            dgvDirAlunos.Columns["Nota"].Visible = false;
+            dgvDirAlunos.Columns["Turma"].Visible = false;
+
+            // Turmas
+            dgvDirTurmas.Columns["Alunos"].Visible = false;
+            dgvDirTurmas.Columns["Professor"].Visible = false;
+
+            // Disciplinas
+            dgvDirDisciplinas.Columns["Nota"].Visible = false;
+
+            // Notas
+            dgvDirNotas.Columns["Aluno"].Visible = false;
+            dgvDirNotas.Columns["Disciplina"].Visible = false;
         }
 
         //método que procura dentro da coleção de uma combobox o index para buscar o index do valor selecionado na dgv
@@ -221,6 +248,12 @@ namespace projeto_form_camila.Presentation
             }
         }
 
+        //método do botão limpar
+        private void btnDirLoginsLimpar_Click(object sender, EventArgs e)
+        {
+            LimparCamposLogins();
+        }
+
         //=======================================================================
         //Funcionario
         //=======================================================================
@@ -260,9 +293,9 @@ namespace projeto_form_camila.Presentation
         private void btnDirFuncionariosAdicionar_Click(object sender, EventArgs e)
         {
             string nome = txtDirFuncionarioNome.Text;
-            int login = Convert.ToInt32(cbxDirFuncionariosLogin.SelectedIndex);
+            Login login = (Login)cbxDirFuncionariosLogin.SelectedItem;
 
-            funcionarioService.salvarFuncionario(nome, login);
+            funcionarioService.salvarFuncionario(nome, login.IdLogin);
 
             dgvDirFuncionarios.DataSource = funcionarioService.buscarFuncionarios();
 
@@ -274,9 +307,9 @@ namespace projeto_form_camila.Presentation
         {
             int id = Convert.ToInt32(txtDirFuncionarioId.Text);
             string nome = txtDirFuncionarioNome.Text;
-            int login = Convert.ToInt32(cbxDirFuncionariosLogin.SelectedIndex);
+            Login login = (Login)cbxDirFuncionariosLogin.SelectedItem;
 
-            funcionarioService.atualizarFuncionario(id, nome, login);
+            funcionarioService.atualizarFuncionario(id, nome, login.IdLogin);
 
             dgvDirFuncionarios.DataSource = funcionarioService.buscarFuncionarios();
 
@@ -288,9 +321,9 @@ namespace projeto_form_camila.Presentation
         {
             int id = Convert.ToInt32(txtDirFuncionarioId.Text);
             string nome = txtDirFuncionarioNome.Text;
-            int login = Convert.ToInt32(cbxDirFuncionariosLogin.SelectedIndex);
+            Login login = (Login)cbxDirFuncionariosLogin.SelectedItem;
 
-            funcionarioService.removerFuncionario(id, nome, login);
+            funcionarioService.removerFuncionario(id, nome, login.IdLogin);
 
             dgvDirFuncionarios.DataSource = funcionarioService.buscarFuncionarios();
 
@@ -350,6 +383,12 @@ namespace projeto_form_camila.Presentation
             }
         }
 
+        //método do botão limpar que limpa os campos
+        private void btnDirFuncionariosLimpar_Click(object sender, EventArgs e)
+        {
+            LimparCamposFuncionarios();
+        }
+
         //=======================================================================
         //Turma
         //=======================================================================
@@ -378,9 +417,9 @@ namespace projeto_form_camila.Presentation
         private void btnDirTurmasAdicionar_Click(object sender, EventArgs e)
         {
             string designacao = txtDirTurmasDesignacao.Text;
-            int professorId = Convert.ToInt32(cbxDirTurmasProfessorId.SelectedIndex);
+            Funcionario funcionario = (Funcionario)cbxDirTurmasProfessorId.SelectedItem;
 
-            turmaService.salvarTurma(designacao, professorId);
+            turmaService.salvarTurma(designacao, funcionario.IdFuncionario);
 
             dgvDirTurmas.DataSource = turmaService.buscarTurmas();
 
@@ -392,9 +431,9 @@ namespace projeto_form_camila.Presentation
         {
             int id = Convert.ToInt32(txtDirTurmasId.Text);
             string designacao = txtDirTurmasDesignacao.Text;
-            int professorId = Convert.ToInt32(cbxDirTurmasProfessorId.SelectedValue);
+            Funcionario funcionario = (Funcionario)cbxDirTurmasProfessorId.SelectedItem;
 
-            turmaService.atualizarTurma(id, designacao, professorId);
+            turmaService.atualizarTurma(id, designacao, funcionario.IdFuncionario);
 
             dgvDirTurmas.DataSource = turmaService.buscarTurmas();
 
@@ -406,9 +445,9 @@ namespace projeto_form_camila.Presentation
         {
             int id = Convert.ToInt32(txtDirTurmasId.Text);
             string designacao = txtDirTurmasDesignacao.Text;
-            int professorId = Convert.ToInt32(cbxDirTurmasProfessorId.SelectedIndex);
+            Funcionario funcionario = (Funcionario)cbxDirTurmasProfessorId.SelectedItem;
 
-            turmaService.removerTurma(id, designacao, professorId);
+            turmaService.removerTurma(id, designacao, funcionario.IdFuncionario);
 
             dgvDirTurmas.DataSource = turmaService.buscarTurmas();
 
@@ -441,6 +480,12 @@ namespace projeto_form_camila.Presentation
                 //chama o método que procura o valor selecionado dentro  da lista dele e aplica o valor do inx no value member
                 SelectItemByValue(cbxDirTurmasProfessorId, valorSelecionado);
             }
+        }
+
+        //método do botão limpar que limpa os campos
+        private void btnDirTurmasLimpar_Click(object sender, EventArgs e)
+        {
+            LimparCamposTurmas();
         }
 
         //=======================================================================
@@ -490,8 +535,6 @@ namespace projeto_form_camila.Presentation
             txtDirAlunosEmail.Text = string.Empty;
             cbxDirAlunosTurma.Text = string.Empty;
             cbxDirAlunosLoginId.Text = string.Empty;
-            ckxDirAlunosGpbFiltrarNotaNegativa.Checked = false;
-            ckxDirAlunosGpbFiltrarNotaPositiva.Checked = false;
             ckbDirAlunos1Ano.Checked = false;
             ckbDirAlunos2Ano.Checked = false;
             ckbDirAlunos3Ano.Checked = false;
@@ -531,10 +574,10 @@ namespace projeto_form_camila.Presentation
             string apelido = txtDirAlunosApelido.Text;
             int idade = Convert.ToInt32(txtDirAlunosIdade.Text);
             string email = txtDirAlunosEmail.Text;
-            int turmasId = Convert.ToInt32(cbxDirAlunosTurma.SelectedValue);
-            int loginsId = Convert.ToInt32(cbxDirAlunosLoginId.SelectedValue);
+            Turma turma = (Turma)cbxDirAlunosTurma.SelectedItem;
+            Login login = (Login)cbxDirAlunosLoginId.SelectedItem;
 
-            alunoService.salvarAluno(nome, apelido, idade, email, turmasId, loginsId);
+            alunoService.salvarAluno(nome, apelido, idade, email, turma.IdTurma, login.IdLogin);
 
             dgvDirAlunos.DataSource = alunoService.buscarAlunos();
 
@@ -549,10 +592,10 @@ namespace projeto_form_camila.Presentation
             string apelido = txtDirAlunosApelido.Text;
             int idade = Convert.ToInt32(txtDirAlunosIdade.Text);
             string email = txtDirAlunosEmail.Text;
-            int turmasId = Convert.ToInt32(cbxDirAlunosTurma.SelectedValue);
-            int loginsId = Convert.ToInt32(cbxDirAlunosLoginId.SelectedValue);
+            Turma turma = (Turma)cbxDirAlunosTurma.SelectedItem;
+            Login login = (Login)cbxDirAlunosLoginId.SelectedItem;
 
-            alunoService.atualizarAluno(id, nome, apelido, idade, email, turmasId, loginsId);
+            alunoService.atualizarAluno(id, nome, apelido, idade, email, turma.IdTurma, login.IdLogin);
 
             dgvDirAlunos.DataSource = alunoService.buscarAlunos();
 
@@ -567,41 +610,61 @@ namespace projeto_form_camila.Presentation
             string apelido = txtDirAlunosApelido.Text;
             int idade = Convert.ToInt32(txtDirAlunosIdade.Text);
             string email = txtDirAlunosEmail.Text;
-            int turmasId = Convert.ToInt32(cbxDirAlunosTurma.SelectedValue);
-            int loginsId = Convert.ToInt32(cbxDirAlunosLoginId.SelectedValue);
+            Turma turma = (Turma)cbxDirAlunosTurma.SelectedItem;
+            Login login = (Login)cbxDirAlunosLoginId.SelectedItem;
 
-            alunoService.removerAluno(id, nome, apelido, idade, email, turmasId, loginsId);
+            alunoService.removerAluno(id, nome, apelido, idade, email, turma.IdTurma, login.IdLogin);
 
             dgvDirAlunos.DataSource = alunoService.buscarAlunos();
 
             LimparCamposAlunos();
         }
 
-        //método que aplica a lógica no filtro de pesquisa por turma
-        private void FiltrarTurmasPorTurma(int idTurma)
+        // Lista para armazenar os IDs das turmas selecionadas
+        private List<int> turmasSelecionadas = new List<int>();
+
+        private void AtualizarFiltroTurmas()
         {
-            var turmasFiltradas = turmaService.buscarTurmasFiltradas(idTurma);
-            dgvDirAlunos.DataSource = turmasFiltradas;
+            // Limpa a lista de turmas selecionadas
+            turmasSelecionadas.Clear();
+
+            // Atualizar a lista de turmas selecionadas com base no estado das checkboxes
+            if (ckbDirAlunos1Ano.Checked) turmasSelecionadas.Add(1);
+            if (ckbDirAlunos2Ano.Checked) turmasSelecionadas.Add(2);
+            if (ckbDirAlunos3Ano.Checked) turmasSelecionadas.Add(3);
+            if (ckbDirAlunos4Ano.Checked) turmasSelecionadas.Add(4);
+
+            //Se não houver turmas selecionadas, mostrar todos os alunos
+            if (!turmasSelecionadas.Any())
+            {
+                dgvDirAlunos.DataSource = alunoService.buscarAlunos().ToList();
+                return;
+            } else 
+            {
+                // Filtrar alunos com base na lista de turmas selecionadas
+                dgvDirAlunos.DataSource = alunoService.FiltrarAlunosPorTurmasSelecionadas(turmasSelecionadas);
+            }
         }
 
+        //checkbox
         private void ckbDirAlunos1Ano_CheckedChanged(object sender, EventArgs e)
         {
-            FiltrarTurmasPorTurma(1);
+            AtualizarFiltroTurmas();
         }
 
         private void ckbDirAlunos2Ano_CheckedChanged(object sender, EventArgs e)
         {
-            FiltrarTurmasPorTurma(2);
+            AtualizarFiltroTurmas();
         }
 
         private void ckbDirAlunos3Ano_CheckedChanged(object sender, EventArgs e)
         {
-            FiltrarTurmasPorTurma(3);
+            AtualizarFiltroTurmas();
         }
 
         private void ckbDirAlunos4Ano_CheckedChanged(object sender, EventArgs e)
         {
-            FiltrarTurmasPorTurma(4);
+            AtualizarFiltroTurmas();
         }
 
         //método que filtra as notas em positivas ou negativas
@@ -634,6 +697,12 @@ namespace projeto_form_camila.Presentation
         private void ckxDirAlunosGpbFiltrarNotaPositiva_CheckedChanged(object sender, EventArgs e)
         {
             FiltrarNotasNota();
+        }
+
+        //método do botao limpar que limpa os campos
+        private void btnDirAlunosLimpar_Click(object sender, EventArgs e)
+        {
+            LimparCamposAlunos();
         }
 
         //=======================================================================
@@ -696,6 +765,12 @@ namespace projeto_form_camila.Presentation
 
             dgvDirDisciplinas.DataSource = disciplinaService.buscarDisciplinas();
 
+            LimparCamposDisciplinas();
+        }
+
+        //método do botao limpar que limpa os campos
+        private void btnDirDisciplinasLimpar_Click(object sender, EventArgs e)
+        {
             LimparCamposDisciplinas();
         }
 
@@ -774,12 +849,12 @@ namespace projeto_form_camila.Presentation
         //método que adiciona uma nota
         private void btnDirNotasAdicionar_Click(object sender, EventArgs e)
         {
-            int alunoId = Convert.ToInt32(cbxDirNotaAluno.SelectedIndex);
-            int disciplinaId = Convert.ToInt32(cbxDirNotaDisciplina.SelectedIndex);
+            Aluno aluno = (Aluno)cbxDirNotaAluno.SelectedItem;
+            Disciplina disciplina = (Disciplina)cbxDirNotaDisciplina.SelectedItem;
             DateTime dataAtribuicao = dtpDirNotaData.Value;
-            decimal nota = Convert.ToDecimal(txtDirTurmasDesignacao.Text);
+            decimal nota = Convert.ToDecimal(txtDirNotaNota.Text);
 
-            notaService.salvarNota(alunoId, disciplinaId, dataAtribuicao, nota);
+            notaService.salvarNota(aluno.IdAluno, disciplina.IdDisciplina, dataAtribuicao, nota);
 
             dgvDirNotas.DataSource = notaService.buscarNotas();
 
@@ -790,12 +865,12 @@ namespace projeto_form_camila.Presentation
         private void btnDirNotasAtualizar_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(txtDirNotaId.Text);
-            int alunoId = Convert.ToInt32(cbxDirNotaAluno.SelectedIndex);
-            int disciplinaId = Convert.ToInt32(cbxDirNotaDisciplina.SelectedIndex);
+            Aluno aluno = (Aluno)cbxDirNotaAluno.SelectedItem;
+            Disciplina disciplina = (Disciplina)cbxDirNotaDisciplina.SelectedItem;
             DateTime dataAtribuicao = dtpDirNotaData.Value;
-            decimal nota = Convert.ToDecimal(txtDirTurmasDesignacao.Text);
+            decimal nota = Convert.ToDecimal(txtDirNotaNota.Text);
 
-            notaService.atualizarNota(id, alunoId, disciplinaId, dataAtribuicao, nota);
+            notaService.atualizarNota(id, aluno.IdAluno, disciplina.IdDisciplina, dataAtribuicao, nota);
 
             dgvDirNotas.DataSource = notaService.buscarNotas();
 
@@ -806,12 +881,12 @@ namespace projeto_form_camila.Presentation
         private void btnDirNotasRemover_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(txtDirNotaId.Text);
-            int alunoId = Convert.ToInt32(cbxDirNotaAluno.SelectedIndex);
-            int disciplinaId = Convert.ToInt32(cbxDirNotaDisciplina.SelectedIndex);
+            Aluno aluno = (Aluno)cbxDirNotaAluno.SelectedItem;
+            Disciplina disciplina = (Disciplina)cbxDirNotaDisciplina.SelectedItem;
             DateTime dataAtribuicao = dtpDirNotaData.Value;
-            decimal nota = Convert.ToDecimal(txtDirTurmasDesignacao.Text);
+            decimal nota = Convert.ToDecimal(txtDirNotaNota.Text);
 
-            notaService.removerNota(id, alunoId, disciplinaId, dataAtribuicao, nota);
+            notaService.removerNota(id, aluno.IdAluno, disciplina.IdDisciplina, dataAtribuicao, nota);
 
             dgvDirNotas.DataSource = notaService.buscarNotas();
 
@@ -822,18 +897,18 @@ namespace projeto_form_camila.Presentation
         private void FiltrarNotas()
         {
             // Obter a lista de notas
-            var listaNotas = notaService.buscarNotas();
+            List<Nota> listaNotas = null;
 
-            // Verificar se deve filtrar notas positivas
-            if (ckxDirNotasFiltrarNotaPositiva.Checked)
+            if (ckxDirNotasFiltrarNotaPositiva.Checked && !ckxDirNotasFiltrarNotaNegativa.Checked)
             {
-                listaNotas = listaNotas.Where(n => n.ValorNota >= 10).ToList();
+                listaNotas = notaService.FiltrarNotasPositivas();
             }
-
-            // Verificar se deve filtrar notas negativas
-            if (ckxDirNotasFiltrarNotaNegativa.Checked)
+            else if (ckxDirNotasFiltrarNotaNegativa.Checked && !ckxDirNotasFiltrarNotaPositiva.Checked)
             {
-                listaNotas = listaNotas.Where(n => n.ValorNota < 10).ToList();
+                listaNotas = notaService.FiltrarNotasNegativas();
+            } else 
+            {
+                listaNotas = notaService.buscarNotas();
             }
 
             // Atualizar a fonte de dados do DataGridView
@@ -848,6 +923,12 @@ namespace projeto_form_camila.Presentation
         private void ckxDirNotasFiltrarNotaPositiva_CheckedChanged(object sender, EventArgs e)
         {
             FiltrarNotas();
+        }
+
+        //método do botão limpar que limpa os campos
+        private void btnDirNotasLimpar_Click(object sender, EventArgs e)
+        {
+            LimparCamposNotas();
         }
     }
 }

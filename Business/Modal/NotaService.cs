@@ -6,18 +6,18 @@ namespace projeto_form_camila.Business.Modal
     internal class NotaService
     {
         //propriedade 
-        public NotaDAO NotaDAO { get; set; }
+        public NotaDAO notaDAO { get; set; }
 
         //construtor que instancia um obj do tipo NotaDao que é a classe que solicita ao _contexto o acesso a base de dados
         public NotaService()
         {
-            NotaDAO = new NotaDAO();
+            notaDAO = new NotaDAO();
         }
 
         //método que faz a requisição da lista completa de Notas
         internal List<Nota> buscarNotas()
         {
-            return NotaDAO.buscarNotas();
+            return notaDAO.buscarNotas();
         }
 
         //metodo que cria um obj do tipo Nota, atribui valores recebidos por parametros e solicita ao NotaDAO para salvar
@@ -29,7 +29,7 @@ namespace projeto_form_camila.Business.Modal
             nota.DataAtribuicao = dataAtribuicao;
             nota.ValorNota = valorNota;
 
-            NotaDAO.salvarNotaBd(nota);
+            notaDAO.salvarNotaBd(nota);
         }
 
         //metodo que cria um obj do tipo Nota, atribui valores recebidos por parametros e solicita ao NotaDAO para atualizar
@@ -42,7 +42,7 @@ namespace projeto_form_camila.Business.Modal
             nota.DataAtribuicao = dataAtribuicao;
             nota.ValorNota = valorNota;
 
-            NotaDAO.salvarNotaBd(nota);
+            notaDAO.atualizarNotaBd(nota);
         }
 
         //método que cria um obj do tipo Nota para referenciar ao NotaDAO um obj para remover
@@ -55,7 +55,17 @@ namespace projeto_form_camila.Business.Modal
             nota.DataAtribuicao = dataAtribuicao;
             nota.ValorNota = valorNota;
 
-            NotaDAO.salvarNotaBd(nota);
+            notaDAO.removerNotaBd(nota);
+        }
+
+        internal List<Nota> FiltrarNotasPositivas()
+        {
+            return notaDAO.FiltrarNotasPositivas();
+        }
+
+        internal List<Nota> FiltrarNotasNegativas()
+        {
+            return notaDAO.FiltrarNotasNegativas();
         }
     }
 }

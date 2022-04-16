@@ -53,10 +53,5 @@ namespace projeto_form_camila.Persistence
         {
             return _Context.Turmas.AsNoTracking().Where(turma => turma.Designacao.Equals(turmaSelecionada)).ToList();
         }
-
-        internal List<Turma> buscarTurmasFiltradas(int idTurma)
-        {
-            return _Context.Turmas.Where(turma => turma.IdTurma.Equals(idTurma)).ToList();
-        }
     }
 }
