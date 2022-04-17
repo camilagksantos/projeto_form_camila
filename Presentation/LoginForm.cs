@@ -20,6 +20,21 @@ namespace projeto_form_camila
         }
 
         private void LoginForm_Load(object sender, EventArgs e) { }
+
+        // Sobrescreve o método ProcessCmdKey para capturar a tecla "Enter"
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
+        {
+            // Verifica se a tecla pressionada foi "Enter"
+            if (keyData == Keys.Enter)
+            {
+                // Chama o método btnAceder_Click programaticamente
+                btnAceder_Click(this, EventArgs.Empty);
+                return true; // Indica que a tecla foi processada
+            }
+            return base.ProcessCmdKey(ref msg, keyData); // Permite que outros manipuladores de eventos processem a tecla
+        }
+
+        //método do botão aceder que faz as validações para chamar cada form correspondente
         private void btnAceder_Click(object sender, EventArgs e)
         {
             //atribui ao objeto login os valores recebidos das textbox
@@ -30,7 +45,7 @@ namespace projeto_form_camila
             //verifica se o Username ou a Password são nulos ou vazios
             if (string.IsNullOrEmpty(login.Username) || string.IsNullOrEmpty(login.Password))
             {
-                MessageBox.Show("Login ou Password vazio ou nulo!");
+                MessageBox.Show("Login ou Password vazio ou nulo!", "Autenticação", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
             else
             {
@@ -44,7 +59,7 @@ namespace projeto_form_camila
                     switch (login.Role)
                     {
                         case "Diretor":
-                            MessageBox.Show("Login efetuado com sucesso!");
+                            MessageBox.Show("Login efetuado com sucesso!", "Autenticação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             // Chamar DiretorForm
                             DiretorForm diretorForm = new DiretorForm();
                             diretorForm.Show();
@@ -52,7 +67,7 @@ namespace projeto_form_camila
                             this.Hide();
                             break;
                         case "Professor":
-                            MessageBox.Show("Login efetuado com sucesso!");
+                            MessageBox.Show("Login efetuado com sucesso!", "Autenticação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             // Chamar ProfessorForm
                             ProfessorForm professorForm = new ProfessorForm(login);
                             professorForm.Show();
@@ -60,7 +75,7 @@ namespace projeto_form_camila
                             this.Hide();
                             break;
                         default:
-                            MessageBox.Show("Login efetuado com sucesso!");
+                            MessageBox.Show("Login efetuado com sucesso!", "Autenticação", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             // Chamar AlunoForm
                             AlunoForm alunoForm = new AlunoForm(login);
                             alunoForm.Show();
@@ -72,7 +87,7 @@ namespace projeto_form_camila
                 else
                 {
                     //se login.Role estiver vazio o objeto fica incompleto e inconsistente com a base que é obrigado a ter uma role para salvar o obj login
-                    MessageBox.Show("Login ou senha Invalido!");
+                    MessageBox.Show("Login ou senha Invalido!", "Autenticação", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }

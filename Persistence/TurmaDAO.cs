@@ -1,7 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using projeto_form_camila.Business.Models;
 using projeto_form_camila.Models;
-using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace projeto_form_camila.Persistence
 {
@@ -52,6 +51,11 @@ namespace projeto_form_camila.Persistence
         internal List<Turma> buscarTurmasFiltrada(string turmaSelecionada)
         {
             return _Context.Turmas.AsNoTracking().Where(turma => turma.Designacao.Equals(turmaSelecionada)).ToList();
+        }
+
+        internal Turma buscarTurmaPorIdFuncionario(Funcionario funcionarioObj)
+        {
+            return _Context.Turmas.FirstOrDefault(turma => turma.ProfessorId == funcionarioObj.IdFuncionario);
         }
     }
 }

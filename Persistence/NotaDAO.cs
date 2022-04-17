@@ -60,5 +60,22 @@ namespace projeto_form_camila.Persistence
                 // Verificar se deve filtrar notas negativas
                 return _Context.Notas.Where(n => n.ValorNota < 10).ToList();
         }
+
+        internal List<Nota> FiltrarNotasDoAluno(Aluno alunoObj)
+        {
+            return _Context.Notas.Where(nota => nota.AlunoId == alunoObj.IdAluno).ToList();
+        }
+
+        internal List<Nota> FiltrarNotasPorTurma(int idTurma)
+        {
+            // Supondo que _Context é sua instância do DbContext
+            var notasPorTurma = from aluno in _Context.Alunos
+                                join nota in _Context.Notas
+                                on aluno.IdAluno equals nota.AlunoId
+                                where aluno.TurmaId == idTurma // Assuming Alunos has a TurmaId property
+                                select nota; // Select only the Nota objects
+
+            return notasPorTurma.ToList(); // Convert the result to a List<Nota>
+        }
     }
 }

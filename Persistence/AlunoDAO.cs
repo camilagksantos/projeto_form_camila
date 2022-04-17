@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.VisualBasic.Logging;
 using projeto_form_camila.Business.Models;
 using projeto_form_camila.Models;
 
@@ -48,9 +49,9 @@ namespace projeto_form_camila.Persistence
             _Context.SaveChanges();
         }
 
-        internal Aluno buscarAluno(int alunoLoginId)
+        internal Aluno buscarAlunoPorLoginId(Login login)
         {
-            return _Context.Alunos.SingleOrDefault(aluno => aluno.LoginId == alunoLoginId);
+            return _Context.Alunos.SingleOrDefault(aluno => aluno.LoginId == login.IdLogin);
         }
 
         internal List<Aluno> buscarAlunosFiltrados(int idTurma)
@@ -61,6 +62,11 @@ namespace projeto_form_camila.Persistence
         internal List<Aluno> FiltrarAlunosPorTurmasSelecionadas(List<int> turmasSelecionadas)
         {
             return _Context.Alunos.Where(aluno => turmasSelecionadas.Contains(aluno.TurmaId)).ToList();
+        }
+
+        internal Aluno buscarAlunoPorId(int alunoId)
+        {
+            return _Context.Alunos.SingleOrDefault(aluno => aluno.IdAluno == alunoId);
         }
     }
 }

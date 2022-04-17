@@ -36,9 +36,8 @@ namespace projeto_form_camila.Presentation
 
         private void AlunoForm_Load(object sender, EventArgs e)
         {
-            //CarregarListaAlunos();
-            //// Supondo que você tenha um método para buscar o aluno atual e preencher o ListBox
-            //CarregarNotasAluno(alunoLoginId);
+            CarregarListaAlunos();
+            carregarDgvAlunoNotas();
         }
 
         private void AlunoForm_FormClosed(object sender, FormClosedEventArgs e)
@@ -49,34 +48,54 @@ namespace projeto_form_camila.Presentation
 
         private void CarregarListaAlunos()
         {
+            //buscar obj login para se ter o id para comparar
+            login.IdLogin = loginService.buscarIdLogin(login);
+
             //busca alunos por login_id
-            //var aluno = alunoService.buscarAlunoPorLoginId(alunoLoginId);
+            var alunoObj = alunoService.buscarAlunoPorLoginId(login);
 
-            //// Limpar o ListBox antes de preenchê-lo
-            //lstListaAlunosPorNota.Items.Clear();
+            //busca alunos por turma
+            var alunos = alunoService.buscarAlunosFiltrados(alunoObj.TurmaId);
 
-            //// Preencher o ListBox com os alunos
-            //foreach (var aluno in listaAlunos)
-            //{
-            //    lstListaAlunosPorNota.Items.Add(aluno.Nome);
-            //}
+            // Limpar o ListBox antes de preenchê-lo
+            lstListaAlunosPorTurma.Items.Clear();
+
+            // Preencher o ListBox com os alunos
+            foreach (var aluno in alunos)
+            {
+                lstListaAlunosPorTurma.Items.Add(aluno.Nome);
+            }
         }
 
-        private void lstListaAlunosPorNota_SelectedIndexChanged(object sender, EventArgs e)
+        private void carregarDgvAlunoNotas()
         {
-            //// Supondo que você tenha um método para buscar notas por aluno_id
-            //var alunoSelecionado = listaAlunos[lstListaAlunosPorNota.SelectedIndex];
-            //var listaNotas = notaService.buscarNotasPorAlunoId(alunoSelecionado.IdAluno);
+            //buscar obj login para se ter o id para comparar
+            login.IdLogin = loginService.buscarIdLogin(login);
 
-            //// Limpar o DataGridView antes de preenchê-lo
-            //dgvAlunoNotas.DataSource = null;
-            //dgvAlunoNotas.Rows.Clear();
+            //busca alunos por login_id
+            var alunoObj = alunoService.buscarAlunoPorLoginId(login);
 
-            //// Preencher o DataGridView com as notas
-            //foreach (var nota in listaNotas)
-            //{
-            //    dgvAlunoNotas.Rows.Add(nota.Disciplina, nota.DataAtribuicao, nota.Nota);
-            //}
+            //busca notas do aluno
+            var listaNotasAluno = notaService.buscarNotasDoAluno(alunoObj); 
+
+            // Limpar o DataGridView antes de preenchê-lo
+            dgvAlunoNotas.DataSource = null;
+            dgvAlunoNotas.Rows.Clear();
+
+            // Definir as colunas do DataGridView
+            dgvAlunoNotas.Columns.Clear();
+            dgvAlunoNotas.Columns.Add("Designacao", "Disciplina");
+            dgvAlunoNotas.Columns.Add("DataAtribuicao", "Data de Atribuição");
+            dgvAlunoNotas.Columns.Add("ValorNota", "Valor da Nota");
+
+            // Preencher o DataGridView com as notas
+            foreach (var nota in listaNotasAluno)
+            {
+                // Busca a designação da disciplina usando o DisciplinaId
+                var disciplina = disciplinaService.buscarDisciplinaPorId(nota.DisciplinaId);
+
+                dgvAlunoNotas.Rows.Add(disciplina, nota.DataAtribuicao, nota.ValorNota);
+            }
         }
     }
 }

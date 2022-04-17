@@ -94,5 +94,13 @@ namespace projeto_form_camila.Persistence
             var id = Convert.ToInt32(valorSelecionado); 
             return _Context.Logins.Find(id);
         }
+
+        internal int buscarIdLogin(Login login)
+        {
+            return _Context.Logins
+                            .Where(u => u.Username == login.Username && u.Password == login.Password)
+                            .Select(u => u.IdLogin)
+                            .FirstOrDefault();
+        }
     }
 }

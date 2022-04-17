@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.VisualBasic.Logging;
 using projeto_form_camila.Business.Models;
 using projeto_form_camila.Models;
 
@@ -55,6 +54,11 @@ namespace projeto_form_camila.Persistence
                     .Include(funcionario => funcionario.Login) // Inclui o objeto Login na consulta
                     .Where(funcionario => funcionario.Login.Role == cargoSelecionado)
                     .ToList();
+        }
+
+        internal Funcionario buscarFuncionarioPorLoginId(Login login)
+        {
+            return _Context.Funcionarios.FirstOrDefault(funcionario => funcionario.LoginId == login.IdLogin);
         }
     }
 }

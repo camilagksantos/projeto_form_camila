@@ -47,5 +47,13 @@ namespace projeto_form_camila.Persistence
             _Context.Disciplinas.Remove(disciplina);
             _Context.SaveChanges();
         }
+
+        internal string buscarDisciplinasPorId(int disciplinaId)
+        {
+            return _Context.Disciplinas
+                          .Where(d => d.IdDisciplina == disciplinaId)
+                          .Select(d => d.Designacao)
+                          .FirstOrDefault();
+        }
     }
 }

@@ -56,5 +56,10 @@ namespace projeto_form_camila.Business.Modal
         {
             return turmaDAO.buscarTurmasFiltrada(turmaSelecionada);
         }
+
+        internal Turma buscarTurmaPorIdFuncionario(Funcionario funcionarioObj)
+        {
+            return turmaDAO.buscarTurmaPorIdFuncionario(funcionarioObj);
+        }
     }
 }

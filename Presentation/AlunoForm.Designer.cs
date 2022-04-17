@@ -31,7 +31,6 @@
             lblTitulo = new Label();
             dgvAlunoNotas = new DataGridView();
             lstListaAlunosPorTurma = new ListBox();
-            label1 = new Label();
             lblListaAlunos = new Label();
             lblAlunoNotas = new Label();
             ((System.ComponentModel.ISupportInitialize)dgvAlunoNotas).BeginInit();
@@ -41,7 +40,7 @@
             // 
             lblTitulo.AutoSize = true;
             lblTitulo.Font = new Font("Times New Roman", 18F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
-            lblTitulo.Location = new Point(641, 9);
+            lblTitulo.Location = new Point(474, 9);
             lblTitulo.Name = "lblTitulo";
             lblTitulo.Size = new Size(456, 55);
             lblTitulo.TabIndex = 2;
@@ -50,34 +49,28 @@
             // dgvAlunoNotas
             // 
             dgvAlunoNotas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dgvAlunoNotas.Location = new Point(525, 215);
+            dgvAlunoNotas.Location = new Point(525, 139);
             dgvAlunoNotas.Name = "dgvAlunoNotas";
             dgvAlunoNotas.RowHeadersWidth = 82;
-            dgvAlunoNotas.Size = new Size(1383, 993);
+            dgvAlunoNotas.Size = new Size(982, 676);
             dgvAlunoNotas.TabIndex = 3;
             // 
             // lstListaAlunosPorTurma
             // 
+            lstListaAlunosPorTurma.Font = new Font("Times New Roman", 13.875F, FontStyle.Bold, GraphicsUnit.Point, 0);
             lstListaAlunosPorTurma.FormattingEnabled = true;
-            lstListaAlunosPorTurma.Location = new Point(12, 215);
+            lstListaAlunosPorTurma.ItemHeight = 42;
+            lstListaAlunosPorTurma.Location = new Point(12, 139);
             lstListaAlunosPorTurma.Name = "lstListaAlunosPorTurma";
-            lstListaAlunosPorTurma.Size = new Size(484, 996);
+            lstListaAlunosPorTurma.SelectionMode = SelectionMode.None;
+            lstListaAlunosPorTurma.Size = new Size(484, 676);
             lstListaAlunosPorTurma.TabIndex = 4;
-            // 
-            // label1
-            // 
-            label1.AutoSize = true;
-            label1.Location = new Point(20, 223);
-            label1.Name = "label1";
-            label1.Size = new Size(78, 32);
-            label1.TabIndex = 5;
-            label1.Text = "label1";
             // 
             // lblListaAlunos
             // 
             lblListaAlunos.AutoSize = true;
             lblListaAlunos.Font = new Font("Times New Roman", 13.875F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
-            lblListaAlunos.Location = new Point(119, 160);
+            lblListaAlunos.Location = new Point(119, 81);
             lblListaAlunos.Name = "lblListaAlunos";
             lblListaAlunos.Size = new Size(262, 42);
             lblListaAlunos.TabIndex = 6;
@@ -87,7 +80,7 @@
             // 
             lblAlunoNotas.AutoSize = true;
             lblAlunoNotas.Font = new Font("Times New Roman", 13.875F, FontStyle.Bold | FontStyle.Underline, GraphicsUnit.Point, 0);
-            lblAlunoNotas.Location = new Point(1152, 160);
+            lblAlunoNotas.Location = new Point(949, 81);
             lblAlunoNotas.Name = "lblAlunoNotas";
             lblAlunoNotas.Size = new Size(108, 42);
             lblAlunoNotas.TabIndex = 7;
@@ -98,10 +91,9 @@
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1920, 1220);
+            ClientSize = new Size(1524, 840);
             Controls.Add(lblAlunoNotas);
             Controls.Add(lblListaAlunos);
-            Controls.Add(label1);
             Controls.Add(lstListaAlunosPorTurma);
             Controls.Add(dgvAlunoNotas);
             Controls.Add(lblTitulo);
@@ -118,7 +110,6 @@
         private Label lblTitulo;
         private DataGridView dgvAlunoNotas;
         private ListBox lstListaAlunosPorTurma;
-        private Label label1;
         private Label lblListaAlunos;
         private Label lblAlunoNotas;
     }

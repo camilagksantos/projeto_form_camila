@@ -65,9 +65,9 @@ namespace projeto_form_camila.Business.Modal
         }
 
         //método que busca um aluno especifico
-        internal Aluno buscarAlunoPorLoginId(int alunoLoginId)
+        internal Aluno buscarAlunoPorLoginId(Login login)
         {
-            return alunoDAO.buscarAluno(alunoLoginId);
+            return alunoDAO.buscarAlunoPorLoginId(login);
         }
 
         internal List<Aluno> buscarAlunosFiltrados(int idTurma)
@@ -78,6 +78,11 @@ namespace projeto_form_camila.Business.Modal
         internal List<Aluno> FiltrarAlunosPorTurmasSelecionadas(List<int> turmasSelecionadas)
         {
             return alunoDAO.FiltrarAlunosPorTurmasSelecionadas(turmasSelecionadas);
+        }
+
+        internal Aluno buscarAlunoPorId(int alunoId)
+        {
+            return alunoDAO.buscarAlunoPorId(alunoId);
         }
     }
 }

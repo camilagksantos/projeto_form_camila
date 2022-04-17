@@ -6,18 +6,18 @@ namespace projeto_form_camila.Business.Modal
     internal class LoginService
     {
         //propriedade 
-        public LoginDAO LoginDAO { get; set; }
+        public LoginDAO loginDAO { get; set; }
 
         //construtor que instancia um obj do tipo LoginDao que é a classe que solicita ao _contexto o acesso a base de dados
         public LoginService()
         {
-            LoginDAO = new LoginDAO();
+            loginDAO = new LoginDAO();
         }
 
         //método que faz a requisição da lista completa de Logins
         internal List<Login> buscarLogins()
         {
-            return LoginDAO.buscarLogins();
+            return loginDAO.buscarLogins();
         }
 
         //metodo que cria um obj do tipo Login, atribui valores recebidos por parametros e solicita ao LoginDAO para salvar
@@ -28,7 +28,7 @@ namespace projeto_form_camila.Business.Modal
             login.Password = password;
             login.Role = role;
 
-            LoginDAO.salvarLoginBd(login);
+            loginDAO.salvarLoginBd(login);
         }
 
         //metodo que cria um obj do tipo Login, atribui valores recebidos por parametros e solicita ao LoginDAO para atualizar
@@ -40,7 +40,7 @@ namespace projeto_form_camila.Business.Modal
             login.Password = password;
             login.Role = role;
 
-            LoginDAO.atualizarLoginBd(login);
+            loginDAO.atualizarLoginBd(login);
         }
 
         //método que cria um obj do tipo Login para referenciar ao LoginDAO um obj para remover
@@ -52,31 +52,36 @@ namespace projeto_form_camila.Business.Modal
             login.Password = password;
             login.Role = role;
 
-            LoginDAO.removerLoginBd(login);
+            loginDAO.removerLoginBd(login);
         }
 
         internal Login validarCredenciais(Login login)
         {
-            return LoginDAO.validarCredenciais(login);
+            return loginDAO.validarCredenciais(login);
         }
 
         internal List<string> buscarTodasRoles()
         {
-            return LoginDAO.buscarTodasRoles();
+            return loginDAO.buscarTodasRoles();
         }
         internal List<string> buscarRolesSemAluno()
         {
-            return LoginDAO.buscarRolesSemAluno();
+            return loginDAO.buscarRolesSemAluno();
         }
 
         internal List<Login> buscarLoginsFiltrados(string cargoSelecionado)
         {
-            return LoginDAO.buscarLoginsFiltrados(cargoSelecionado);
+            return loginDAO.buscarLoginsFiltrados(cargoSelecionado);
         }
 
         internal Login buscarUmLogin(string valorSelecionado)
         {
-            return LoginDAO.buscarUmLogin(valorSelecionado);
+            return loginDAO.buscarUmLogin(valorSelecionado);
+        }
+
+        internal int buscarIdLogin(Login login)
+        {
+            return loginDAO.buscarIdLogin(login);
         }
     }
 }

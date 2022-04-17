@@ -1,4 +1,5 @@
 ﻿using projeto_form_camila.Business.Models;
+using projeto_form_camila.Models;
 using projeto_form_camila.Persistence;
 
 namespace projeto_form_camila.Business.Modal
@@ -55,6 +56,16 @@ namespace projeto_form_camila.Business.Modal
         internal List<Funcionario> buscarFuncionariosFiltrados(string cargoSelecionado)
         {
             return funcionarioDAO.buscarFuncionariosFiltrados(cargoSelecionado);
+        }
+
+        internal Aluno buscarProfessorPorLoginId(Login login)
+        {
+            throw new NotImplementedException();
+        }
+
+        internal Funcionario buscarFuncionarioPorLoginId(Login login)
+        {
+            return funcionarioDAO.buscarFuncionarioPorLoginId(login);
         }
     }
 }

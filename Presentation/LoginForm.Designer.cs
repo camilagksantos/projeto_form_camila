@@ -73,7 +73,7 @@
             txtLogin.Multiline = true;
             txtLogin.Name = "txtLogin";
             txtLogin.Size = new Size(558, 61);
-            txtLogin.TabIndex = 3;
+            txtLogin.TabIndex = 1;
             // 
             // txtPassword
             // 
@@ -81,7 +81,7 @@
             txtPassword.Multiline = true;
             txtPassword.Name = "txtPassword";
             txtPassword.Size = new Size(558, 61);
-            txtPassword.TabIndex = 4;
+            txtPassword.TabIndex = 2;
             // 
             // btnAceder
             // 
@@ -89,7 +89,7 @@
             btnAceder.Location = new Point(240, 547);
             btnAceder.Name = "btnAceder";
             btnAceder.Size = new Size(211, 77);
-            btnAceder.TabIndex = 5;
+            btnAceder.TabIndex = 3;
             btnAceder.Text = "Aceder";
             btnAceder.UseVisualStyleBackColor = true;
             btnAceder.Click += btnAceder_Click;
