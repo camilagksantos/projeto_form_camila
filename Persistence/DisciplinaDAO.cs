@@ -48,6 +48,7 @@ namespace projeto_form_camila.Persistence
             _Context.SaveChanges();
         }
 
+        //método que busca uma disciplina especifica a partir de um id
         internal string buscarDisciplinasPorId(int disciplinaId)
         {
             return _Context.Disciplinas

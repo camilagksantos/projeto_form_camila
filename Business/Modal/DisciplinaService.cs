@@ -49,6 +49,7 @@ namespace projeto_form_camila.Business.Modal
             disciplinaDAO.removerDisciplinaBd(disciplina);
         }
 
+        //método que busca uma disciplina pelo id
         internal string buscarDisciplinaPorId(int disciplinaId)
         {
             return disciplinaDAO.buscarDisciplinasPorId(disciplinaId);

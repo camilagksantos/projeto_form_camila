@@ -1,6 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using projeto_form_camila.Business.Modal;
-using projeto_form_camila.Business.Models;
 using projeto_form_camila.Models;
 
 namespace projeto_form_camila.Persistence
@@ -49,33 +47,34 @@ namespace projeto_form_camila.Persistence
             _Context.SaveChanges();
         }
 
+        //método que busca as notas positivas
         internal List<Nota> FiltrarNotasPositivas()
         {
-                // Verificar se deve filtrar notas positivas
                return _Context.Notas.Where(n => n.ValorNota >= 10).ToList();
         }
 
+        //método que busca as notas negativas
         internal List<Nota> FiltrarNotasNegativas()
         {
-                // Verificar se deve filtrar notas negativas
                 return _Context.Notas.Where(n => n.ValorNota < 10).ToList();
         }
 
+        //método que busca as notas de um aluno especifico
         internal List<Nota> FiltrarNotasDoAluno(Aluno alunoObj)
         {
             return _Context.Notas.Where(nota => nota.AlunoId == alunoObj.IdAluno).ToList();
         }
 
+        //método que filtra as notas dos alunos de uma turma especifica
         internal List<Nota> FiltrarNotasPorTurma(int idTurma)
         {
-            // Supondo que _Context é sua instância do DbContext
             var notasPorTurma = from aluno in _Context.Alunos
                                 join nota in _Context.Notas
                                 on aluno.IdAluno equals nota.AlunoId
-                                where aluno.TurmaId == idTurma // Assuming Alunos has a TurmaId property
-                                select nota; // Select only the Nota objects
+                                where aluno.TurmaId == idTurma
+                                select nota;
 
-            return notasPorTurma.ToList(); // Convert the result to a List<Nota>
+            return notasPorTurma.ToList();
         }
     }
 }

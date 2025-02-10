@@ -1,5 +1,4 @@
-﻿
-using projeto_form_camila.Models;
+﻿using projeto_form_camila.Models;
 using projeto_form_camila.Persistence;
 using projeto_form_camila.Presentation;
 
@@ -15,7 +14,7 @@ namespace projeto_form_camila.Business.Modal
         DisciplinaService disciplinaService;
         public NotaDAO notaDAO { get; set; }
 
-        //construtor que instancia um obj do tipo NotaDao que é a classe que solicita ao _contexto o acesso a base de dados
+        //construtor que instancia um obj do tipo NotaDao que é a classe que solicita ao _contexto o acesso a base de dados e também dos outros serviços
         public NotaService()
         {
             loginService = new LoginService();
@@ -70,24 +69,27 @@ namespace projeto_form_camila.Business.Modal
             notaDAO.removerNotaBd(nota);
         }
 
+        //método que filtra apenas as notas positivas
         internal List<Nota> FiltrarNotasPositivas()
         {
             return notaDAO.FiltrarNotasPositivas();
         }
 
+        //método que filtra apenas as notas negativas
         internal List<Nota> FiltrarNotasNegativas()
         {
             return notaDAO.FiltrarNotasNegativas();
         }
 
+        //método que busca as notas de um aluno especifico
         internal List<Nota> buscarNotasDoAluno(Aluno aluno)
         {
             return notaDAO.FiltrarNotasDoAluno(aluno);
         }
 
+        // método que busca as notas de todos os alunos de uma turma 
         internal List<NotasDTO> buscarNotasPorTurma(Login login)
         {
-
             //buscar obj login para se ter o id para comparar
             login.IdLogin = loginService.buscarIdLogin(login);
 
@@ -125,7 +127,7 @@ namespace projeto_form_camila.Business.Modal
             return notasDTOs;
         }
 
- 
+        //método que busca as notas negativas
         internal List<NotasDTO> buscarNotasPorFiltroNegativas(Login login)
         {
             
@@ -133,6 +135,7 @@ namespace projeto_form_camila.Business.Modal
 
         }
 
+        //método que busca as notas positivas
         internal List<NotasDTO>  buscarNotasPorFiltroPositivas(Login login)
         {
 

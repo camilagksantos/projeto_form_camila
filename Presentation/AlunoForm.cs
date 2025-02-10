@@ -1,14 +1,5 @@
 ﻿using projeto_form_camila.Business.Modal;
 using projeto_form_camila.Models;
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 
 namespace projeto_form_camila.Presentation
 {
@@ -22,6 +13,8 @@ namespace projeto_form_camila.Presentation
         DisciplinaService disciplinaService;
         NotaService notaService;
         private Login login;
+
+        //contrutor que inicializa os serviços e atribui um valor para a propriedade login
         public AlunoForm(Login login)
         {
             InitializeComponent();
@@ -34,18 +27,21 @@ namespace projeto_form_camila.Presentation
             this.login = login;
         }
 
+        //método que carrega o form
         private void AlunoForm_Load(object sender, EventArgs e)
         {
             CarregarListaAlunos();
             carregarDgvAlunoNotas();
         }
 
+        //método que chama o form login ao fechar o form atual
         private void AlunoForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
         }
 
+        //método que carrega a lista de alunos por turma
         private void CarregarListaAlunos()
         {
             //buscar obj login para se ter o id para comparar
@@ -67,6 +63,7 @@ namespace projeto_form_camila.Presentation
             }
         }
 
+        //método que carrega a datagridview
         private void carregarDgvAlunoNotas()
         {
             //buscar obj login para se ter o id para comparar

@@ -13,6 +13,8 @@ namespace projeto_form_camila.Presentation
         DisciplinaService disciplinaService;
         NotaService notaService;
         private Login login;
+
+        //construtor
         public ProfessorForm(Login login)
         {
             InitializeComponent();
@@ -25,23 +27,27 @@ namespace projeto_form_camila.Presentation
             this.login = login;
         }
 
+        //método que carrega o formulario
         private void ProfessorForm_Load(object sender, EventArgs e)
         {
             carregarDgvProfessores();
             PreencherCombosNotas();
         }
 
+        //método que chama o form login quando este form é fechado
         private void ProfessorForm_FormClosed(object sender, FormClosedEventArgs e)
         {
             LoginForm loginForm = new LoginForm();
             loginForm.Show();
         }
 
+        //método que preenche a datagridview dos professores
         private void carregarDgvProfessores()
         {
             dgvProfessor.DataSource = notaService.buscarNotasPorTurma(login);
         }
 
+        //metodo que preenche as comboboxes
         public void PreencherCombosNotas()
         {
             // Obtem a lista de Alunos e Disciplinas
@@ -58,7 +64,7 @@ namespace projeto_form_camila.Presentation
 
             // Defina o DisplayMember e ValueMember para a combo disciplinas
             cbxProfNotaDisciplina.DisplayMember = "Designacao";
-            cbxProfNotaDisciplina.ValueMember = "IdDisciplina";
+            cbxProfNotaDisciplina.ValueMember = "Designacao";
 
             // Preencha a combobox com os Alunos
             foreach (var aluno in listaAlunos)
@@ -66,7 +72,7 @@ namespace projeto_form_camila.Presentation
                 cbxProfNotaAluno.Items.Add(aluno);
             }
 
-            // Preencha a combobox com os Alunos
+            // Preencha a combobox com as disciplinas
             foreach (var disciplinas in listaDisciplinas)
             {
                 cbxProfNotaDisciplina.Items.Add(disciplinas);
@@ -99,37 +105,55 @@ namespace projeto_form_camila.Presentation
             }
         }
 
+        //método que ao selecionar uma row na datagridview preenche os campos correspondentes
         private void dgvProfessor_SelectionChanged(object sender, EventArgs e)
         {
-            //// Verifica se há uma linha selecionada
-            //if (dgvProfessor.SelectedRows.Count > 0)
-            //{
-            //    // Obtem a linha selecionada
-            //    DataGridViewRow selectedRow = dgvProfessor.SelectedRows[0];
+            // Verifica se há uma linha selecionada
+            if (dgvProfessor.SelectedRows.Count > 0)
+            {
+                // Obtem a linha selecionada
+                DataGridViewRow selectedRow = dgvProfessor.SelectedRows[0];
 
-            //    // Preenche os campos do formulário com os dados da linha selecionada
-            //    txtProfNotaId.Text = selectedRow.Cells["IdNota"].Value.ToString();
-            //    txtProfNotaNota.Text = selectedRow.Cells["ValorNota"].Value.ToString();
-            //    dtpProfNotaData.Value = Convert.ToDateTime(selectedRow.Cells["DataAtribuicao"].Value);
+                // Preenche os campos do formulário com os dados da linha selecionada
+                txtProfNotaId.Text = selectedRow.Cells["IdNota"].Value.ToString();
+                txtProfNotaNota.Text = selectedRow.Cells["ValorNota"].Value.ToString();
+                dtpProfNotaData.Value = Convert.ToDateTime(selectedRow.Cells["DataAtribuicao"].Value);
 
-            //    // guarda na variavel o valor da celula selecionada 
-            //    var valorAlunoSelecionado = selectedRow.Cells["AlunoId"].Value.ToString();
-            //    var valorDisciplinaSelecionada = selectedRow.Cells["DisciplinaId"].Value.ToString();
+                // guarda na variavel o valor da celula selecionada 
+                var valorAlunoSelecionado = selectedRow.Cells["IdAluno"].Value.ToString();
+                var valorDisciplinaSelecionada = selectedRow.Cells["DisciplinaDesignacao"].Value.ToString();
 
-            //    //chama o método que procura o valor selecionado dentro  da lista dele e aplica o valor do inx no value member
-            //    SelectItemByValue(cbxProfNotaAluno, valorAlunoSelecionado);
-            //    SelectItemByValue(cbxProfNotaDisciplina, valorDisciplinaSelecionada);
-            //}
+                //chama o método que procura o valor selecionado dentro  da lista dele e aplica o valor do inx no value member
+                SelectItemByValue(cbxProfNotaAluno, valorAlunoSelecionado);
+                SelectItemByValue(cbxProfNotaDisciplina, valorDisciplinaSelecionada);
+            }
         }
 
+        //método que filtra as notas dos alunos por positivas ou negativas
+        public void filtroCkxProfessor()
+        {
+            if (ckxProfNotaNegativa.Checked && !ckxProfNotaPositiva.Checked) 
+            {
+                dgvProfessor.DataSource = notaService.buscarNotasPorFiltroNegativas(login);
+            } else if (!ckxProfNotaNegativa.Checked && ckxProfNotaPositiva.Checked) 
+            {
+                dgvProfessor.DataSource = notaService.buscarNotasPorFiltroPositivas(login);
+            } else 
+            {
+                dgvProfessor.DataSource = notaService.buscarNotasPorTurma(login);
+            }
+        }
+
+        //método que verifica se a checkbox de notas negativas esta checked
         private void ckxProfNotaNegativa_CheckedChanged(object sender, EventArgs e)
         {
-            dgvProfessor.DataSource = notaService.buscarNotasPorFiltroNegativas(login);
+            filtroCkxProfessor();
         }
 
+        //método que verifica se a checkbox de notas positivas esta checked
         private void ckxProfNotaPositiva_CheckedChanged(object sender, EventArgs e)
         {
-            dgvProfessor.DataSource = notaService.buscarNotasPorFiltroPositivas(login);
+            filtroCkxProfessor();
         }
 
         //método do botão limpar que limpa os campos
@@ -138,6 +162,7 @@ namespace projeto_form_camila.Presentation
             LimparCamposProfessor();
         }
 
+        //método que adiciona notas
         private void btnProfNotasAdicionar_Click(object sender, EventArgs e)
         {
             Aluno aluno = (Aluno)cbxProfNotaAluno.SelectedItem;
@@ -152,6 +177,7 @@ namespace projeto_form_camila.Presentation
             LimparCamposProfessor();
         }
 
+        //método que atualiza notas
         private void btnProfNotasAtualizar_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(txtProfNotaId.Text);
@@ -167,6 +193,7 @@ namespace projeto_form_camila.Presentation
             LimparCamposProfessor();
         }
 
+        //método que remove notas
         private void btnProfNotasRemover_Click(object sender, EventArgs e)
         {
             int id = Convert.ToInt32(txtProfNotaId.Text);

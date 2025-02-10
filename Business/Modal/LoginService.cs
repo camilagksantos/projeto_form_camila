@@ -55,30 +55,37 @@ namespace projeto_form_camila.Business.Modal
             loginDAO.removerLoginBd(login);
         }
 
+        //método que faz a validação das credenciais 
         internal Login validarCredenciais(Login login)
         {
             return loginDAO.validarCredenciais(login);
         }
 
+        //método que busca uma lista dos cargos
         internal List<string> buscarTodasRoles()
         {
             return loginDAO.buscarTodasRoles();
         }
+
+        //método que busca uma lista dos cargos com excessão dos alunos
         internal List<string> buscarRolesSemAluno()
         {
             return loginDAO.buscarRolesSemAluno();
         }
 
+        //método que busca os logins filtrados pelo tipo de cargo
         internal List<Login> buscarLoginsFiltrados(string cargoSelecionado)
         {
             return loginDAO.buscarLoginsFiltrados(cargoSelecionado);
         }
 
+        //método que busca todas as informações de um obj do tipo login a partir de um valor selecionado
         internal Login buscarUmLogin(string valorSelecionado)
         {
             return loginDAO.buscarUmLogin(valorSelecionado);
         }
 
+        //método que busca o id do login a partir da comparação do username e da password
         internal int buscarIdLogin(Login login)
         {
             return loginDAO.buscarIdLogin(login);

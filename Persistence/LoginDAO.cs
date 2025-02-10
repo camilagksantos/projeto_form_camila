@@ -1,7 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.VisualBasic.Logging;
-using projeto_form_camila.Business.Modal;
-using projeto_form_camila.Business.Models;
 using projeto_form_camila.Models;
 
 namespace projeto_form_camila.Persistence
@@ -84,17 +81,20 @@ namespace projeto_form_camila.Persistence
                 .Select(login => login.Role).Distinct().ToList();
         }
 
+        //método que busca os logins de um cargo especifico
         internal List<Login> buscarLoginsFiltrados(string cargoSelecionado)
         {
             return _Context.Logins.AsNoTracking().Where(login => login.Role == cargoSelecionado).ToList();
         }
 
+        //método que busca um login a partir de uma seleção
         internal Login buscarUmLogin(string valorSelecionado)
         {
             var id = Convert.ToInt32(valorSelecionado); 
             return _Context.Logins.Find(id);
         }
 
+        //método que busca o id de um obj login a partir da comparação do username e da password 
         internal int buscarIdLogin(Login login)
         {
             return _Context.Logins

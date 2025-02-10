@@ -48,6 +48,7 @@ namespace projeto_form_camila.Persistence
             _Context.SaveChanges();
         }
 
+        //método que busca os funcionarios a partir do cargo selecionado
         internal List<Funcionario> buscarFuncionariosFiltrados(string cargoSelecionado)
         {
             return _Context.Funcionarios.AsNoTracking()
@@ -56,6 +57,7 @@ namespace projeto_form_camila.Persistence
                     .ToList();
         }
 
+        //método que busca um funcionario especifico a parit de um login
         internal Funcionario buscarFuncionarioPorLoginId(Login login)
         {
             return _Context.Funcionarios.FirstOrDefault(funcionario => funcionario.LoginId == login.IdLogin);

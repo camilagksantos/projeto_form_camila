@@ -48,11 +48,13 @@ namespace projeto_form_camila.Persistence
             _Context.SaveChanges();
         }
 
+        //método que busca as turmas de acordo com uma seleção
         internal List<Turma> buscarTurmasFiltrada(string turmaSelecionada)
         {
             return _Context.Turmas.AsNoTracking().Where(turma => turma.Designacao.Equals(turmaSelecionada)).ToList();
         }
 
+        //método que busca uma turma a partir de um funcionario (no caso um professor)
         internal Turma buscarTurmaPorIdFuncionario(Funcionario funcionarioObj)
         {
             return _Context.Turmas.FirstOrDefault(turma => turma.ProfessorId == funcionarioObj.IdFuncionario);

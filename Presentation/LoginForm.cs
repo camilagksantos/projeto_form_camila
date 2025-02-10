@@ -7,10 +7,11 @@ namespace projeto_form_camila
 {
     public partial class LoginForm : Form
     {
+        //propriedades
         LoginService loginService;
         Login login { get; set; }
 
-
+        //contrutor
         public LoginForm()
         {
             InitializeComponent();
@@ -19,20 +20,8 @@ namespace projeto_form_camila
             login = new Login();
         }
 
+        //método de carregamento do form
         private void LoginForm_Load(object sender, EventArgs e) { }
-
-        // Sobrescreve o método ProcessCmdKey para capturar a tecla "Enter"
-        protected override bool ProcessCmdKey(ref Message msg, Keys keyData)
-        {
-            // Verifica se a tecla pressionada foi "Enter"
-            if (keyData == Keys.Enter)
-            {
-                // Chama o método btnAceder_Click programaticamente
-                btnAceder_Click(this, EventArgs.Empty);
-                return true; // Indica que a tecla foi processada
-            }
-            return base.ProcessCmdKey(ref msg, keyData); // Permite que outros manipuladores de eventos processem a tecla
-        }
 
         //método do botão aceder que faz as validações para chamar cada form correspondente
         private void btnAceder_Click(object sender, EventArgs e)
@@ -60,26 +49,26 @@ namespace projeto_form_camila
                     {
                         case "Diretor":
                             MessageBox.Show("Login efetuado com sucesso!", "Autenticação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            // Chamar DiretorForm
+                            // Chama DiretorForm
                             DiretorForm diretorForm = new DiretorForm();
                             diretorForm.Show();
-                            // Ocultar o formulário atual
+                            // Oculta o formulário atual
                             this.Hide();
                             break;
                         case "Professor":
                             MessageBox.Show("Login efetuado com sucesso!", "Autenticação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            // Chamar ProfessorForm
+                            // Chama ProfessorForm
                             ProfessorForm professorForm = new ProfessorForm(login);
                             professorForm.Show();
-                            // Ocultar o formulário atual
+                            // Oculta o formulário atual
                             this.Hide();
                             break;
                         default:
                             MessageBox.Show("Login efetuado com sucesso!", "Autenticação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            // Chamar AlunoForm
+                            // Chama AlunoForm
                             AlunoForm alunoForm = new AlunoForm(login);
                             alunoForm.Show();
-                            // Ocultar o formulário atual
+                            // Oculta o formulário atual
                             this.Hide();
                             break;
                     }

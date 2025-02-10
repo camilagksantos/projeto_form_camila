@@ -69,17 +69,19 @@ namespace projeto_form_camila.Business.Modal
         {
             return alunoDAO.buscarAlunoPorLoginId(login);
         }
-
+        //método que busca os alunos d euma turma especifica
         internal List<Aluno> buscarAlunosFiltrados(int idTurma)
         {
             return alunoDAO.buscarAlunosFiltrados(idTurma);
         }
 
+        //método que os alunos de acordo com a lista de turmas
         internal List<Aluno> FiltrarAlunosPorTurmasSelecionadas(List<int> turmasSelecionadas)
         {
             return alunoDAO.FiltrarAlunosPorTurmasSelecionadas(turmasSelecionadas);
         }
 
+        //método que busca um aluno por id
         internal Aluno buscarAlunoPorId(int alunoId)
         {
             return alunoDAO.buscarAlunoPorId(alunoId);

@@ -75,6 +75,8 @@
             // 
             // dtpProfNotaData
             // 
+            dtpProfNotaData.CustomFormat = "MM-dd-yyyy";
+            dtpProfNotaData.Format = DateTimePickerFormat.Custom;
             dtpProfNotaData.Location = new Point(27, 578);
             dtpProfNotaData.Name = "dtpProfNotaData";
             dtpProfNotaData.Size = new Size(432, 39);
@@ -171,7 +173,7 @@
             // 
             // txtProfNotaId
             // 
-            txtProfNotaId.Location = new Point(27, 225);
+            txtProfNotaId.Location = new Point(27, 227);
             txtProfNotaId.Name = "txtProfNotaId";
             txtProfNotaId.Size = new Size(432, 39);
             txtProfNotaId.TabIndex = 60;

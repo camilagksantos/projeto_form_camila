@@ -52,11 +52,13 @@ namespace projeto_form_camila.Business.Modal
             turmaDAO.removerTurmaBd(turma);
         }
 
+        //método que busca uma lista de turmas de acordo com uma turma que esta selecionada
         internal List<Turma> buscarTurmasFiltrada(string? turmaSelecionada)
         {
             return turmaDAO.buscarTurmasFiltrada(turmaSelecionada);
         }
 
+        //método que busca uma turma de um funcionario especifico (no caso do funcionario ser um professor)
         internal Turma buscarTurmaPorIdFuncionario(Funcionario funcionarioObj)
         {
             return turmaDAO.buscarTurmaPorIdFuncionario(funcionarioObj);

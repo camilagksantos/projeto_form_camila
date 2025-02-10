@@ -52,6 +52,7 @@
             dgvAlunoNotas.Location = new Point(525, 139);
             dgvAlunoNotas.Name = "dgvAlunoNotas";
             dgvAlunoNotas.RowHeadersWidth = 82;
+            dgvAlunoNotas.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvAlunoNotas.Size = new Size(982, 676);
             dgvAlunoNotas.TabIndex = 3;
             // 

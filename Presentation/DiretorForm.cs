@@ -154,7 +154,7 @@ namespace projeto_form_camila.Presentation
         //método que adiciona um Login
         private void btnDirLoginsAdicionar_Click(object sender, EventArgs e)
         {
-            string username = txtDirLoginsPassword.Text;
+            string username = txtDirLoginsUser.Text;
             string password = txtDirLoginsPassword.Text;
             string role = cbxDirLoginsRole.Text;
 
@@ -619,6 +619,7 @@ namespace projeto_form_camila.Presentation
         // Lista para armazenar os IDs das turmas selecionadas
         private List<int> turmasSelecionadas = new List<int>();
 
+        //método que verifica qual ckeckbox esta checked ou unchecked
         private void AtualizarFiltroTurmas()
         {
             // Limpa a lista de turmas selecionadas
@@ -642,22 +643,25 @@ namespace projeto_form_camila.Presentation
             }
         }
 
-        //checkbox
+        //método que verifica se a checkbox esta checked
         private void ckbDirAlunos1Ano_CheckedChanged(object sender, EventArgs e)
         {
             AtualizarFiltroTurmas();
         }
 
+        //método que verifica se a checkbox esta checked
         private void ckbDirAlunos2Ano_CheckedChanged(object sender, EventArgs e)
         {
             AtualizarFiltroTurmas();
         }
 
+        //método que verifica se a checkbox esta checked
         private void ckbDirAlunos3Ano_CheckedChanged(object sender, EventArgs e)
         {
             AtualizarFiltroTurmas();
         }
 
+        //método que verifica se a checkbox esta checked
         private void ckbDirAlunos4Ano_CheckedChanged(object sender, EventArgs e)
         {
             AtualizarFiltroTurmas();
@@ -684,12 +688,12 @@ namespace projeto_form_camila.Presentation
             // Atualizar a fonte de dados do DataGridView
             dgvDirNotas.DataSource = listaNotas;
         }
-
+        //método que verifica se a checkbox esta checked
         private void ckxDirAlunosGpbFiltrarNotaNegativa_CheckedChanged(object sender, EventArgs e)
         {
             FiltrarNotasNota();
         }
-
+        //método que verifica se a checkbox esta checked
         private void ckxDirAlunosGpbFiltrarNotaPositiva_CheckedChanged(object sender, EventArgs e)
         {
             FiltrarNotasNota();
@@ -751,6 +755,7 @@ namespace projeto_form_camila.Presentation
 
             LimparCamposDisciplinas();
         }
+
         //método que remove uma disciplina
         private void btnDirDisciplinaRemover_Click(object sender, EventArgs e)
         {
@@ -911,11 +916,13 @@ namespace projeto_form_camila.Presentation
             dgvDirNotas.DataSource = listaNotas;
         }
 
+        //método que verifica se a checkbox esta checked
         private void ckxDirNotasFiltrarNotaNegativa_CheckedChanged(object sender, EventArgs e)
         {
             FiltrarNotas();
         }
-
+        
+        //método que verifica se a checkbox esta checked
         private void ckxDirNotasFiltrarNotaPositiva_CheckedChanged(object sender, EventArgs e)
         {
             FiltrarNotas();

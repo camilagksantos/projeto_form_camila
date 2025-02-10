@@ -53,16 +53,19 @@ namespace projeto_form_camila.Business.Modal
             funcionarioDAO.removerFuncionarioBd(funcionario);
         }
 
+        //método que busca uma lista de funcionarios a partir do tipo do cargo selecionado
         internal List<Funcionario> buscarFuncionariosFiltrados(string cargoSelecionado)
         {
             return funcionarioDAO.buscarFuncionariosFiltrados(cargoSelecionado);
         }
 
+        //método que busca um professor a partir do login
         internal Aluno buscarProfessorPorLoginId(Login login)
         {
             throw new NotImplementedException();
         }
 
+        //método ue busca um funcionario a partir do id do login
         internal Funcionario buscarFuncionarioPorLoginId(Login login)
         {
             return funcionarioDAO.buscarFuncionarioPorLoginId(login);
